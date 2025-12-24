@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5CD229B22EFAE5F60040CB3F /* NgoOrginzationDiscovery.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5CD229B12EFAE5F60040CB3F /* NgoOrginzationDiscovery.storyboard */; };
+		5CD229B42EFAE9E40040CB3F /* NGOCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD229B32EFAE9E10040CB3F /* NGOCardCell.swift */; };
+		5CDF518A2EFAF0310016ECDC /* OrganizationDiscoveryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDF51892EFAF0310016ECDC /* OrganizationDiscoveryViewController.swift */; };
 		D54C77122EF736C40072F713 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54C77112EF736C40072F713 /* AppDelegate.swift */; };
 		D54C77142EF736C40072F713 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54C77132EF736C40072F713 /* SceneDelegate.swift */; };
 		D54C77162EF736C40072F713 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54C77152EF736C40072F713 /* ViewController.swift */; };
@@ -36,6 +39,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5CD229B12EFAE5F60040CB3F /* NgoOrginzationDiscovery.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NgoOrginzationDiscovery.storyboard; sourceTree = "<group>"; };
+		5CD229B32EFAE9E10040CB3F /* NGOCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NGOCardCell.swift; sourceTree = "<group>"; };
+		5CDF51892EFAF0310016ECDC /* OrganizationDiscoveryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationDiscoveryViewController.swift; sourceTree = "<group>"; };
 		D54C770E2EF736C40072F713 /* AppPlateFul.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppPlateFul.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D54C77112EF736C40072F713 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D54C77132EF736C40072F713 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -103,6 +109,9 @@
 				D54C77132EF736C40072F713 /* SceneDelegate.swift */,
 				D54C77152EF736C40072F713 /* ViewController.swift */,
 				D54C77172EF736C40072F713 /* Main.storyboard */,
+				5CD229B12EFAE5F60040CB3F /* NgoOrginzationDiscovery.storyboard */,
+				5CD229B32EFAE9E10040CB3F /* NGOCardCell.swift */,
+				5CDF51892EFAF0310016ECDC /* OrganizationDiscoveryViewController.swift */,
 				D54C771A2EF736C60072F713 /* Assets.xcassets */,
 				D54C771C2EF736C60072F713 /* LaunchScreen.storyboard */,
 				D54C771F2EF736C60072F713 /* Info.plist */,
@@ -191,7 +200,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1540;
-				LastUpgradeCheck = 1540;
+				LastUpgradeCheck = 2610;
 				TargetAttributes = {
 					D54C770D2EF736C40072F713 = {
 						CreatedOnToolsVersion = 15.4;
@@ -232,6 +241,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D54C771B2EF736C60072F713 /* Assets.xcassets in Resources */,
+				5CD229B22EFAE5F60040CB3F /* NgoOrginzationDiscovery.storyboard in Resources */,
 				D54C771E2EF736C60072F713 /* Base in Resources */,
 				D54C77192EF736C40072F713 /* Base in Resources */,
 			);
@@ -258,9 +268,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5CDF518A2EFAF0310016ECDC /* OrganizationDiscoveryViewController.swift in Sources */,
 				D54C77162EF736C40072F713 /* ViewController.swift in Sources */,
 				D54C77122EF736C40072F713 /* AppDelegate.swift in Sources */,
 				D54C77142EF736C40072F713 /* SceneDelegate.swift in Sources */,
+				5CD229B42EFAE9E40040CB3F /* NGOCardCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -374,6 +386,7 @@
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -430,6 +443,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -492,7 +506,6 @@
 		D54C773C2EF736C60072F713 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -511,7 +524,6 @@
 		D54C773D2EF736C60072F713 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -530,7 +542,6 @@
 		D54C773F2EF736C60072F713 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -547,7 +558,6 @@
 		D54C77402EF736C60072F713 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
