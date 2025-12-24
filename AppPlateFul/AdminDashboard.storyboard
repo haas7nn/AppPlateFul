@@ -108,9 +108,6 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="O4q-gb-fyd"/>
-                    <connections>
-                        <outlet property="pendingNGOsTapped" destination="btn1" id="HBf-39-sFf"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

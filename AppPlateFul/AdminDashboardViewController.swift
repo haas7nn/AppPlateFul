@@ -8,8 +8,7 @@ class AdminDashboardViewController: UIViewController {
     @IBOutlet weak var btn3: UIButton!
     @IBOutlet weak var btn4: UIButton!
     @IBOutlet weak var btn5: UIButton!
-    
-    @IBOutlet weak var pendingNGOsTapped: UIButton!
+    @IBOutlet weak var pendingNGOsButton: UIButton!
 
 
     
@@ -35,10 +34,14 @@ class AdminDashboardViewController: UIViewController {
     }
     
     // MARK: - Button Actions
-    @IBAction func PendingNGOsTapped(_ sender: UIButton) {
-        print("Pending NGOs tapped")
-        // Navigate to Pending NGOs screen
-    }
+        @IBAction func pendingNGOsTapped(_ sender: UIButton) {
+            let storyboard = UIStoryboard(name: "PendingNGOs", bundle: nil)
+
+            if let navController = storyboard.instantiateViewController(withIdentifier: "PendingNGOsNavController") as? UINavigationController {
+                navController.modalPresentationStyle = .fullScreen
+                present(navController, animated: true)
+            }
+        }
     
     @IBAction func donationActivityTapped(_ sender: UIButton) {
         print("Donation Activity tapped")
