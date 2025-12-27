@@ -1,135 +1,179 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="pC2-49-OCF">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="NavID">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
     </dependencies>
     <scenes>
-        <!--Admin Dashboard View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <scene sceneID="NavScene">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="AdminDashboardViewController" customModule="AppPlateFul" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                <navigationController navigationBarHidden="YES" id="NavID" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="NavBar">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="DashboardVC" kind="relationship" relationship="rootViewController" id="RootSeg"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NavFR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-700" y="0"/>
+        </scene>
+        <scene sceneID="DashboardScene">
+            <objects>
+                <viewController storyboardIdentifier="AdminDashboardViewController" id="DashboardVC" customClass="AdminDashboardViewController" customModule="AppPlateFul" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="MainView">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Admin Dashboard 🚨" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="titleLabel">
-                                <rect key="frame" x="24" y="147" width="291" height="36"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Admin Dashboard 🚨" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TitleLabel">
+                                <rect key="frame" x="24" y="99" width="280" height="41"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="34"/>
+                                <color key="textColor" red="0" green="0" blue="0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Keeping everything in place !" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="subtitleLabel">
-                                <rect key="frame" x="24" y="191" width="219" height="20.333333333333343"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.29999999999999999" green="0.29999999999999999" blue="0.29999999999999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Keeping everything in place !" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SubtitleLabel">
+                                <rect key="frame" x="24" y="152" width="200" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" red="0.2" green="0.2" blue="0.2" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="btn1">
-                                <rect key="frame" x="24" y="259.33333333333331" width="345" height="56"/>
-                                <color key="backgroundColor" red="0.4549019608" green="0.52156862749999999" blue="0.43529411759999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Btn1">
+                                <rect key="frame" x="24" y="210" width="345" height="56"/>
+                                <color key="backgroundColor" red="0.725" green="0.796" blue="0.631" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="56" id="h1"/>
+                                    <constraint firstAttribute="height" constant="56" id="Btn1H"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                 <state key="normal" title="Pending NGOs">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="28"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="pendingNGOsTapped:" destination="DashboardVC" eventType="touchUpInside" id="Btn1Act"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="btn2">
-                                <rect key="frame" x="24" y="331.33333333333331" width="345" height="56"/>
-                                <color key="backgroundColor" red="0.4549019608" green="0.52156862749999999" blue="0.43529411759999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Btn2">
+                                <rect key="frame" x="24" y="290" width="345" height="56"/>
+                                <color key="backgroundColor" red="0.725" green="0.796" blue="0.631" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="56" id="h2"/>
+                                    <constraint firstAttribute="height" constant="56" id="Btn2H"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                 <state key="normal" title="Donation Activity">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="28"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="donationActivityTapped:" destination="DashboardVC" eventType="touchUpInside" id="Btn2Act"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="btn3">
-                                <rect key="frame" x="24" y="403.33333333333331" width="345" height="56"/>
-                                <color key="backgroundColor" red="0.4549019608" green="0.52156862749999999" blue="0.43529411759999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Btn3">
+                                <rect key="frame" x="24" y="370" width="345" height="56"/>
+                                <color key="backgroundColor" red="0.725" green="0.796" blue="0.631" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="56" id="h3"/>
+                                    <constraint firstAttribute="height" constant="56" id="Btn3H"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                 <state key="normal" title="Manage Users">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="28"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="manageUsersTapped:" destination="DashboardVC" eventType="touchUpInside" id="Btn3Act"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="btn4">
-                                <rect key="frame" x="24" y="475.33333333333331" width="345" height="55.999999999999943"/>
-                                <color key="backgroundColor" red="0.4549019608" green="0.52156862749999999" blue="0.43529411759999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Btn4">
+                                <rect key="frame" x="24" y="450" width="345" height="56"/>
+                                <color key="backgroundColor" red="0.725" green="0.796" blue="0.631" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="56" id="h4"/>
+                                    <constraint firstAttribute="height" constant="56" id="Btn4H"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                 <state key="normal" title="Manage NGOs">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="28"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="manageNGOsTapped:" destination="DashboardVC" eventType="touchUpInside" id="Btn4Act"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="btn5">
-                                <rect key="frame" x="24" y="547.33333333333337" width="345" height="56"/>
-                                <color key="backgroundColor" red="0.4549019608" green="0.52156862749999999" blue="0.43529411759999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Btn5">
+                                <rect key="frame" x="24" y="530" width="345" height="56"/>
+                                <color key="backgroundColor" red="0.725" green="0.796" blue="0.631" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="56" id="h5"/>
+                                    <constraint firstAttribute="height" constant="56" id="Btn5H"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                 <state key="normal" title="Reports">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="28"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="reportsTapped:" destination="DashboardVC" eventType="touchUpInside" id="Btn5Act"/>
+                                </connections>
                             </button>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="SafeArea"/>
+                        <color key="backgroundColor" red="0.969" green="0.957" blue="0.933" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="titleLabel" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="44" id="c1"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="btn2" secondAttribute="trailing" constant="24" id="c10"/>
-                            <constraint firstItem="btn3" firstAttribute="top" secondItem="btn2" secondAttribute="bottom" constant="16" id="c11"/>
-                            <constraint firstItem="btn3" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="24" id="c12"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="btn3" secondAttribute="trailing" constant="24" id="c13"/>
-                            <constraint firstItem="btn4" firstAttribute="top" secondItem="btn3" secondAttribute="bottom" constant="16" id="c14"/>
-                            <constraint firstItem="btn4" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="24" id="c15"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="btn4" secondAttribute="trailing" constant="24" id="c16"/>
-                            <constraint firstItem="btn5" firstAttribute="top" secondItem="btn4" secondAttribute="bottom" constant="16" id="c17"/>
-                            <constraint firstItem="btn5" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="24" id="c18"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="btn5" secondAttribute="trailing" constant="24" id="c19"/>
-                            <constraint firstItem="titleLabel" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="24" id="c2"/>
-                            <constraint firstItem="subtitleLabel" firstAttribute="top" secondItem="titleLabel" secondAttribute="bottom" constant="8" id="c3"/>
-                            <constraint firstItem="subtitleLabel" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="24" id="c4"/>
-                            <constraint firstItem="btn1" firstAttribute="top" secondItem="subtitleLabel" secondAttribute="bottom" constant="48" id="c5"/>
-                            <constraint firstItem="btn1" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="24" id="c6"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="btn1" secondAttribute="trailing" constant="24" id="c7"/>
-                            <constraint firstItem="btn2" firstAttribute="top" secondItem="btn1" secondAttribute="bottom" constant="16" id="c8"/>
-                            <constraint firstItem="btn2" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="24" id="c9"/>
+                            <constraint firstItem="TitleLabel" firstAttribute="leading" secondItem="SafeArea" secondAttribute="leading" constant="24" id="C1"/>
+                            <constraint firstItem="TitleLabel" firstAttribute="top" secondItem="SafeArea" secondAttribute="top" constant="40" id="C2"/>
+                            <constraint firstItem="SubtitleLabel" firstAttribute="leading" secondItem="TitleLabel" secondAttribute="leading" id="C3"/>
+                            <constraint firstItem="SubtitleLabel" firstAttribute="top" secondItem="TitleLabel" secondAttribute="bottom" constant="12" id="C4"/>
+                            <constraint firstItem="Btn1" firstAttribute="leading" secondItem="SafeArea" secondAttribute="leading" constant="24" id="C5"/>
+                            <constraint firstItem="SafeArea" firstAttribute="trailing" secondItem="Btn1" secondAttribute="trailing" constant="24" id="C6"/>
+                            <constraint firstItem="Btn1" firstAttribute="top" secondItem="SubtitleLabel" secondAttribute="bottom" constant="40" id="C7"/>
+                            <constraint firstItem="Btn2" firstAttribute="leading" secondItem="Btn1" secondAttribute="leading" id="C8"/>
+                            <constraint firstItem="Btn2" firstAttribute="trailing" secondItem="Btn1" secondAttribute="trailing" id="C9"/>
+                            <constraint firstItem="Btn2" firstAttribute="top" secondItem="Btn1" secondAttribute="bottom" constant="24" id="C10"/>
+                            <constraint firstItem="Btn3" firstAttribute="leading" secondItem="Btn1" secondAttribute="leading" id="C11"/>
+                            <constraint firstItem="Btn3" firstAttribute="trailing" secondItem="Btn1" secondAttribute="trailing" id="C12"/>
+                            <constraint firstItem="Btn3" firstAttribute="top" secondItem="Btn2" secondAttribute="bottom" constant="24" id="C13"/>
+                            <constraint firstItem="Btn4" firstAttribute="leading" secondItem="Btn1" secondAttribute="leading" id="C14"/>
+                            <constraint firstItem="Btn4" firstAttribute="trailing" secondItem="Btn1" secondAttribute="trailing" id="C15"/>
+                            <constraint firstItem="Btn4" firstAttribute="top" secondItem="Btn3" secondAttribute="bottom" constant="24" id="C16"/>
+                            <constraint firstItem="Btn5" firstAttribute="leading" secondItem="Btn1" secondAttribute="leading" id="C17"/>
+                            <constraint firstItem="Btn5" firstAttribute="trailing" secondItem="Btn1" secondAttribute="trailing" id="C18"/>
+                            <constraint firstItem="Btn5" firstAttribute="top" secondItem="Btn4" secondAttribute="bottom" constant="24" id="C19"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="O4q-gb-fyd"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="925.95419847328242" y="0.0"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="THu-sj-4ua">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="pC2-49-OCF" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="rnP-Jh-NSr">
-                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="BnA-5N-HJZ"/>
+                        <outlet property="btn1" destination="Btn1" id="O1"/>
+                        <outlet property="btn2" destination="Btn2" id="O2"/>
+                        <outlet property="btn3" destination="Btn3" id="O3"/>
+                        <outlet property="btn4" destination="Btn4" id="O4"/>
+                        <outlet property="btn5" destination="Btn5" id="O5"/>
                     </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Mwj-Ya-65J" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DashboardFR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-0.76335877862595414" y="0.0"/>
+            <point key="canvasLocation" x="100" y="0"/>
         </scene>
     </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>

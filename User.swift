@@ -2,7 +2,14 @@
 //  User.swift
 //  AppPlateFul
 //
-//  Created by Hassan Fardan on 25/12/2025.
+//  Created by Hassan Fardan on 24/12/2025.
+//
+
+//
+//  User.swift
+//  AppPlateFul
+//
+//  Created by Hassan Fardan on 24/12/2025.
 //
 
 import Foundation
@@ -41,6 +48,28 @@ struct User {
                 joinDate: "Feb 20, 2024",
                 profileImageName: "person.circle.fill",
                 isFavorite: true
+            ),
+            User(
+                id: "3",
+                name: "Mohammed Khalid",
+                email: "mohammed@example.com",
+                phone: "+973 3678 9012",
+                role: "Donor",
+                status: "Inactive",
+                joinDate: "Mar 10, 2024",
+                profileImageName: "person.circle.fill",
+                isFavorite: false
+            ),
+            User(
+                id: "4",
+                name: "Sara Ahmed",
+                email: "sara@example.com",
+                phone: "+973 3789 0123",
+                role: "Volunteer",
+                status: "Active",
+                joinDate: "Apr 5, 2024",
+                profileImageName: "person.circle.fill",
+                isFavorite: false
             )
         ]
     }

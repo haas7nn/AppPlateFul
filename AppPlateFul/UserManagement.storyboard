@@ -11,7 +11,7 @@
         <!--Navigation Controller-->
         <scene sceneID="NavigationSceneID">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="NavigationControllerID" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="UserManagementNavController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="NavigationControllerID" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="NavBarID">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
@@ -29,7 +29,7 @@
         <!--User Management-->
         <scene sceneID="UserListSceneID">
             <objects>
-                <viewController id="UserListViewControllerID" customClass="UserListViewController" customModule="AppPlateFul" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="UserListViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="UserListViewControllerID" customClass="UserListViewController" customModule="AppPlateFul" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="UserListMainViewID">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -194,7 +194,7 @@
         <!--Details-->
         <scene sceneID="UserDetailsSceneID">
             <objects>
-                <viewController storyboardIdentifier="UserDetailsViewController" id="UserDetailsViewControllerID" customClass="UserDetailsViewController" customModule="AppPlateFul" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="UserDetailsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="UserDetailsViewControllerID" customClass="UserDetailsViewController" customModule="AppPlateFul" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="UserDetailsMainViewID">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -601,7 +601,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Details" id="DetailsNavItemID">
-<barButtonItem key="rightBarButtonItem" image="pencil" style="done" id="EditBarButtonID">
+                        <barButtonItem key="rightBarButtonItem" image="pencil" style="done" id="EditBarButtonID">
                             <color key="tintColor" systemColor="systemBlueColor"/>
                         </barButtonItem>
                     </navigationItem>

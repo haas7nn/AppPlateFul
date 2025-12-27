@@ -1,21 +1,22 @@
 //
-//  PendingNgo.swift
+//  PendingNGO.swift
 //  AppPlateFul
 //
-//  Created by Hassan Fardan on 21/12/2025.
+//  Created by Hassan Fardan on 25/12/2025.
 //
 
-import UIKit
+import Foundation
 
 struct PendingNGO {
     let id: String
     let name: String
-    let logoImage: UIImage?
+    let logoName: String
+    let ratingsCount: Int
     let area: String
     let openingHours: String
     let avgPickupTime: String
     let collectedDonations: String
     let pickupReliability: String
     let communityReviews: String
-    let ratingsCount: Int
+    let status: String = "Pending Verification"
 }
