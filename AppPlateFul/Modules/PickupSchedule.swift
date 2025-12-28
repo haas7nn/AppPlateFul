@@ -9,6 +9,10 @@ import Foundation
 
 struct PickupSchedule: Codable {
     
+    let id: String
+    
+    let donationId: String
+    
     let pickupDate: Date
 
     

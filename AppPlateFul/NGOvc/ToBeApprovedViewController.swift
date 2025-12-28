@@ -9,6 +9,8 @@ import UIKit
 
 class ToBeApprovedViewController: UIViewController {
 
+    var donation: Donation!
+
     override func viewDidLoad() {
         super.viewDidLoad()
 

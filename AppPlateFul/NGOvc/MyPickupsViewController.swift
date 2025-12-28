@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MyPickupsViewController: UIViewController {
+class MyPickupsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
 
     @IBOutlet weak var pickupTable: UITableView!
     
@@ -110,18 +110,21 @@ class MyPickupsViewController: UIViewController {
         // MARK: - Status UI
 
         private func configureStatusButton(_ button: UIButton, status: DonationStatus) {
+            button.configuration = nil
 
-            button.isUserInteractionEnabled = false // it's just a label pill
-
+            button.isUserInteractionEnabled = false
             button.titleLabel?.font = UIFont.systemFont(ofSize: 12, weight: .semibold)
+            button.titleLabel?.numberOfLines = 1
+            button.titleLabel?.lineBreakMode = .byTruncatingTail
+
+            button.setTitleColor(.white, for: .normal)
             button.layer.cornerRadius = 12
             button.clipsToBounds = true
-            button.setTitleColor(.white, for: .normal)
 
             switch status {
             case .accepted:
-                button.setTitle("To Be Scheduled", for: .normal)
-                button.backgroundColor = .systemBlue
+                button.setTitle("accepted", for: .normal)
+                button.backgroundColor = .systemGreen
 
             case .toBeApproved:
                 button.setTitle("To Be Approved", for: .normal)
@@ -129,7 +132,7 @@ class MyPickupsViewController: UIViewController {
 
             case .toBeCollected:
                 button.setTitle("To Be Collected", for: .normal)
-                button.backgroundColor = .systemGreen
+                button.backgroundColor = .systemBlue
 
             default:
                 button.setTitle(status.rawValue, for: .normal)

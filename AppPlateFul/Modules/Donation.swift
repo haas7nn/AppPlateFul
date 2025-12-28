@@ -11,8 +11,10 @@ struct Donation: Codable {
     let id: String
 
     var title: String
-    var pickupAddress: String
+    let description: String
+    let quantity: String
     var expiryDate: Date?
+    let imageRef: String
 
     var donorId: String
     var donorName: String
@@ -20,4 +22,9 @@ struct Donation: Codable {
     var ngoId: String?
     var status: DonationStatus
     var scheduledPickup: PickupSchedule?
+}
+struct User {
+    let id: String
+    let displayName: String
+    let imageRef: String   // Firebase-safe image reference
 }

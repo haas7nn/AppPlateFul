@@ -11,12 +11,16 @@ class AcceptAvailableDonationDetailsViewController: UIViewController {
 
     
     @IBOutlet weak var icon: UIImageView!
-    @IBOutlet weak var donationDesc: UILabel!
-    @IBOutlet weak var acceptDonationbtn: UIButton!
-    @IBOutlet weak var donator: UILabel!
-    @IBOutlet weak var qty: UILabel!
-    @IBOutlet weak var exp: UILabel!
     
+    @IBOutlet weak var donationDesc: UILabel!
+    
+    @IBOutlet weak var acceptDonationbtn: UIButton!
+    
+    @IBOutlet weak var donator: UILabel!
+    
+    @IBOutlet weak var qty: UILabel!
+    
+     @IBOutlet weak var exp: UILabel!
     
     var donation: Donation!
 
