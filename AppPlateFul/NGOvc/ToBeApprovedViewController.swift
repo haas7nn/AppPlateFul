@@ -9,7 +9,6 @@ import UIKit
 
 final class ToBeApprovedViewController: UIViewController {
 
-    // MARK: - Outlets (connect these)
     @IBOutlet private weak var icon: UIImageView!
     @IBOutlet private weak var donationDesc: UILabel!
     @IBOutlet private weak var donator: UILabel!
@@ -23,8 +22,8 @@ final class ToBeApprovedViewController: UIViewController {
     @IBOutlet private weak var approveBtn: UIButton!
     
     @IBOutlet private weak var rejectBtn: UIButton!
-
-    // MARK: - Data
+    
+    
     var donation: Donation!
 
     override func viewDidLoad() {
@@ -75,6 +74,7 @@ final class ToBeApprovedViewController: UIViewController {
 
         showStatusAlert(
                   title: "Pickup time Approved",
+                  message: nil,
                   systemImage: "checkmark.circle.fill",
                   color: .systemGreen
               )
@@ -85,6 +85,7 @@ final class ToBeApprovedViewController: UIViewController {
 
         showStatusAlert(
                    title: "Pickup time Rejected",
+                   message: "Donor will be notified to reschedule",
                    systemImage: "xmark.circle.fill",
                    color: .systemRed
                )
@@ -115,48 +116,58 @@ final class ToBeApprovedViewController: UIViewController {
     // MARK: - Alert
 
     private func showStatusAlert(
-            title: String,
-            systemImage: String,
-            color: UIColor
-        ) {
-            let alert = UIAlertController(title: nil, message: nil, preferredStyle: .alert)
+        title: String,
+        message: String?,
+        systemImage: String,
+        color: UIColor
+    ) {
+        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .alert)
 
-            let image = UIImage(systemName: systemImage)?
-                .withTintColor(color, renderingMode: .alwaysOriginal)
+        let image = UIImage(systemName: systemImage)?
+            .withTintColor(color, renderingMode: .alwaysOriginal)
 
-            let imageView = UIImageView(image: image)
-            imageView.translatesAutoresizingMaskIntoConstraints = false
-            imageView.contentMode = .scaleAspectFit
+        let imageView = UIImageView(image: image)
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.contentMode = .scaleAspectFit
 
-            alert.view.addSubview(imageView)
+        alert.view.addSubview(imageView)
 
-            NSLayoutConstraint.activate([
-                imageView.centerXAnchor.constraint(equalTo: alert.view.centerXAnchor),
-                imageView.topAnchor.constraint(equalTo: alert.view.topAnchor, constant: 25),
-                imageView.widthAnchor.constraint(equalToConstant: 40),
-                imageView.heightAnchor.constraint(equalToConstant: 40)
-            ])
+        NSLayoutConstraint.activate([
+            imageView.centerXAnchor.constraint(equalTo: alert.view.centerXAnchor),
+            imageView.topAnchor.constraint(equalTo: alert.view.topAnchor, constant: 25),
+            imageView.widthAnchor.constraint(equalToConstant: 40),
+            imageView.heightAnchor.constraint(equalToConstant: 40)
+        ])
 
-            let paragraphStyle = NSMutableParagraphStyle()
-            paragraphStyle.alignment = .center
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.alignment = .center
 
-            let attributedTitle = NSAttributedString(
-                string: "\n\n\n\(title)",
-                attributes: [
-                    .paragraphStyle: paragraphStyle,
-                    .font: UIFont.systemFont(ofSize: 17, weight: .semibold)
-                ]
-            )
+        let fullText: String
+        if let message {
+            fullText = "\n\n\n\(title)\n\(message)"
+        } else {
+            fullText = "\n\n\n\(title)"
+        }
 
-            alert.setValue(attributedTitle, forKey: "attributedTitle")
+        let attributedTitle = NSAttributedString(
+            string: fullText,
+            attributes: [
+                .paragraphStyle: paragraphStyle,
+                .font: UIFont.systemFont(ofSize: 16, weight: .semibold)
+            ]
+        )
 
-            alert.addAction(UIAlertAction(title: "OK", style: .default) { _ in
-                self.navigationController?.popViewController(animated: true)
-            })
+        alert.setValue(attributedTitle, forKey: "attributedTitle")
+
+        alert.addAction(UIAlertAction(title: "OK", style: .default) { _ in
+            self.navigationController?.popViewController(animated: true)
+        })
+
+    
 
             present(alert, animated: true)
     }
-}
+
 
     /*
     // MARK: - Navigation

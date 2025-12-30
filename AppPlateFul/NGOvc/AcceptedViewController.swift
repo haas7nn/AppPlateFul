@@ -8,7 +8,20 @@
 import UIKit
 
 class AcceptedViewController: UIViewController {
-
+    
+    
+    
+    @IBOutlet weak var icon: UIImageView!
+    
+    @IBOutlet weak var donationDesc: UILabel!
+    
+    
+    
+    @IBOutlet weak var donator: UILabel!
+    
+    @IBOutlet weak var qty: UILabel!
+    
+    @IBOutlet weak var exp: UILabel!
     
     var donation: Donation!
     
@@ -53,4 +66,4 @@ class AcceptedViewController: UIViewController {
     }
     */
 
-}
+

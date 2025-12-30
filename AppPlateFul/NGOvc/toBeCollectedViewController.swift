@@ -7,6 +7,9 @@
 
 import UIKit
 
+
+
+
 class toBeCollectedViewController: UIViewController {
 
     @IBOutlet private weak var icon: UIImageView!

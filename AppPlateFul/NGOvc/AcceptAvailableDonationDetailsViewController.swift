@@ -94,10 +94,6 @@ class AcceptAvailableDonationDetailsViewController: UIViewController {
                alert.addAction(okAction)
                present(alert, animated: true)
            }
-
-           alert.addAction(okAction)
-           present(alert, animated: true)
-       }
    }
 
    // MARK: - Date Formatter Helper
