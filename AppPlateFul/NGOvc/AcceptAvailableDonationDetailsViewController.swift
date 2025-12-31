@@ -52,7 +52,7 @@ class AcceptAvailableDonationDetailsViewController: UIViewController {
            // (Later you replace this with Firebase update)
            if let index = DummyDataStore.donations.firstIndex(where: { $0.id == donation.id }) {
                DummyDataStore.donations[index].status = .accepted
-               donation.status = .accepted
+               donation.status = .toBeApproved
            }
 
            // Alert UI

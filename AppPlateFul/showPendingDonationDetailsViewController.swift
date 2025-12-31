@@ -1,16 +1,14 @@
 //
-//  AcceptedViewController.swift
+//  showPendingDonationDetailsViewController.swift
 //  AppPlateFul
 //
-//  Created by Rashed Alsowaidi on 28/12/2025.
+//  Created by Rashed Alsowaidi on 31/12/2025.
 //
 
 import UIKit
 
-class AcceptedViewController: UIViewController {
+class showPendingDonationDetailsViewController: UIViewController {
 
-    
-    
     @IBOutlet weak var icon: UIImageView!
     
     @IBOutlet weak var donationDesc: UILabel!
@@ -56,6 +54,7 @@ class AcceptedViewController: UIViewController {
             return df
         }()
     }
+    
 
     /*
     // MARK: - Navigation
