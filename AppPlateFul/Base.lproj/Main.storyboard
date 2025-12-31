@@ -15,26 +15,6 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5wM-yS-2nD">
-                                <rect key="frame" x="177" y="306" width="75" height="39"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
-                                <connections>
-                                    <segue destination="95z-WI-Pb5" kind="show" id="eVT-Yf-yoM"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0y0-uj-7mf">
-                                <rect key="frame" x="189" y="549" width="75" height="39"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
-                                <connections>
-                                    <segue destination="Zla-RC-QN3" kind="show" id="Fvo-28-Km2"/>
-                                </connections>
-                            </button>
-                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
@@ -43,26 +23,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1907.6335877862596" y="-34.507042253521128"/>
-        </scene>
-        <!--ngoFlow-->
-        <scene sceneID="Wjy-7S-jim">
-            <objects>
-                <viewControllerPlaceholder storyboardName="NgoFlow" referencedIdentifier="ngoFlow" id="95z-WI-Pb5" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="emb-az-34R"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="zRE-ag-QQe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2530.5343511450383" y="-112.67605633802818"/>
-        </scene>
-        <!--dona-->
-        <scene sceneID="BKz-9K-89Q">
-            <objects>
-                <viewControllerPlaceholder storyboardName="DonationSchedulingStoryboard" referencedIdentifier="dona" id="Zla-RC-QN3" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="8Mi-AJ-NAo"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="B6f-C0-ruz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2605" y="72"/>
         </scene>
     </scenes>
     <resources>
