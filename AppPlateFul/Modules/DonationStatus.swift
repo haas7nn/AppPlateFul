@@ -8,9 +8,11 @@
 import Foundation
 
 enum DonationStatus: String, Codable {
-    case pending
-    case accepted
-    case scheduled
-    case completed
-    case cancelled
+case pending        
+case accepted
+case toBeApproved
+case toBeCollected
+case completed
+case cancelled
 }
+
