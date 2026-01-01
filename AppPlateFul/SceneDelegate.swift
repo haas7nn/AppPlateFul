@@ -1,6 +1,6 @@
 import UIKit
 
-class SceneDelegate: UIResponder, UIWindowSceneDelegate {
+final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
 
@@ -10,8 +10,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         guard let windowScene = (scene as? UIWindowScene) else { return }
 
-        window = UIWindow(windowScene: windowScene)
+        let window = UIWindow(windowScene: windowScene)
 
+        // ✅ Launch NGO Organization Discovery first
+        // Using your storyboard name exactly as provided.
         let storyboard = UIStoryboard(name: "NgoOrginzationDiscovery", bundle: nil)
 
         guard let initialVC = storyboard.instantiateInitialViewController() else {
@@ -19,10 +21,17 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             return
         }
 
-        window?.rootViewController = initialVC
-        window?.makeKeyAndVisible()
+        // If initial VC is already a UINavigationController, use it directly; otherwise embed
+        if let nav = initialVC as? UINavigationController {
+            window.rootViewController = nav
+        } else {
+            window.rootViewController = UINavigationController(rootViewController: initialVC)
+        }
+
+        self.window = window
+        window.makeKeyAndVisible()
     }
-    
+
     func sceneDidDisconnect(_ scene: UIScene) {}
     func sceneDidBecomeActive(_ scene: UIScene) {}
     func sceneWillResignActive(_ scene: UIScene) {}
