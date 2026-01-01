@@ -94,24 +94,19 @@ final class ToBeApprovedViewController: UIViewController {
     // MARK: - Store update
 
     private func updateStatusAndStore(newStatus: DonationStatus) {
-        guard var donation else { return }
+        guard let donation else { return }
 
-        donation.status = newStatus
-
-        // If rejected, you usually want to clear the proposed schedule so they reschedule
-        if newStatus == .accepted {
-            donation.scheduledPickup = nil
+        if newStatus == .toBeCollected {
+            DonationService.shared.updatePickupApproval(donationId: donation.id, approved: true)
+        } else if newStatus == .accepted {
+            DonationService.shared.updatePickupApproval(donationId: donation.id, approved: false)
         }
 
-        // Save to dummy store by id
-        if let index = DummyDataStore.donations.firstIndex(where: { $0.id == donation.id }) {
-            DummyDataStore.donations[index] = donation
-        }
-
-        // Update local + refresh labels
-        self.donation = donation
+        self.donation.status = newStatus
+        if newStatus == .accepted { self.donation.scheduledPickup = nil }
         configureUI()
     }
+
 
     // MARK: - Alert
 

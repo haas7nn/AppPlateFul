@@ -12,11 +12,8 @@ class MyPickupsViewController: UIViewController, UITableViewDataSource, UITableV
     @IBOutlet weak var pickupTable: UITableView!
     
     
-    private var pickups: [Donation] {
-            DummyDataStore.donations.filter {
-                $0.status == .accepted || $0.status == .toBeApproved || $0.status == .toBeCollected
-            }
-        }
+    private var pickups: [Donation] = []
+
 
         // Store the selected donation before segue
         private var selectedDonation: Donation?
@@ -27,12 +24,26 @@ class MyPickupsViewController: UIViewController, UITableViewDataSource, UITableV
             pickupTable.dataSource = self
             pickupTable.delegate = self
             title = "My Pickups"
+            loadPickups()
         }
 
         override func viewWillAppear(_ animated: Bool) {
             super.viewWillAppear(animated)
             pickupTable.reloadData()
         }
+    private func loadPickups() {
+        DonationService.shared.fetchAll { [weak self] items in
+            guard let self = self else { return }
+
+            self.pickups = items.filter {
+                $0.status == .accepted ||
+                $0.status == .toBeApproved ||
+                $0.status == .toBeCollected
+            }
+
+            self.pickupTable.reloadData()
+        }
+    }
 
         // MARK: - UITableViewDataSource
 
@@ -94,8 +105,7 @@ class MyPickupsViewController: UIViewController, UITableViewDataSource, UITableV
 
             guard let donation = selectedDonation else { return }
 
-            // ✅ Pass donation into destination
-            // Make sure each destination VC has:  var donation: Donation!
+         
             if let vc = segue.destination as? AcceptedViewController {
                 vc.donation = donation
             }

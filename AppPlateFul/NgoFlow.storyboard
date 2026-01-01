@@ -1182,14 +1182,97 @@
                     <view key="view" contentMode="scaleToFill" id="4hI-Qh-yTA">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uWp-c8-K13">
+                                <rect key="frame" x="18" y="377" width="355" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="355" id="I1D-Vl-jrW"/>
+                                    <constraint firstAttribute="height" constant="50" id="zsA-Pj-cAe"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Update Delivery Status" cornerStyle="capsule">
+                                    <color key="baseBackgroundColor" red="0.69411766529999996" green="0.75294119120000003" blue="0.59607845540000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="acceptDonationTapped:" destination="1FU-C0-PgI" eventType="touchUpInside" id="KFR-Fk-rQZ"/>
+                                    <action selector="markAsCollectedTapped:" destination="q6j-uF-j1s" eventType="touchUpInside" id="AIh-g6-wwi"/>
+                                    <action selector="markAsCollectedTapped:" destination="Xcr-YK-pEM" eventType="touchUpInside" id="R3y-df-H8W"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="slN-Ho-p9e">
+                                <rect key="frame" x="18" y="457" width="355" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="355" id="9gN-3S-jRv"/>
+                                    <constraint firstAttribute="height" constant="50" id="YVa-8O-hXG"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Collecter Profile" cornerStyle="capsule">
+                                    <color key="baseBackgroundColor" red="0.69411766529999996" green="0.75294119120000003" blue="0.59607845540000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="acceptDonationTapped:" destination="1FU-C0-PgI" eventType="touchUpInside" id="Jwh-FH-sIK"/>
+                                    <action selector="markAsCollectedTapped:" destination="q6j-uF-j1s" eventType="touchUpInside" id="pFZ-aM-XJS"/>
+                                    <action selector="markAsCollectedTapped:" destination="Xcr-YK-pEM" eventType="touchUpInside" id="pKa-15-srY"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7vp-Mg-jXV">
+                                <rect key="frame" x="18" y="297" width="355" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="LBV-ah-huY"/>
+                                    <constraint firstAttribute="width" constant="355" id="uM5-PU-uny"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Community Leaderboard" cornerStyle="capsule">
+                                    <color key="baseBackgroundColor" red="0.69411766529999996" green="0.75294119120000003" blue="0.59607845540000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="acceptDonationTapped:" destination="1FU-C0-PgI" eventType="touchUpInside" id="arj-dM-XXD"/>
+                                    <action selector="markAsCollectedTapped:" destination="Xcr-YK-pEM" eventType="touchUpInside" id="S89-sR-2Io"/>
+                                    <action selector="markAsCollectedTapped:" destination="q6j-uF-j1s" eventType="touchUpInside" id="eKT-Ug-lxG"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello, Collector 👋" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fNM-Mo-oqf">
+                                <rect key="frame" x="38" y="162" width="320" height="56"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="320" id="71H-Yd-FNX"/>
+                                    <constraint firstAttribute="height" constant="56" id="wIu-7Q-2U3"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="37"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Turn your mission into action !" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eeh-2T-fQS">
+                                <rect key="frame" x="47" y="226" width="228" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="hSa-9E-w6l"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.96862745289999996" green="0.96078431610000004" blue="0.94901967050000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="fNM-Mo-oqf" firstAttribute="top" secondItem="hSa-9E-w6l" secondAttribute="top" id="BLF-u6-7RU"/>
+                            <constraint firstItem="7vp-Mg-jXV" firstAttribute="top" secondItem="Eeh-2T-fQS" secondAttribute="bottom" constant="50" id="KcX-25-NJF"/>
+                            <constraint firstItem="7vp-Mg-jXV" firstAttribute="leading" secondItem="hSa-9E-w6l" secondAttribute="leading" constant="18" id="ORG-UE-jRr"/>
+                            <constraint firstItem="hSa-9E-w6l" firstAttribute="trailing" secondItem="7vp-Mg-jXV" secondAttribute="trailing" constant="20" id="PCI-nk-F4q"/>
+                            <constraint firstItem="fNM-Mo-oqf" firstAttribute="leading" secondItem="hSa-9E-w6l" secondAttribute="leading" constant="38" id="Tea-Ke-wzm"/>
+                            <constraint firstItem="slN-Ho-p9e" firstAttribute="leading" secondItem="hSa-9E-w6l" secondAttribute="leading" constant="18" id="a3V-JX-9gn"/>
+                            <constraint firstItem="hSa-9E-w6l" firstAttribute="trailing" secondItem="fNM-Mo-oqf" secondAttribute="trailing" constant="35" id="aS5-BM-qDu"/>
+                            <constraint firstItem="hSa-9E-w6l" firstAttribute="trailing" secondItem="Eeh-2T-fQS" secondAttribute="trailing" constant="118" id="aaw-IR-lz0"/>
+                            <constraint firstItem="Eeh-2T-fQS" firstAttribute="leading" secondItem="hSa-9E-w6l" secondAttribute="leading" constant="47" id="eaT-55-33D"/>
+                            <constraint firstItem="hSa-9E-w6l" firstAttribute="trailing" secondItem="uWp-c8-K13" secondAttribute="trailing" constant="20" id="eh5-a7-5W3"/>
+                            <constraint firstItem="uWp-c8-K13" firstAttribute="leading" secondItem="hSa-9E-w6l" secondAttribute="leading" constant="18" id="lmp-pH-tIn"/>
+                            <constraint firstItem="Eeh-2T-fQS" firstAttribute="top" secondItem="fNM-Mo-oqf" secondAttribute="bottom" constant="8" id="m3K-L5-LpS"/>
+                            <constraint firstItem="hSa-9E-w6l" firstAttribute="trailing" secondItem="slN-Ho-p9e" secondAttribute="trailing" constant="20" id="mIq-uS-gGd"/>
+                            <constraint firstItem="slN-Ho-p9e" firstAttribute="top" secondItem="uWp-c8-K13" secondAttribute="bottom" constant="30" id="q43-Y4-uIc"/>
+                            <constraint firstItem="uWp-c8-K13" firstAttribute="top" secondItem="7vp-Mg-jXV" secondAttribute="bottom" constant="30" id="ufI-Hm-XFn"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="XUO-Lr-wJB"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nmo-5p-1j5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1836" y="-1767"/>
+            <point key="canvasLocation" x="1835.8778625954199" y="-1767.605633802817"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="DBg-Bw-6bm">

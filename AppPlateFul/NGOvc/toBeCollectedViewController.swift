@@ -80,20 +80,15 @@ class toBeCollectedViewController: UIViewController {
         @IBAction private func markAsCollectedTapped(_ sender: UIButton) {
             guard var donation else { return }
 
-            // Update status
-            donation.status = .completed
+                donation.status = .completed
 
-            // Save back into DummyDataStore by id
-            if let index = DummyDataStore.donations.firstIndex(where: { $0.id == donation.id }) {
-                DummyDataStore.donations[index] = donation
-            }
+                DonationService.shared.updateStatus(donationId: donation.id, status: .completed) { _ in
+                }
 
-            // Update local reference + UI
-            self.donation = donation
-            configureUI()
+                self.donation = donation
+                configureUI()
 
-            // Optionally go back to list
-            navigationController?.popViewController(animated: true)
+                navigationController?.popViewController(animated: true)
         }
 
     

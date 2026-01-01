@@ -11,11 +11,8 @@ class DonationSchedulingViewController: UIViewController, UITableViewDataSource,
 
     @IBOutlet weak var tableView: UITableView!
 
-    private var donations: [Donation] {
-        DummyDataStore.donations.filter {
-            $0.status == .pending || $0.status == .accepted || $0.status == .toBeApproved || $0.status == .toBeCollected
-        }
-    }
+    private var donations: [Donation] = []
+
 
     private var selectedDonation: Donation?
 
@@ -24,7 +21,24 @@ class DonationSchedulingViewController: UIViewController, UITableViewDataSource,
         tableView.dataSource = self
         tableView.delegate = self
         title = "My Donations"
+        loadDonations()
     }
+    
+    private func loadDonations() {
+        DonationService.shared.fetchAll { [weak self] items in
+            guard let self = self else { return }
+
+            self.donations = items.filter {
+                $0.status == .pending ||
+                $0.status == .accepted ||
+                $0.status == .toBeApproved ||
+                $0.status == .toBeCollected
+            }
+
+            self.tableView.reloadData()
+        }
+    }
+
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
