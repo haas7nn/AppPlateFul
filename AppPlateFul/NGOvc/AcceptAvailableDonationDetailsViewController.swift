@@ -46,63 +46,63 @@ class AcceptAvailableDonationDetailsViewController: UIViewController {
            donationDesc.lineBreakMode = .byWordWrapping
        }
 
-       @IBAction func acceptDonationTapped(_ sender: Any) {
-
-           // ✅ Update dummy store status (so you can test later)
-           // (Later you replace this with Firebase update)
-           if let index = DummyDataStore.donations.firstIndex(where: { $0.id == donation.id }) {
-               DummyDataStore.donations[index].status = .accepted
-               donation.status = .toBeApproved
-           }
-
-           // Alert UI
-               let alert = UIAlertController(title: nil, message: nil, preferredStyle: .alert)
-
-               let image = UIImage(systemName: "checkmark.circle.fill")?
-                   .withTintColor(.systemGreen, renderingMode: .alwaysOriginal)
-
-               let imageView = UIImageView(image: image)
-               imageView.translatesAutoresizingMaskIntoConstraints = false
-               imageView.contentMode = .scaleAspectFit
-
-               alert.view.addSubview(imageView)
-
-               NSLayoutConstraint.activate([
-                   imageView.centerXAnchor.constraint(equalTo: alert.view.centerXAnchor),
-                   imageView.topAnchor.constraint(equalTo: alert.view.topAnchor, constant: 30),
-                   imageView.widthAnchor.constraint(equalToConstant: 40),
-                   imageView.heightAnchor.constraint(equalToConstant: 40)
-               ])
-
-               let paragraphStyle = NSMutableParagraphStyle()
-               paragraphStyle.alignment = .center
-
-               let attributedTitle = NSAttributedString(
-                   string: "\n\n\nDonation Accepted",
-                   attributes: [
-                       .paragraphStyle: paragraphStyle,
-                       .font: UIFont.systemFont(ofSize: 17, weight: .semibold)
-                   ]
-               )
-
-               alert.setValue(attributedTitle, forKey: "attributedTitle")
-
-               let okAction = UIAlertAction(title: "OK", style: .default) { _ in
-                   self.navigationController?.popViewController(animated: true)
-               }
-
-               alert.addAction(okAction)
-               present(alert, animated: true)
-           }
+    @IBAction func acceptDonationTapped(_ sender: Any) {
+        
+        guard let donation else { return }
+        
+        DonationService.shared.updateStatus(donationId: donation.id, status: .accepted) { _ in
+        }
+        
+        self.donation.status = .accepted
+        
+        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .alert)
+        
+        let image = UIImage(systemName: "checkmark.circle.fill")?
+            .withTintColor(.systemGreen, renderingMode: .alwaysOriginal)
+        
+        let imageView = UIImageView(image: image)
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.contentMode = .scaleAspectFit
+        
+        alert.view.addSubview(imageView)
+        
+        NSLayoutConstraint.activate([
+            imageView.centerXAnchor.constraint(equalTo: alert.view.centerXAnchor),
+            imageView.topAnchor.constraint(equalTo: alert.view.topAnchor, constant: 30),
+            imageView.widthAnchor.constraint(equalToConstant: 40),
+            imageView.heightAnchor.constraint(equalToConstant: 40)
+        ])
+        
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.alignment = .center
+        
+        let attributedTitle = NSAttributedString(
+            string: "\n\n\nDonation Accepted",
+            attributes: [
+                .paragraphStyle: paragraphStyle,
+                .font: UIFont.systemFont(ofSize: 17, weight: .semibold)
+            ]
+        )
+        
+        alert.setValue(attributedTitle, forKey: "attributedTitle")
+        
+        let okAction = UIAlertAction(title: "OK", style: .default) { _ in
+            self.navigationController?.popViewController(animated: true)
+        }
+        
+        alert.addAction(okAction)
+        present(alert, animated: true)
+    }
    }
 
    // MARK: - Date Formatter Helper
-   private extension DateFormatter {
-       static let dmy: DateFormatter = {
-           let df = DateFormatter()
-           df.dateFormat = "dd-MM-yyyy"
-           return df
-       }()
+private extension DateFormatter {
+    static let dmy: DateFormatter = {
+        let df = DateFormatter()
+        df.dateFormat = "dd-MM-yyyy"
+        return df
+    }()
+
     /*
     // MARK: - Navigation
 

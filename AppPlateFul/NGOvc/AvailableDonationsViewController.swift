@@ -12,16 +12,24 @@ class AvailableDonationsViewController: UIViewController, UITableViewDataSource 
     
     
     
-    private var availableDonations: [Donation] {
-           DummyDataStore.donations.filter { $0.status == .pending }
-       }
+    private var availableDonations: [Donation] = []
+
 
        override func viewDidLoad() {
            super.viewDidLoad()
            tableView.dataSource = self
            title = "Available Donations"
+           loadAvailableDonations()
        }
     
+    private func loadAvailableDonations() {
+        DonationService.shared.fetchByStatus(.pending) { [weak self] items in
+            guard let self = self else { return }
+            self.availableDonations = items
+            self.tableView.reloadData()
+        }
+    }
+
     
         override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)

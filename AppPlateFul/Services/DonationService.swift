@@ -65,13 +65,22 @@ final class DonationService {
         completion?(false)
 
         /*
-        let db = Firestore.firestore()
-        db.collection("donations")
-            .document(donationId)
-            .updateData(["status": status.rawValue]) { error in
-                completion?(error == nil)
-            }
-        */
+           let db = Firestore.firestore()
+           if approved {
+               db.collection("donations").document(donationId)
+                   .updateData(["status": DonationStatus.toBeCollected.rawValue]) { error in
+                       completion?(error == nil)
+                   }
+           } else {
+               db.collection("donations").document(donationId)
+                   .updateData([
+                       "status": DonationStatus.accepted.rawValue,
+                       "scheduledPickup": NSNull()
+                   ]) { error in
+                       completion?(error == nil)
+                   }
+           }
+           */
     }
 
     func attachPickupSchedule(donationId: String, pickup: PickupSchedule, completion: ((Bool) -> Void)? = nil) {
@@ -89,4 +98,21 @@ final class DonationService {
             }
         */
     }
+    func updatePickupApproval(donationId: String, approved: Bool) {
+        /*
+        let db = Firestore.firestore()
+
+        if approved {
+            db.collection("donations").document(donationId)
+                .updateData(["status": DonationStatus.toBeCollected.rawValue])
+        } else {
+            db.collection("donations").document(donationId)
+                .updateData([
+                    "status": DonationStatus.accepted.rawValue,
+                    "scheduledPickup": NSNull()
+                ])
+        }
+        */
+    }
+
 }

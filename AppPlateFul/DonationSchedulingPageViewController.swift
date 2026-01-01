@@ -28,32 +28,30 @@ class DonationSchedulingPageViewController: UIViewController {
     @IBAction func confirm(_ sender: Any) {
         guard let donation else { return }
 
-               let timeText = (time.text ?? "").trimmingCharacters(in: .whitespacesAndNewlines)
-               let locationText = (location.text ?? "").trimmingCharacters(in: .whitespacesAndNewlines)
+           let timeText = (time.text ?? "").trimmingCharacters(in: .whitespacesAndNewlines)
+           let locationText = (location.text ?? "").trimmingCharacters(in: .whitespacesAndNewlines)
 
-               if timeText.isEmpty || locationText.isEmpty {
-                   showSimpleAlert(message: "Please enter pickup time and location.")
-                   return
-               }
+           if timeText.isEmpty || locationText.isEmpty {
+               showSimpleAlert(message: "Please enter pickup time and location.")
+               return
+           }
 
-               let schedule = PickupSchedule(
-                   id: UUID().uuidString,
-                   donationId: donation.id,
-                   pickupDate: date.date,
-                   pickupTimeRange: timeText,
-                   pickupLocation: locationText
-               )
+           let schedule = PickupSchedule(
+               id: UUID().uuidString,
+               donationId: donation.id,
+               pickupDate: date.date,
+               pickupTimeRange: timeText,
+               pickupLocation: locationText
+           )
 
-               if let index = DummyDataStore.donations.firstIndex(where: { $0.id == donation.id }) {
-                   var updated = DummyDataStore.donations[index]
-                   updated.scheduledPickup = schedule
-                   updated.status = .toBeApproved
-                   DummyDataStore.donations[index] = updated
-                   self.donation = updated
-               }
+           DonationService.shared.attachPickupSchedule(donationId: donation.id, pickup: schedule) { _ in
+           }
 
-               showSuccessAlertAndPop()
-    }
+           self.donation.scheduledPickup = schedule
+           self.donation.status = .toBeApproved
+
+           showSuccessAlertAndPop()
+       }
     private func showSimpleAlert(message: String) {
             let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default))
