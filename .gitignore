@@ -28,5 +28,3 @@ Carthage/Build/
 # User-specific
 *.swp
 *.lock
-xcuserdata/
-*.xcuserstate
