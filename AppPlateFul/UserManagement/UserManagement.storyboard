@@ -614,21 +614,12 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="addressLabel" destination="AddressLabelID" id="AddressOutletID"/>
-                        <outlet property="callButton" destination="CallButtonID" id="CallOutletID"/>
-                        <outlet property="donationsMadeLabel" destination="DonationsMadeValueLabelID" id="DonationsOutletID"/>
-                        <outlet property="donorTypeLabel" destination="DonorTypeValueLabelID" id="DonorTypeOutletID"/>
-                        <outlet property="emailButton" destination="EmailButtonID" id="EmailBtnOutletID"/>
+                        <outlet property="avatarImageView" destination="ProfileAvatarID" id="dik-Qh-SqJ"/>
                         <outlet property="emailLabel" destination="EmailLabelID" id="EmailOutletID"/>
-                        <outlet property="locationButton" destination="LocationButtonID" id="LocationOutletID"/>
-                        <outlet property="mealsProvidedLabel" destination="MealsProvidedValueLabelID" id="MealsOutletID"/>
-                        <outlet property="notificationsLabel" destination="NotificationsValueLabelID" id="NotificationsOutletID"/>
+                        <outlet property="nameLabel" destination="ProfileNameLabelID" id="AuL-cS-rmE"/>
                         <outlet property="phoneLabel" destination="PhoneLabelID" id="PhoneOutletID"/>
-                        <outlet property="profileAvatar" destination="ProfileAvatarID" id="ProfileAvatarOutletID"/>
-                        <outlet property="profileName" destination="ProfileNameLabelID" id="ProfileNameOutletID"/>
                         <outlet property="roleLabel" destination="RoleValueLabelID" id="RoleOutletID"/>
                         <outlet property="statusLabel" destination="StatusValueLabelID" id="StatusOutletID"/>
-                        <outlet property="verificationLabel" destination="VerificationValueLabelID" id="VerificationOutletID"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DetailsFirstResponderID" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

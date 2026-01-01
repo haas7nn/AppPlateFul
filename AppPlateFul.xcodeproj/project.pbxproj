@@ -52,8 +52,8 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		D58F046F2F00585B0080DF27 /* Reports */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Reports; sourceTree = "<group>"; };
 		D58F04942F0600090080DF27 /* Privacy Policy */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = "Privacy Policy"; sourceTree = "<group>"; };
+		D58F04B72F06E9E70080DF27 /* Reports 2 */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = "Reports 2"; sourceTree = "<group>"; };
 		D5F84D472F00522A0034CC8D /* AdminDashboard */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = AdminDashboard; sourceTree = "<group>"; };
 		D5F84D482F00524D0034CC8D /* NGOReview */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = NGOReview; sourceTree = "<group>"; };
 		D5F84D492F0052840034CC8D /* UserManagement */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = UserManagement; sourceTree = "<group>"; };
@@ -113,14 +113,14 @@
 				D5F84D482F00524D0034CC8D /* NGOReview */,
 				D5F84D492F0052840034CC8D /* UserManagement */,
 				D5F84D4A2F0052AE0034CC8D /* DonationActivity */,
-				D58F046F2F00585B0080DF27 /* Reports */,
 				D58F04942F0600090080DF27 /* Privacy Policy */,
-				D54C77112EF736C40072F713 /* AppDelegate.swift */,
 				D54C77132EF736C40072F713 /* SceneDelegate.swift */,
+				D54C77112EF736C40072F713 /* AppDelegate.swift */,
 				D54C771A2EF736C60072F713 /* Assets.xcassets */,
 				D54C77172EF736C40072F713 /* Main.storyboard */,
 				D54C771C2EF736C60072F713 /* LaunchScreen.storyboard */,
 				D54C771F2EF736C60072F713 /* Info.plist */,
+				D58F04B72F06E9E70080DF27 /* Reports 2 */,
 			);
 			path = AppPlateFul;
 			sourceTree = "<group>";
@@ -158,8 +158,8 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				D58F046F2F00585B0080DF27 /* Reports */,
 				D58F04942F0600090080DF27 /* Privacy Policy */,
+				D58F04B72F06E9E70080DF27 /* Reports 2 */,
 				D5F84D472F00522A0034CC8D /* AdminDashboard */,
 				D5F84D482F00524D0034CC8D /* NGOReview */,
 				D5F84D492F0052840034CC8D /* UserManagement */,

@@ -132,10 +132,6 @@ class DonationDataProvider {
     
     private(set) var donations: [Donation] = []
     
-    private init() {
-        loadMockData()
-    }
-    
     private func loadMockData() {
         let address1 = DeliveryAddress(
             house: "House 123", road: "Road 45", block: "Block A",
@@ -149,39 +145,54 @@ class DonationDataProvider {
         
         donations = [
             Donation(
-                id: "DON001", ngoName: "Royal Humanitarian Foundation",
-                ngoLogo: UIImage(systemName: "heart.circle.fill"),
+                id: "DON001",
+                ngoName: "Royal Humanitarian Foundation",
+                ngoLogo: UIImage(named: "islamichands"), // ✅ Your Asset image
                 items: [DonationItem(name: "Chicken Shawarma", quantity: 14)],
-                status: .completed, createdDate: Date(),
-                pickupDate: Date().addingTimeInterval(3600), address: address1
+                status: .completed,
+                createdDate: Date(),
+                pickupDate: Date().addingTimeInterval(3600),
+                address: address1
             ),
             Donation(
-                id: "DON002", ngoName: "Dental Foundation",
-                ngoLogo: UIImage(systemName: "cross.circle.fill"),
+                id: "DON002",
+                ngoName: "Dental Foundation",
+                ngoLogo: UIImage(named: "islamichands"), // ✅ Your Asset image
                 items: [DonationItem(name: "Mixed Grill", quantity: 8), DonationItem(name: "Rice", quantity: 5)],
-                status: .ongoing, createdDate: Date().addingTimeInterval(-86400),
-                pickupDate: nil, address: address2
+                status: .ongoing,
+                createdDate: Date().addingTimeInterval(-86400),
+                pickupDate: nil,
+                address: address2
             ),
             Donation(
-                id: "DON003", ngoName: "RCO Foundation",
-                ngoLogo: UIImage(systemName: "leaf.circle.fill"),
+                id: "DON003",
+                ngoName: "RCO Foundation",
+                ngoLogo: UIImage(named: "islamichands"), // ✅ Your Asset image
                 items: [DonationItem(name: "Vegetable Biryani", quantity: 20)],
-                status: .cancelled, createdDate: Date().addingTimeInterval(-172800),
-                pickupDate: nil, address: address1
+                status: .cancelled,
+                createdDate: Date().addingTimeInterval(-172800),
+                pickupDate: nil,
+                address: address1
             ),
             Donation(
-                id: "DON004", ngoName: "Hope Foundation",
-                ngoLogo: UIImage(systemName: "star.circle.fill"),
+                id: "DON004",
+                ngoName: "Hope Foundation",
+                ngoLogo: UIImage(named: "islamichands"), // ✅ Your Asset image
                 items: [DonationItem(name: "Fresh Bread", quantity: 50)],
-                status: .pending, createdDate: Date().addingTimeInterval(-3600),
-                pickupDate: Date().addingTimeInterval(7200), address: address2
+                status: .pending,
+                createdDate: Date().addingTimeInterval(-3600),
+                pickupDate: Date().addingTimeInterval(7200),
+                address: address2
             ),
             Donation(
-                id: "DON005", ngoName: "Care & Share",
-                ngoLogo: UIImage(systemName: "hands.sparkles.fill"),
+                id: "DON005",
+                ngoName: "Care & Share",
+                ngoLogo: UIImage(named: "islamichands"), // ✅ Your Asset image
                 items: [DonationItem(name: "Fruit Basket", quantity: 10)],
-                status: .pickedUp, createdDate: Date().addingTimeInterval(-259200),
-                pickupDate: Date().addingTimeInterval(-172800), address: address1
+                status: .pickedUp,
+                createdDate: Date().addingTimeInterval(-259200),
+                pickupDate: Date().addingTimeInterval(-172800),
+                address: address1
             )
         ]
     }

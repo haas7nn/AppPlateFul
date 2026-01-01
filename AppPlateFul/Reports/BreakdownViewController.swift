@@ -5,4 +5,12 @@
 //  Created by Hassan Fardan on 01/01/2026.
 //
 
-import Foundation
+import UIKit
+
+class BreakdownViewController: UIViewController {
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        title = "Breakdown"
+    }
+}

@@ -1,30 +1,402 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17150" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="abc11">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17122"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="s0d-6b-0kx">
+        <scene sceneID="abc10">
             <objects>
-                <viewController id="Y6W-OH-hqX" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="abc11" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="abc12">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="abc20" kind="relationship" relationship="rootViewController" id="abc13"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="abc14" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-700" y="0"/>
+        </scene>
+        <scene sceneID="abc19">
+            <objects>
+                <viewController id="abc20" customClass="ReportsAnalyticsViewController" customModule="AppPlateFul" customModuleProvider="target" sceneMemberID="viewController" storyboardIdentifier="ReportsAnalyticsViewController">
+                    <view key="view" contentMode="scaleToFill" id="abc21">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="panel1">
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="card1">
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Total Donations" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lbl1a">
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                                <color key="textColor" red="0" green="0" blue="0" alpha="1"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="1,234" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lbl1b">
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="44"/>
+                                                <color key="textColor" red="0.898" green="0.224" blue="0.208" alpha="1"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="all time" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lbl1c">
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                                                <color key="textColor" red="0.5" green="0.5" blue="0.5" alpha="1"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1"/>
+                                        <constraints>
+                                            <constraint firstItem="lbl1a" firstAttribute="top" secondItem="card1" secondAttribute="top" constant="14" id="c1a"/>
+                                            <constraint firstItem="lbl1a" firstAttribute="centerX" secondItem="card1" secondAttribute="centerX" id="c1b"/>
+                                            <constraint firstItem="lbl1b" firstAttribute="top" secondItem="lbl1a" secondAttribute="bottom" constant="10" id="c1c"/>
+                                            <constraint firstItem="lbl1b" firstAttribute="centerX" secondItem="card1" secondAttribute="centerX" id="c1d"/>
+                                            <constraint firstItem="lbl1c" firstAttribute="top" secondItem="lbl1b" secondAttribute="bottom" constant="8" id="c1e"/>
+                                            <constraint firstItem="lbl1c" firstAttribute="centerX" secondItem="card1" secondAttribute="centerX" id="c1f"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="24"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="card2">
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Completed Deliveries" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lbl2a">
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
+                                                <color key="textColor" red="0" green="0" blue="0" alpha="1"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="892" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lbl2b">
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="44"/>
+                                                <color key="textColor" red="0.898" green="0.224" blue="0.208" alpha="1"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="this month" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lbl2c">
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                                                <color key="textColor" red="0.5" green="0.5" blue="0.5" alpha="1"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1"/>
+                                        <constraints>
+                                            <constraint firstItem="lbl2a" firstAttribute="top" secondItem="card2" secondAttribute="top" constant="14" id="c2a"/>
+                                            <constraint firstItem="lbl2a" firstAttribute="centerX" secondItem="card2" secondAttribute="centerX" id="c2b"/>
+                                            <constraint firstItem="lbl2b" firstAttribute="top" secondItem="lbl2a" secondAttribute="bottom" constant="10" id="c2c"/>
+                                            <constraint firstItem="lbl2b" firstAttribute="centerX" secondItem="card2" secondAttribute="centerX" id="c2d"/>
+                                            <constraint firstItem="lbl2c" firstAttribute="top" secondItem="lbl2b" secondAttribute="bottom" constant="8" id="c2e"/>
+                                            <constraint firstItem="lbl2c" firstAttribute="centerX" secondItem="card2" secondAttribute="centerX" id="c2f"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="24"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="card3">
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Canceled Donations" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lbl3a">
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                                <color key="textColor" red="0" green="0" blue="0" alpha="1"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="56" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lbl3b">
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="44"/>
+                                                <color key="textColor" red="0.898" green="0.224" blue="0.208" alpha="1"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="this month" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lbl3c">
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                                                <color key="textColor" red="0.5" green="0.5" blue="0.5" alpha="1"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1"/>
+                                        <constraints>
+                                            <constraint firstItem="lbl3a" firstAttribute="top" secondItem="card3" secondAttribute="top" constant="14" id="c3a"/>
+                                            <constraint firstItem="lbl3a" firstAttribute="centerX" secondItem="card3" secondAttribute="centerX" id="c3b"/>
+                                            <constraint firstItem="lbl3b" firstAttribute="top" secondItem="lbl3a" secondAttribute="bottom" constant="10" id="c3c"/>
+                                            <constraint firstItem="lbl3b" firstAttribute="centerX" secondItem="card3" secondAttribute="centerX" id="c3d"/>
+                                            <constraint firstItem="lbl3c" firstAttribute="top" secondItem="lbl3b" secondAttribute="bottom" constant="8" id="c3e"/>
+                                            <constraint firstItem="lbl3c" firstAttribute="centerX" secondItem="card3" secondAttribute="centerX" id="c3f"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="24"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="card4">
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Active NGOs" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lbl4a">
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                                <color key="textColor" red="0" green="0" blue="0" alpha="1"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="24" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lbl4b">
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="44"/>
+                                                <color key="textColor" red="0.898" green="0.224" blue="0.208" alpha="1"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="registered" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lbl4c">
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                                                <color key="textColor" red="0.5" green="0.5" blue="0.5" alpha="1"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1"/>
+                                        <constraints>
+                                            <constraint firstItem="lbl4a" firstAttribute="top" secondItem="card4" secondAttribute="top" constant="14" id="c4a"/>
+                                            <constraint firstItem="lbl4a" firstAttribute="centerX" secondItem="card4" secondAttribute="centerX" id="c4b"/>
+                                            <constraint firstItem="lbl4b" firstAttribute="top" secondItem="lbl4a" secondAttribute="bottom" constant="10" id="c4c"/>
+                                            <constraint firstItem="lbl4b" firstAttribute="centerX" secondItem="card4" secondAttribute="centerX" id="c4d"/>
+                                            <constraint firstItem="lbl4c" firstAttribute="top" secondItem="lbl4b" secondAttribute="bottom" constant="8" id="c4e"/>
+                                            <constraint firstItem="lbl4c" firstAttribute="centerX" secondItem="card4" secondAttribute="centerX" id="c4f"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="24"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="card5">
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Active Users" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lbl5a">
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                                <color key="textColor" red="0" green="0" blue="0" alpha="1"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="3,456" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lbl5b">
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="44"/>
+                                                <color key="textColor" red="0.898" green="0.224" blue="0.208" alpha="1"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="online now" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lbl5c">
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                                                <color key="textColor" red="0.5" green="0.5" blue="0.5" alpha="1"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1"/>
+                                        <constraints>
+                                            <constraint firstItem="lbl5a" firstAttribute="top" secondItem="card5" secondAttribute="top" constant="14" id="c5a"/>
+                                            <constraint firstItem="lbl5a" firstAttribute="centerX" secondItem="card5" secondAttribute="centerX" id="c5b"/>
+                                            <constraint firstItem="lbl5b" firstAttribute="top" secondItem="lbl5a" secondAttribute="bottom" constant="10" id="c5c"/>
+                                            <constraint firstItem="lbl5b" firstAttribute="centerX" secondItem="card5" secondAttribute="centerX" id="c5d"/>
+                                            <constraint firstItem="lbl5c" firstAttribute="top" secondItem="lbl5b" secondAttribute="bottom" constant="8" id="c5e"/>
+                                            <constraint firstItem="lbl5c" firstAttribute="centerX" secondItem="card5" secondAttribute="centerX" id="c5f"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="24"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="btn1">
+                                        <color key="backgroundColor" red="0.718" green="0.784" blue="0.604" alpha="1"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" title="View Detailed Reports">
+                                            <color key="titleColor" red="0" green="0.478" blue="1" alpha="1"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="24"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="viewDetailedReportsTapped:" destination="abc20" eventType="touchUpInside" id="btnact1"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.969" green="0.953" blue="0.929" alpha="1"/>
+                                <constraints>
+                                    <constraint firstItem="card1" firstAttribute="top" secondItem="panel1" secondAttribute="top" constant="20" id="p1"/>
+                                    <constraint firstItem="card1" firstAttribute="leading" secondItem="panel1" secondAttribute="leading" constant="16" id="p2"/>
+                                    <constraint firstItem="card1" firstAttribute="height" constant="130" id="p3"/>
+                                    <constraint firstItem="card2" firstAttribute="top" secondItem="panel1" secondAttribute="top" constant="20" id="p4"/>
+                                    <constraint firstAttribute="trailing" secondItem="card2" secondAttribute="trailing" constant="16" id="p5"/>
+                                    <constraint firstItem="card2" firstAttribute="leading" secondItem="card1" secondAttribute="trailing" constant="16" id="p6"/>
+                                    <constraint firstItem="card1" firstAttribute="width" secondItem="card2" secondAttribute="width" id="p7"/>
+                                    <constraint firstItem="card2" firstAttribute="height" constant="130" id="p8"/>
+                                    <constraint firstItem="card3" firstAttribute="top" secondItem="card1" secondAttribute="bottom" constant="16" id="p9"/>
+                                    <constraint firstItem="card3" firstAttribute="leading" secondItem="panel1" secondAttribute="leading" constant="16" id="p10"/>
+                                    <constraint firstItem="card3" firstAttribute="height" constant="130" id="p11"/>
+                                    <constraint firstItem="card4" firstAttribute="top" secondItem="card2" secondAttribute="bottom" constant="16" id="p12"/>
+                                    <constraint firstAttribute="trailing" secondItem="card4" secondAttribute="trailing" constant="16" id="p13"/>
+                                    <constraint firstItem="card4" firstAttribute="leading" secondItem="card3" secondAttribute="trailing" constant="16" id="p14"/>
+                                    <constraint firstItem="card3" firstAttribute="width" secondItem="card4" secondAttribute="width" id="p15"/>
+                                    <constraint firstItem="card4" firstAttribute="height" constant="130" id="p16"/>
+                                    <constraint firstItem="card5" firstAttribute="top" secondItem="card3" secondAttribute="bottom" constant="16" id="p17"/>
+                                    <constraint firstItem="card5" firstAttribute="leading" secondItem="panel1" secondAttribute="leading" constant="16" id="p18"/>
+                                    <constraint firstItem="card5" firstAttribute="height" constant="130" id="p19"/>
+                                    <constraint firstItem="btn1" firstAttribute="top" secondItem="card4" secondAttribute="bottom" constant="16" id="p20"/>
+                                    <constraint firstAttribute="trailing" secondItem="btn1" secondAttribute="trailing" constant="16" id="p21"/>
+                                    <constraint firstItem="btn1" firstAttribute="leading" secondItem="card5" secondAttribute="trailing" constant="16" id="p22"/>
+                                    <constraint firstItem="card5" firstAttribute="width" secondItem="btn1" secondAttribute="width" id="p23"/>
+                                    <constraint firstItem="btn1" firstAttribute="height" constant="130" id="p24"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="35"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="safe1"/>
+                        <color key="backgroundColor" red="0.969" green="0.953" blue="0.929" alpha="1"/>
+                        <constraints>
+                            <constraint firstItem="panel1" firstAttribute="top" secondItem="safe1" secondAttribute="top" constant="10" id="v1"/>
+                            <constraint firstItem="panel1" firstAttribute="leading" secondItem="safe1" secondAttribute="leading" constant="16" id="v2"/>
+                            <constraint firstItem="safe1" firstAttribute="trailing" secondItem="panel1" secondAttribute="trailing" constant="16" id="v3"/>
+                            <constraint firstItem="safe1" firstAttribute="bottom" secondItem="panel1" secondAttribute="bottom" constant="20" id="v4"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Reports &amp; Analytics" id="nav1"/>
+                    <connections>
+                        <segue destination="abc30" kind="push" identifier="ShowBreakdown" id="seg1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="abc22" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="0" y="0"/>
+        </scene>
+        <scene sceneID="abc29">
+            <objects>
+                <viewController id="abc30" customClass="BreakdownViewController" customModule="AppPlateFul" customModuleProvider="target" sceneMemberID="viewController" storyboardIdentifier="BreakdownViewController">
+                    <view key="view" contentMode="scaleToFill" id="abc31">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="panel2">
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bcard1">
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Trending Item Types" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="blbl1a">
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                                <color key="textColor" red="0" green="0" blue="0" alpha="1"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="1. Canned Goods&#10;2. Fresh Produce&#10;3. Dairy Products&#10;4. Baked Goods&#10;5. Beverages" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="blbl1b">
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                                                <color key="textColor" red="0.518" green="0.557" blue="0.439" alpha="1"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1"/>
+                                        <constraints>
+                                            <constraint firstItem="blbl1a" firstAttribute="top" secondItem="bcard1" secondAttribute="top" constant="14" id="bc1a"/>
+                                            <constraint firstItem="blbl1a" firstAttribute="centerX" secondItem="bcard1" secondAttribute="centerX" id="bc1b"/>
+                                            <constraint firstItem="blbl1b" firstAttribute="top" secondItem="blbl1a" secondAttribute="bottom" constant="12" id="bc1c"/>
+                                            <constraint firstItem="blbl1b" firstAttribute="leading" secondItem="bcard1" secondAttribute="leading" constant="14" id="bc1d"/>
+                                            <constraint firstAttribute="trailing" secondItem="blbl1b" secondAttribute="trailing" constant="14" id="bc1e"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="24"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bcard2">
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Top 3 NGOs Ranking" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="blbl2a">
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                                <color key="textColor" red="0" green="0" blue="0" alpha="1"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="1. Food Bank BH&#10;2. Red Crescent&#10;3. Charity Fund" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="blbl2b">
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                                                <color key="textColor" red="0.518" green="0.557" blue="0.439" alpha="1"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1"/>
+                                        <constraints>
+                                            <constraint firstItem="blbl2a" firstAttribute="top" secondItem="bcard2" secondAttribute="top" constant="14" id="bc2a"/>
+                                            <constraint firstItem="blbl2a" firstAttribute="centerX" secondItem="bcard2" secondAttribute="centerX" id="bc2b"/>
+                                            <constraint firstItem="blbl2b" firstAttribute="top" secondItem="blbl2a" secondAttribute="bottom" constant="12" id="bc2c"/>
+                                            <constraint firstItem="blbl2b" firstAttribute="leading" secondItem="bcard2" secondAttribute="leading" constant="14" id="bc2d"/>
+                                            <constraint firstAttribute="trailing" secondItem="blbl2b" secondAttribute="trailing" constant="14" id="bc2e"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="24"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bcard3">
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Top 4 Donating Users" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="blbl3a">
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
+                                                <color key="textColor" red="0" green="0" blue="0" alpha="1"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="1. Ahmed Ali&#10;2. Sara Mohammed&#10;3. Fatima Hassan&#10;4. Khalid Omar" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="blbl3b">
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                                                <color key="textColor" red="0.518" green="0.557" blue="0.439" alpha="1"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1"/>
+                                        <constraints>
+                                            <constraint firstItem="blbl3a" firstAttribute="top" secondItem="bcard3" secondAttribute="top" constant="14" id="bc3a"/>
+                                            <constraint firstItem="blbl3a" firstAttribute="centerX" secondItem="bcard3" secondAttribute="centerX" id="bc3b"/>
+                                            <constraint firstItem="blbl3b" firstAttribute="top" secondItem="blbl3a" secondAttribute="bottom" constant="12" id="bc3c"/>
+                                            <constraint firstItem="blbl3b" firstAttribute="leading" secondItem="bcard3" secondAttribute="leading" constant="14" id="bc3d"/>
+                                            <constraint firstAttribute="trailing" secondItem="blbl3b" secondAttribute="trailing" constant="14" id="bc3e"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="24"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bcard4">
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Top 3 Donators" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="blbl4a">
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                                <color key="textColor" red="0" green="0" blue="0" alpha="1"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="1. Al Jazira Group&#10;2. Gulf Hotels&#10;3. Delmon Bakery" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="blbl4b">
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                                                <color key="textColor" red="0.518" green="0.557" blue="0.439" alpha="1"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1"/>
+                                        <constraints>
+                                            <constraint firstItem="blbl4a" firstAttribute="top" secondItem="bcard4" secondAttribute="top" constant="14" id="bc4a"/>
+                                            <constraint firstItem="blbl4a" firstAttribute="centerX" secondItem="bcard4" secondAttribute="centerX" id="bc4b"/>
+                                            <constraint firstItem="blbl4b" firstAttribute="top" secondItem="blbl4a" secondAttribute="bottom" constant="12" id="bc4c"/>
+                                            <constraint firstItem="blbl4b" firstAttribute="leading" secondItem="bcard4" secondAttribute="leading" constant="14" id="bc4d"/>
+                                            <constraint firstAttribute="trailing" secondItem="blbl4b" secondAttribute="trailing" constant="14" id="bc4e"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="24"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" red="0.969" green="0.953" blue="0.929" alpha="1"/>
+                                <constraints>
+                                    <constraint firstItem="bcard1" firstAttribute="top" secondItem="panel2" secondAttribute="top" constant="20" id="bp1"/>
+                                    <constraint firstItem="bcard1" firstAttribute="leading" secondItem="panel2" secondAttribute="leading" constant="16" id="bp2"/>
+                                    <constraint firstItem="bcard1" firstAttribute="height" constant="180" id="bp3"/>
+                                    <constraint firstItem="bcard2" firstAttribute="top" secondItem="panel2" secondAttribute="top" constant="20" id="bp4"/>
+                                    <constraint firstAttribute="trailing" secondItem="bcard2" secondAttribute="trailing" constant="16" id="bp5"/>
+                                    <constraint firstItem="bcard2" firstAttribute="leading" secondItem="bcard1" secondAttribute="trailing" constant="16" id="bp6"/>
+                                    <constraint firstItem="bcard1" firstAttribute="width" secondItem="bcard2" secondAttribute="width" id="bp7"/>
+                                    <constraint firstItem="bcard2" firstAttribute="height" constant="180" id="bp8"/>
+                                    <constraint firstItem="bcard3" firstAttribute="top" secondItem="bcard1" secondAttribute="bottom" constant="16" id="bp9"/>
+                                    <constraint firstItem="bcard3" firstAttribute="leading" secondItem="panel2" secondAttribute="leading" constant="16" id="bp10"/>
+                                    <constraint firstItem="bcard3" firstAttribute="height" constant="180" id="bp11"/>
+                                    <constraint firstItem="bcard4" firstAttribute="top" secondItem="bcard2" secondAttribute="bottom" constant="16" id="bp12"/>
+                                    <constraint firstAttribute="trailing" secondItem="bcard4" secondAttribute="trailing" constant="16" id="bp13"/>
+                                    <constraint firstItem="bcard4" firstAttribute="leading" secondItem="bcard3" secondAttribute="trailing" constant="16" id="bp14"/>
+                                    <constraint firstItem="bcard3" firstAttribute="width" secondItem="bcard4" secondAttribute="width" id="bp15"/>
+                                    <constraint firstItem="bcard4" firstAttribute="height" constant="180" id="bp16"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="35"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="safe2"/>
+                        <color key="backgroundColor" red="0.969" green="0.953" blue="0.929" alpha="1"/>
+                        <constraints>
+                            <constraint firstItem="panel2" firstAttribute="top" secondItem="safe2" secondAttribute="top" constant="10" id="bv1"/>
+                            <constraint firstItem="panel2" firstAttribute="leading" secondItem="safe2" secondAttribute="leading" constant="16" id="bv2"/>
+                            <constraint firstItem="safe2" firstAttribute="trailing" secondItem="panel2" secondAttribute="trailing" constant="16" id="bv3"/>
+                            <constraint firstItem="panel2" firstAttribute="height" constant="450" id="bv4"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Breakdown" id="nav2"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="abc32" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="700" y="0"/>
         </scene>
     </scenes>
-    <resources>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-    </resources>
 </document>

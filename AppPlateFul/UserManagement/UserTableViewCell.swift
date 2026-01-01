@@ -1,24 +1,21 @@
-//
-//  UserTableViewCell.swift
-//  AppPlateFul
-//
-//  Created by Hassan Fardan on 29/12/2025.
-//
-
 import UIKit
 
 class UserTableViewCell: UITableViewCell {
     
-    // Use optional (?) to prevent crashes if outlets aren't connected
     @IBOutlet weak var avatarImageView: UIImageView?
     @IBOutlet weak var nameLabel: UILabel?
     @IBOutlet weak var statusLabel: UILabel?
     @IBOutlet weak var starButton: UIButton?
     @IBOutlet weak var infoButton: UIButton?
     
+    weak var delegate: UserCellDelegate?
+    var indexPath: IndexPath!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         setupUI()
+        starButton?.addTarget(self, action: #selector(starButtonTapped), for: .touchUpInside)
+        infoButton?.addTarget(self, action: #selector(infoButtonTapped), for: .touchUpInside)
     }
     
     private func setupUI() {
@@ -26,28 +23,29 @@ class UserTableViewCell: UITableViewCell {
         avatarImageView?.clipsToBounds = true
     }
     
+    @objc private func starButtonTapped() {
+        delegate?.didTapStarButton(at: indexPath)
+    }
+    
+    @objc private func infoButtonTapped() {
+        delegate?.didTapInfoButton(at: indexPath)
+    }
+    
     func configure(name: String, status: String, isStarred: Bool = false) {
         nameLabel?.text = name
         statusLabel?.text = status
         
-        // Status color
         switch status.lowercased() {
-        case "active":
-            statusLabel?.textColor = .systemGreen
-        case "inactive":
-            statusLabel?.textColor = .systemRed
-        case "pending":
-            statusLabel?.textColor = .systemOrange
-        default:
-            statusLabel?.textColor = .secondaryLabel
+        case "active": statusLabel?.textColor = .systemGreen
+        case "inactive": statusLabel?.textColor = .systemRed
+        case "pending": statusLabel?.textColor = .systemOrange
+        default: statusLabel?.textColor = .secondaryLabel
         }
         
-        // Star button
         let starImage = isStarred ? "star.fill" : "star"
         starButton?.setImage(UIImage(systemName: starImage), for: .normal)
         starButton?.tintColor = isStarred ? .systemYellow : .systemGray
         
-        // Default avatar
         avatarImageView?.image = UIImage(systemName: "person.circle.fill")
         avatarImageView?.tintColor = .systemGray2
     }
