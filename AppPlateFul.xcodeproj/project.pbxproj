@@ -7,12 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A09277942F033967005879CD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A09277932F033967005879CD /* GoogleService-Info.plist */; };
-		A09277962F0339D4005879CD /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09277952F0339D4005879CD /* LoginViewController.swift */; };
-		A09277982F033A0E005879CD /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09277972F033A0E005879CD /* SignupViewController.swift */; };
-		A092779B2F033BD4005879CD /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = A092779A2F033BD4005879CD /* FirebaseAnalytics */; };
-		A092779D2F033BD4005879CD /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = A092779C2F033BD4005879CD /* FirebaseAuth */; };
-		A092779F2F033BD4005879CD /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = A092779E2F033BD4005879CD /* FirebaseFirestore */; };
 		9C3BC9432EF9783200310847 /* DonationStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3BC9422EF9783200310847 /* DonationStatus.swift */; };
 		9C3BC9462EF97B8600310847 /* PickupSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3BC9452EF97B8600310847 /* PickupSchedule.swift */; };
 		9C3BC9482EF97D4900310847 /* Donation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3BC9472EF97D4900310847 /* Donation.swift */; };
@@ -67,9 +61,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		A09277932F033967005879CD /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		A09277952F0339D4005879CD /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		A09277972F033A0E005879CD /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		9C3BC9422EF9783200310847 /* DonationStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonationStatus.swift; sourceTree = "<group>"; };
 		9C3BC9452EF97B8600310847 /* PickupSchedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickupSchedule.swift; sourceTree = "<group>"; };
 		9C3BC9472EF97D4900310847 /* Donation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Donation.swift; sourceTree = "<group>"; };
@@ -115,9 +106,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A092779B2F033BD4005879CD /* FirebaseAnalytics in Frameworks */,
-				A092779D2F033BD4005879CD /* FirebaseAuth in Frameworks */,
-				A092779F2F033BD4005879CD /* FirebaseFirestore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -210,12 +198,9 @@
 				D54C77132EF736C40072F713 /* SceneDelegate.swift */,
 				D54C77152EF736C40072F713 /* ViewController.swift */,
 				D54C77172EF736C40072F713 /* Main.storyboard */,
-				A09277952F0339D4005879CD /* LoginViewController.swift */,
 				D54C771A2EF736C60072F713 /* Assets.xcassets */,
 				D54C771C2EF736C60072F713 /* LaunchScreen.storyboard */,
-				A09277932F033967005879CD /* GoogleService-Info.plist */,
 				D54C771F2EF736C60072F713 /* Info.plist */,
-				A09277972F033A0E005879CD /* SignupViewController.swift */,
 				9C7195872F0094B10072FC60 /* NGOvc */,
 				9C3BC9522EFCA6CA00310847 /* TableCells */,
 				9C3BC9492EF97DC000310847 /* Services */,
@@ -337,9 +322,6 @@
 				Base,
 			);
 			mainGroup = D54C77052EF736C40072F713;
-			packageReferences = (
-				A09277992F033BD4005879CD /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
-			);
 			productRefGroup = D54C770F2EF736C40072F713 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -357,7 +339,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				D54C771B2EF736C60072F713 /* Assets.xcassets in Resources */,
-				A09277942F033967005879CD /* GoogleService-Info.plist in Resources */,
 				9C3BC94D2EFC93D800310847 /* NgoFlow.storyboard in Resources */,
 				D54C771E2EF736C60072F713 /* Base in Resources */,
 				D54C77192EF736C40072F713 /* Base in Resources */,
@@ -387,14 +368,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A09277962F0339D4005879CD /* LoginViewController.swift in Sources */,
 				9C56C2E62F05931300C80966 /* User.swift in Sources */,
 				9C71958D2F016E360072FC60 /* toBeCollectedViewController.swift in Sources */,
 				9C3BC94F2EFCA64200310847 /* AvailableDonationsViewController.swift in Sources */,
 				9C56C2DA2F04A93300C80966 /* DonationSchedulingPageViewController.swift in Sources */,
 				9C56C2DE2F05750900C80966 /* NotificationsTableViewCell.swift in Sources */,
 				D54C77162EF736C40072F713 /* ViewController.swift in Sources */,
-				A09277982F033A0E005879CD /* SignupViewController.swift in Sources */,
 				D54C77122EF736C40072F713 /* AppDelegate.swift in Sources */,
 				9C3BC9542EFCC14300310847 /* AcceptAvailableDonationDetailsViewController.swift in Sources */,
 				9C56C2E22F058C8D00C80966 /* AppNotification.swift in Sources */,
@@ -595,7 +574,6 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = D9R96VGCH9;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AppPlateFul/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -623,7 +601,6 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = D9R96VGCH9;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AppPlateFul/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -752,35 +729,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		A09277992F033BD4005879CD /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 12.7.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		A092779A2F033BD4005879CD /* FirebaseAnalytics */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = A09277992F033BD4005879CD /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseAnalytics;
-		};
-		A092779C2F033BD4005879CD /* FirebaseAuth */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = A09277992F033BD4005879CD /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseAuth;
-		};
-		A092779E2F033BD4005879CD /* FirebaseFirestore */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = A09277992F033BD4005879CD /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseFirestore;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = D54C77062EF736C40072F713 /* Project object */;
 }
