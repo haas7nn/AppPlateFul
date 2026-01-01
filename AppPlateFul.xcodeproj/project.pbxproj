@@ -3,11 +3,10 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D52820602EFC479D009824FC /* UserManagement.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D528205F2EFC479D009824FC /* UserManagement.storyboard */; };
 		D54C77122EF736C40072F713 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54C77112EF736C40072F713 /* AppDelegate.swift */; };
 		D54C77142EF736C40072F713 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54C77132EF736C40072F713 /* SceneDelegate.swift */; };
 		D54C77192EF736C40072F713 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = D54C77182EF736C40072F713 /* Base */; };
@@ -16,16 +15,7 @@
 		D54C77292EF736C60072F713 /* AppPlateFulTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54C77282EF736C60072F713 /* AppPlateFulTests.swift */; };
 		D54C77332EF736C60072F713 /* AppPlateFulUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54C77322EF736C60072F713 /* AppPlateFulUITests.swift */; };
 		D54C77352EF736C60072F713 /* AppPlateFulUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54C77342EF736C60072F713 /* AppPlateFulUITestsLaunchTests.swift */; };
-		D553979D2EF73D4600D81C9C /* AdminDashboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D553979C2EF73D4600D81C9C /* AdminDashboard.storyboard */; };
-		D55397A12EF7434A00D81C9C /* AdminDashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55397A02EF7434A00D81C9C /* AdminDashboardViewController.swift */; };
-		D55CB6C12EFDA5A600A3D439 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55CB6C02EFDA5A600A3D439 /* User.swift */; };
-		D55CB6C32EFDA5B700A3D439 /* UserCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55CB6C22EFDA5B700A3D439 /* UserCellDelegate.swift */; };
 		D5F169882EFDACAA0015DFDE /* Notifications.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D5F169872EFDACAA0015DFDE /* Notifications.storyboard */; };
-		D5F84D342F003EA80034CC8D /* NGOReviewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5F84D332F003EA80034CC8D /* NGOReviewItem.swift */; };
-		D5F84D362F003EC70034CC8D /* NGOReviewListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5F84D352F003EC70034CC8D /* NGOReviewListViewController.swift */; };
-		D5F84D382F003F120034CC8D /* NGOReviewDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5F84D372F003F120034CC8D /* NGOReviewDetailViewController.swift */; };
-		D5F84D3A2F0040740034CC8D /* NGOReview.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D5F84D392F0040740034CC8D /* NGOReview.storyboard */; };
-		D5F84D3C2F0045920034CC8D /* NGOReview.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D5F84D3B2F0045920034CC8D /* NGOReview.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,7 +36,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		D528205F2EFC479D009824FC /* UserManagement.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UserManagement.storyboard; sourceTree = "<group>"; };
 		D54C770E2EF736C40072F713 /* AppPlateFul.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppPlateFul.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D54C77112EF736C40072F713 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D54C77132EF736C40072F713 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -59,17 +48,17 @@
 		D54C772E2EF736C60072F713 /* AppPlateFulUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AppPlateFulUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D54C77322EF736C60072F713 /* AppPlateFulUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppPlateFulUITests.swift; sourceTree = "<group>"; };
 		D54C77342EF736C60072F713 /* AppPlateFulUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppPlateFulUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		D553979C2EF73D4600D81C9C /* AdminDashboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AdminDashboard.storyboard; sourceTree = "<group>"; };
-		D55397A02EF7434A00D81C9C /* AdminDashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminDashboardViewController.swift; sourceTree = "<group>"; };
-		D55CB6C02EFDA5A600A3D439 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		D55CB6C22EFDA5B700A3D439 /* UserCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCellDelegate.swift; sourceTree = "<group>"; };
 		D5F169872EFDACAA0015DFDE /* Notifications.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Notifications.storyboard; sourceTree = "<group>"; };
-		D5F84D332F003EA80034CC8D /* NGOReviewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NGOReviewItem.swift; sourceTree = "<group>"; };
-		D5F84D352F003EC70034CC8D /* NGOReviewListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NGOReviewListViewController.swift; sourceTree = "<group>"; };
-		D5F84D372F003F120034CC8D /* NGOReviewDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NGOReviewDetailViewController.swift; sourceTree = "<group>"; };
-		D5F84D392F0040740034CC8D /* NGOReview.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NGOReview.storyboard; sourceTree = "<group>"; };
-		D5F84D3B2F0045920034CC8D /* NGOReview.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NGOReview.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		D58F046F2F00585B0080DF27 /* Reports */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Reports; sourceTree = "<group>"; };
+		D58F04942F0600090080DF27 /* Privacy Policy */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = "Privacy Policy"; sourceTree = "<group>"; };
+		D5F84D472F00522A0034CC8D /* AdminDashboard */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = AdminDashboard; sourceTree = "<group>"; };
+		D5F84D482F00524D0034CC8D /* NGOReview */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = NGOReview; sourceTree = "<group>"; };
+		D5F84D492F0052840034CC8D /* UserManagement */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = UserManagement; sourceTree = "<group>"; };
+		D5F84D4A2F0052AE0034CC8D /* DonationActivity */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = DonationActivity; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		D54C770B2EF736C40072F713 /* Frameworks */ = {
@@ -120,16 +109,12 @@
 		D54C77102EF736C40072F713 /* AppPlateFul */ = {
 			isa = PBXGroup;
 			children = (
-				D553979C2EF73D4600D81C9C /* AdminDashboard.storyboard */,
-				D55397A02EF7434A00D81C9C /* AdminDashboardViewController.swift */,
-				D5F84D332F003EA80034CC8D /* NGOReviewItem.swift */,
-				D5F84D352F003EC70034CC8D /* NGOReviewListViewController.swift */,
-				D5F84D3B2F0045920034CC8D /* NGOReview.storyboard */,
-				D5F84D392F0040740034CC8D /* NGOReview.storyboard */,
-				D5F84D372F003F120034CC8D /* NGOReviewDetailViewController.swift */,
-				D528205F2EFC479D009824FC /* UserManagement.storyboard */,
-				D55CB6C02EFDA5A600A3D439 /* User.swift */,
-				D55CB6C22EFDA5B700A3D439 /* UserCellDelegate.swift */,
+				D5F84D472F00522A0034CC8D /* AdminDashboard */,
+				D5F84D482F00524D0034CC8D /* NGOReview */,
+				D5F84D492F0052840034CC8D /* UserManagement */,
+				D5F84D4A2F0052AE0034CC8D /* DonationActivity */,
+				D58F046F2F00585B0080DF27 /* Reports */,
+				D58F04942F0600090080DF27 /* Privacy Policy */,
 				D54C77112EF736C40072F713 /* AppDelegate.swift */,
 				D54C77132EF736C40072F713 /* SceneDelegate.swift */,
 				D54C771A2EF736C60072F713 /* Assets.xcassets */,
@@ -171,6 +156,14 @@
 			buildRules = (
 			);
 			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				D58F046F2F00585B0080DF27 /* Reports */,
+				D58F04942F0600090080DF27 /* Privacy Policy */,
+				D5F84D472F00522A0034CC8D /* AdminDashboard */,
+				D5F84D482F00524D0034CC8D /* NGOReview */,
+				D5F84D492F0052840034CC8D /* UserManagement */,
+				D5F84D4A2F0052AE0034CC8D /* DonationActivity */,
 			);
 			name = AppPlateFul;
 			productName = AppPlateFul;
@@ -262,13 +255,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				D54C771B2EF736C60072F713 /* Assets.xcassets in Resources */,
-				D5F84D3C2F0045920034CC8D /* NGOReview.storyboard in Resources */,
 				D54C771E2EF736C60072F713 /* Base in Resources */,
 				D54C77192EF736C40072F713 /* Base in Resources */,
 				D5F169882EFDACAA0015DFDE /* Notifications.storyboard in Resources */,
-				D5F84D3A2F0040740034CC8D /* NGOReview.storyboard in Resources */,
-				D553979D2EF73D4600D81C9C /* AdminDashboard.storyboard in Resources */,
-				D52820602EFC479D009824FC /* UserManagement.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,13 +282,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D55CB6C32EFDA5B700A3D439 /* UserCellDelegate.swift in Sources */,
-				D55397A12EF7434A00D81C9C /* AdminDashboardViewController.swift in Sources */,
-				D55CB6C12EFDA5A600A3D439 /* User.swift in Sources */,
 				D54C77122EF736C40072F713 /* AppDelegate.swift in Sources */,
-				D5F84D342F003EA80034CC8D /* NGOReviewItem.swift in Sources */,
-				D5F84D362F003EC70034CC8D /* NGOReviewListViewController.swift in Sources */,
-				D5F84D382F003F120034CC8D /* NGOReviewDetailViewController.swift in Sources */,
 				D54C77142EF736C40072F713 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

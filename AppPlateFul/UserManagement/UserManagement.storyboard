@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="NavigationControllerID">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="24506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="NavigationControllerID">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="24504"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -14,7 +15,7 @@
                 <navigationController storyboardIdentifier="UserManagementNavController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="NavigationControllerID" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="NavBarID">
-                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <rect key="frame" x="0.0" y="118" width="393" height="54"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -35,12 +36,12 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <searchBar contentMode="redraw" placeholder="Search" translatesAutoresizingMaskIntoConstraints="NO" id="SearchBarID">
-                                <rect key="frame" x="0.0" y="103" width="393" height="56"/>
+                                <rect key="frame" x="0.0" y="172" width="393" height="64"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FilterContainerViewID">
-                                <rect key="frame" x="0.0" y="159" width="393" height="50"/>
+                                <rect key="frame" x="0.0" y="236" width="393" height="50"/>
                                 <subviews>
                                     <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FilterButtonID">
                                         <rect key="frame" x="16" y="10" width="80" height="30"/>
@@ -67,7 +68,7 @@
                                 </constraints>
                             </view>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="SegmentedControlID">
-                                <rect key="frame" x="16" y="219" width="361" height="32"/>
+                                <rect key="frame" x="16" y="296" width="361" height="32"/>
                                 <segments>
                                     <segment title="Users"/>
                                     <segment title="NGO"/>
@@ -75,7 +76,7 @@
                                 </segments>
                             </segmentedControl>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="UserTableViewID">
-                                <rect key="frame" x="0.0" y="260" width="393" height="510.33333333333326"/>
+                                <rect key="frame" x="0.0" y="337" width="393" height="399.33333333333326"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="UserCell" rowHeight="80" id="UserCellID" customClass="UserTableViewCell" customModule="AppPlateFul" customModuleProvider="target">
@@ -147,11 +148,18 @@
                                                 <constraint firstItem="StatusLabelID" firstAttribute="top" secondItem="NameLabelID" secondAttribute="bottom" constant="3" id="StatusTopID"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="avatarImageView" destination="AvatarImageViewID" id="avatarOutlet"/>
+                                            <outlet property="infoButton" destination="InfoButtonID" id="infoOutlet"/>
+                                            <outlet property="nameLabel" destination="NameLabelID" id="nameOutlet"/>
+                                            <outlet property="starButton" destination="StarButtonID" id="starOutlet"/>
+                                            <outlet property="statusLabel" destination="StatusLabelID" id="statusOutlet"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No enough data yet" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EmptyStateLabelID">
-                                <rect key="frame" x="16" y="780.33333333333337" width="361" height="17.666666666666629"/>
+                                <rect key="frame" x="16" y="746.33333333333337" width="361" height="17.666666666666629"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                 <color key="textColor" systemColor="tertiaryLabelColor"/>
                                 <nil key="highlightedColor"/>
@@ -200,7 +208,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DetailsScrollViewID">
-                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                                <rect key="frame" x="0.0" y="118" width="393" height="666"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ContentViewID">
                                         <rect key="frame" x="0.0" y="0.0" width="393" height="756.66666666666663"/>
@@ -239,7 +247,7 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="QuickActionsStackID">
-                                                <rect key="frame" x="66.666666666666686" y="173.33333333333334" width="260" height="60"/>
+                                                <rect key="frame" x="66.666666666666686" y="173.33333333333331" width="260" height="60"/>
                                                 <subviews>
                                                     <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CallButtonID">
                                                         <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
@@ -376,7 +384,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ActivitySectionID">
-                                                <rect key="frame" x="16" y="403.66666666666669" width="361" height="165.66666666666669"/>
+                                                <rect key="frame" x="16" y="403.66666666666663" width="361" height="165.66666666666663"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Activity Summary" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ActivityTitleID">
                                                         <rect key="frame" x="16" y="9.9999999999999982" width="140.66666666666666" height="22.333333333333329"/>
@@ -385,7 +393,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ActivityStackID">
-                                                        <rect key="frame" x="16" y="42.333333333333307" width="329" height="113.33333333333331"/>
+                                                        <rect key="frame" x="16" y="42.333333333333364" width="329" height="113.33333333333331"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="DonorTypeRowID">
                                                                 <rect key="frame" x="0.0" y="0.0" width="329" height="22.333333333333332"/>

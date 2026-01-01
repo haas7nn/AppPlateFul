@@ -15,6 +15,16 @@ class AdminDashboardViewController: UIViewController {
         setupUI()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: animated)
+    }
+    
     // MARK: - Setup
     private func setupUI() {
         let buttons = [btn1, btn2, btn3, btn4, btn5]
@@ -31,11 +41,24 @@ class AdminDashboardViewController: UIViewController {
     }
     
     @IBAction func donationActivityTapped(_ sender: UIButton) {
-        showComingSoon(feature: "Donation Activity")
+        let storyboard = UIStoryboard(name: "DonationActivity", bundle: nil)
+        if let donationVC = storyboard.instantiateViewController(withIdentifier: "DonationActivityViewController") as? DonationActivityViewController {
+            navigationController?.pushViewController(donationVC, animated: true)
+        }
     }
     
     @IBAction func manageUsersTapped(_ sender: UIButton) {
-        showComingSoon(feature: "Manage Users")
+        let storyboard = UIStoryboard(name: "UserManagement", bundle: nil)
+        
+        // Use the storyboard identifier directly
+        if let navController = storyboard.instantiateViewController(withIdentifier: "UserManagementNavController") as? UINavigationController {
+            navController.modalPresentationStyle = .fullScreen
+            present(navController, animated: true)
+        } else {
+            print("❌ Could not find UserManagementNavController")
+            showComingSoon(feature: "Manage Users")
+        }
+    
     }
     
     @IBAction func manageNGOsTapped(_ sender: UIButton) {
@@ -69,6 +92,4 @@ class AdminDashboardViewController: UIViewController {
         alert.addAction(UIAlertAction(title: "OK", style: .default))
         present(alert, animated: true)
     }
-    
-    
 }
