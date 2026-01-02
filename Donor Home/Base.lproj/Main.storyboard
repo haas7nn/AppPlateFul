@@ -1976,8 +1976,7 @@
                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="confirmButton:" destination="L2G-Kz-27z" eventType="touchUpInside" id="LFj-Qg-7qh"/>
-                                    <action selector="confirmDeliveryButtonTapped:" destination="L2G-Kz-27z" eventType="touchUpInside" id="T68-qh-pQM"/>
+                                    <action selector="confirmDeliveryButtonTapped:" destination="L2G-Kz-27z" eventType="touchUpInside" id="egF-9s-Qjk"/>
                                 </connections>
                             </button>
                         </subviews>
