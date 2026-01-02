@@ -3,73 +3,58 @@ import FirebaseAuth
 
 final class LoginViewController: UIViewController {
 
-    @IBOutlet private weak var emailTextField: UITextField!
-    @IBOutlet private weak var passwordTextField: UITextField!
+    // مربوطة من الستوري بورد
+    @IBOutlet weak var emailTF: UITextField!
+    @IBOutlet weak var passTF: UITextField!
 
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        view.backgroundColor = .systemBackground
+        // إعدادات بسيطة
+        passTF.isSecureTextEntry = true
+        emailTF.autocapitalizationType = .none
 
-        passwordTextField.isSecureTextEntry = true
-        emailTextField.autocapitalizationType = .none
-        passwordTextField.autocapitalizationType = .none
-        emailTextField.keyboardType = .emailAddress
-
-        // Hide  keyboard when tapping outside
-        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        // إخفاء الكيبورد عند اللمس
+        let tap = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
         tap.cancelsTouchesInView = false
         view.addGestureRecognizer(tap)
     }
 
-    @objc private func dismissKeyboard() {
+    @objc func hideKeyboard() {
         view.endEditing(true)
     }
 
-    @IBAction private func didTapLogin(_ sender: UIButton) {
-        let email = (emailTextField.text ?? "").trimmingCharacters(in: .whitespacesAndNewlines)
-        let password = passwordTextField.text ?? ""
+    // زر Login
+    @IBAction func loginTapped(_ sender: UIButton) {
+        hideKeyboard()
 
-        guard email.contains("@"), email.contains(".") else {
-            showAlert("Please enter a valid email address.")
+        let email = emailTF.text ?? ""
+        let pass  = passTF.text ?? ""
+
+        // تحقق بسيط
+        if email.isEmpty || pass.isEmpty {
+            showAlert("Error", "Please enter email and password")
             return
         }
 
-        guard password.count >= 6 else {
-            showAlert("Password must be at least 6 characters.")
-            return
-        }
+        // تسجيل دخول Firebase
+        Auth.auth().signIn(withEmail: email, password: pass) { [weak self] _, error in
+            guard let self = self else { return }
 
-        sender.isEnabled = false
-
-        Auth.auth().signIn(withEmail: email, password: password) { [weak self] _, error in
-            DispatchQueue.main.async {
-                sender.isEnabled = true
-
-                if let error = error {
-                    self?.showAlert(error.localizedDescription)
-                    return
-                }
-
-                self?.goToProfile()
+            if let error = error {
+                self.showAlert("Login Failed", error.localizedDescription)
+            } else {
+                // نجاح
+                self.showAlert("Success", "Welcome Back ✅")
             }
         }
     }
-    @IBAction func Login(_ sender: Any) {
-    }
-    
-    private func goToProfile() {
-        let sb = UIStoryboard(name: "Main", bundle: nil)
-        let vc = sb.instantiateViewController(withIdentifier: "ProfileViewController")
-        navigationController?.setViewControllers([vc], animated: true)
-    }
 
-    private func showAlert(_ message: String) {
-        let alert = UIAlertController(title: "Message", message: message, preferredStyle: .alert)
+    // Alert بسيط
+    func showAlert(_ title: String, _ msg: String) {
+        let alert = UIAlertController(title: title, message: msg, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default))
         present(alert, animated: true)
     }
 }
-
 
