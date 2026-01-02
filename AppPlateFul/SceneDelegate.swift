@@ -12,8 +12,7 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         let window = UIWindow(windowScene: windowScene)
 
-        // ✅ Launch NGO Organization Discovery first
-        // Using your storyboard name exactly as provided.
+        // Launch NGO Organization Discovery first
         let storyboard = UIStoryboard(name: "NgoOrginzationDiscovery", bundle: nil)
 
         guard let initialVC = storyboard.instantiateInitialViewController() else {
@@ -21,7 +20,7 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             return
         }
 
-        // If initial VC is already a UINavigationController, use it directly; otherwise embed
+        // Embed in navigation controller if needed
         if let nav = initialVC as? UINavigationController {
             window.rootViewController = nav
         } else {

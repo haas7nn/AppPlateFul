@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="NavID">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="S1">
+            <objects>
+                <navigationController storyboardIdentifier="PendingNGOsNavController" id="NavID" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="NB1">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="ListID" kind="relationship" relationship="rootViewController" id="Seg1"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FR1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-700" y="0.0"/>
+        </scene>
+        <!--Pending NGO Verifications-->
+        <scene sceneID="S2">
+            <objects>
+                <viewController storyboardIdentifier="PendingNGOListViewController" id="ListID" customClass="PendingNGOListViewController" customModule="AppPlateFul" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="V1">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FilterBtn">
+                                <rect key="frame" x="16" y="113" width="80" height="34"/>
+                                <color key="backgroundColor" systemColor="tertiarySystemFillColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="C1"/>
+                                    <constraint firstAttribute="width" constant="80" id="C2"/>
+                                </constraints>
+                                <state key="normal" title="Filter ▼"/>
+                                <connections>
+                                    <action selector="filterButtonTapped:" destination="ListID" eventType="touchUpInside" id="A1"/>
+                                </connections>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="TableV">
+                                <rect key="frame" x="0.0" y="163" width="393" height="655"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="NGOCell" textLabel="TL1" detailTextLabel="DL1" style="IBUITableViewCellStyleSubtitle" id="Cell1">
+                                        <rect key="frame" x="0.0" y="50" width="393" height="55.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Cell1" id="CV1">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="55.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="TL1">
+                                                    <rect key="frame" x="20" y="8.9999999999999982" width="33" height="20.333333333333332"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="DL1">
+                                                    <rect key="frame" x="19.999999999999996" y="31.333333333333332" width="43.666666666666664" height="14.333333333333334"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No enough data yet" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EmptyLbl">
+                                <rect key="frame" x="121.66666666666667" y="450.66666666666669" width="149.66666666666663" height="20"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" systemColor="secondaryLabelColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="SA1"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="EmptyLbl" firstAttribute="centerY" secondItem="SA1" secondAttribute="centerY" id="C10"/>
+                            <constraint firstItem="FilterBtn" firstAttribute="leading" secondItem="SA1" secondAttribute="leading" constant="16" id="C3"/>
+                            <constraint firstItem="FilterBtn" firstAttribute="top" secondItem="SA1" secondAttribute="top" constant="10" id="C4"/>
+                            <constraint firstItem="TableV" firstAttribute="leading" secondItem="SA1" secondAttribute="leading" id="C5"/>
+                            <constraint firstItem="TableV" firstAttribute="trailing" secondItem="SA1" secondAttribute="trailing" id="C6"/>
+                            <constraint firstItem="TableV" firstAttribute="top" secondItem="FilterBtn" secondAttribute="bottom" constant="16" id="C7"/>
+                            <constraint firstItem="TableV" firstAttribute="bottom" secondItem="SA1" secondAttribute="bottom" id="C8"/>
+                            <constraint firstItem="EmptyLbl" firstAttribute="centerX" secondItem="SA1" secondAttribute="centerX" id="C9"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Pending NGO Verifications" id="NI1"/>
+                    <connections>
+                        <outlet property="emptyStateLabel" destination="EmptyLbl" id="O1"/>
+                        <outlet property="filterButton" destination="FilterBtn" id="O2"/>
+                        <outlet property="tableView" destination="TableV" id="O3"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FR2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="100" y="0.0"/>
+        </scene>
+        <!--NGO Verification Detail-->
+        <scene sceneID="S3">
+            <objects>
+                <viewController storyboardIdentifier="NGODetailViewController" id="DetailID" customClass="NGODetailViewController" customModule="AppPlateFul" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="V2">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="LogoImg">
+                                <rect key="frame" x="16" y="69" width="80" height="80"/>
+                                <color key="tintColor" systemColor="systemBlueColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="80" id="D1"/>
+                                    <constraint firstAttribute="height" constant="80" id="D2"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="NGO Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NameLbl">
+                                <rect key="frame" x="112" y="79" width="109.33333333333331" height="28.333333333333329"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Pending Verification" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="StatusLbl">
+                                <rect key="frame" x="112" y="113.33333333333333" width="106.33333333333331" height="14"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleSubheadline"/>
+                                <color key="textColor" systemColor="systemOrangeColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="122 ratings" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RatingsLbl">
+                                <rect key="frame" x="317.33333333333331" y="102" width="59.666666666666686" height="14"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleSubheadline"/>
+                                <color key="textColor" systemColor="systemGrayColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="📍 Area:" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AreaTitle">
+                                <rect key="frame" x="16" y="169" width="67.333333333333329" height="20"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Sadad, Bahrain" textAlignment="right" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AreaVal">
+                                <rect key="frame" x="262" y="169" width="115" height="20"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" systemColor="secondaryLabelColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="🕐 Hours:" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HoursTitle">
+                                <rect key="frame" x="16" y="209" width="77.666666666666671" height="20"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="9:00AM - 9:00PM" textAlignment="right" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HoursVal">
+                                <rect key="frame" x="239.33333333333337" y="209" width="137.66666666666663" height="20"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" systemColor="secondaryLabelColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="⏱️ Pickup:" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PickupTitle">
+                                <rect key="frame" x="16" y="249" width="83.666666666666671" height="20"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="22 minutes" textAlignment="right" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PickupVal">
+                                <rect key="frame" x="292.33333333333331" y="249" width="84.666666666666686" height="20"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" systemColor="secondaryLabelColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="🎁 Donations:" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DonationsTitle">
+                                <rect key="frame" x="15.999999999999993" y="289" width="109.33333333333331" height="20"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="16 this month" textAlignment="right" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DonationsVal">
+                                <rect key="frame" x="274" y="289" width="103" height="20"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" systemColor="secondaryLabelColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="✅ Reliability:" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ReliabilityTitle">
+                                <rect key="frame" x="15.999999999999993" y="329" width="104.33333333333331" height="20"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="100% on-time" textAlignment="right" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ReliabilityVal">
+                                <rect key="frame" x="269.66666666666669" y="329" width="107.33333333333331" height="20"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" systemColor="systemGreenColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="⭐ Reviews:" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ReviewsTitle">
+                                <rect key="frame" x="16" y="369" width="94.333333333333329" height="20"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="N/A" textAlignment="right" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ReviewsVal">
+                                <rect key="frame" x="349.33333333333331" y="369" width="27.666666666666686" height="20"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" systemColor="secondaryLabelColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ApproveBtn">
+                                <rect key="frame" x="16" y="439" width="361" height="50"/>
+                                <color key="backgroundColor" red="0.20399999999999999" green="0.78000000000000003" blue="0.34899999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="D3"/>
+                                </constraints>
+                                <state key="normal" title="✓ Approve NGO">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="approveButtonTapped:" destination="DetailID" eventType="touchUpInside" id="A2"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RejectBtn">
+                                <rect key="frame" x="16" y="504" width="361" height="50"/>
+                                <color key="backgroundColor" red="0.59999999999999998" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="D4"/>
+                                </constraints>
+                                <state key="normal" title="✗ Reject NGO">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="rejectButtonTapped:" destination="DetailID" eventType="touchUpInside" id="A3"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="SA2"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="StatusLbl" firstAttribute="top" secondItem="NameLbl" secondAttribute="bottom" constant="6" id="D10"/>
+                            <constraint firstItem="SA2" firstAttribute="trailing" secondItem="RatingsLbl" secondAttribute="trailing" constant="16" id="D11"/>
+                            <constraint firstItem="RatingsLbl" firstAttribute="centerY" secondItem="LogoImg" secondAttribute="centerY" id="D12"/>
+                            <constraint firstItem="AreaTitle" firstAttribute="leading" secondItem="SA2" secondAttribute="leading" constant="16" id="D13"/>
+                            <constraint firstItem="AreaTitle" firstAttribute="top" secondItem="LogoImg" secondAttribute="bottom" constant="20" id="D14"/>
+                            <constraint firstItem="SA2" firstAttribute="trailing" secondItem="AreaVal" secondAttribute="trailing" constant="16" id="D15"/>
+                            <constraint firstItem="AreaVal" firstAttribute="centerY" secondItem="AreaTitle" secondAttribute="centerY" id="D16"/>
+                            <constraint firstItem="HoursTitle" firstAttribute="leading" secondItem="AreaTitle" secondAttribute="leading" id="D17"/>
+                            <constraint firstItem="HoursTitle" firstAttribute="top" secondItem="AreaTitle" secondAttribute="bottom" constant="20" id="D18"/>
+                            <constraint firstItem="SA2" firstAttribute="trailing" secondItem="HoursVal" secondAttribute="trailing" constant="16" id="D19"/>
+                            <constraint firstItem="HoursVal" firstAttribute="centerY" secondItem="HoursTitle" secondAttribute="centerY" id="D20"/>
+                            <constraint firstItem="PickupTitle" firstAttribute="leading" secondItem="AreaTitle" secondAttribute="leading" id="D21"/>
+                            <constraint firstItem="PickupTitle" firstAttribute="top" secondItem="HoursTitle" secondAttribute="bottom" constant="20" id="D22"/>
+                            <constraint firstItem="SA2" firstAttribute="trailing" secondItem="PickupVal" secondAttribute="trailing" constant="16" id="D23"/>
+                            <constraint firstItem="PickupVal" firstAttribute="centerY" secondItem="PickupTitle" secondAttribute="centerY" id="D24"/>
+                            <constraint firstItem="DonationsTitle" firstAttribute="leading" secondItem="AreaTitle" secondAttribute="leading" id="D25"/>
+                            <constraint firstItem="DonationsTitle" firstAttribute="top" secondItem="PickupTitle" secondAttribute="bottom" constant="20" id="D26"/>
+                            <constraint firstItem="SA2" firstAttribute="trailing" secondItem="DonationsVal" secondAttribute="trailing" constant="16" id="D27"/>
+                            <constraint firstItem="DonationsVal" firstAttribute="centerY" secondItem="DonationsTitle" secondAttribute="centerY" id="D28"/>
+                            <constraint firstItem="ReliabilityTitle" firstAttribute="leading" secondItem="AreaTitle" secondAttribute="leading" id="D29"/>
+                            <constraint firstItem="ReliabilityTitle" firstAttribute="top" secondItem="DonationsTitle" secondAttribute="bottom" constant="20" id="D30"/>
+                            <constraint firstItem="SA2" firstAttribute="trailing" secondItem="ReliabilityVal" secondAttribute="trailing" constant="16" id="D31"/>
+                            <constraint firstItem="ReliabilityVal" firstAttribute="centerY" secondItem="ReliabilityTitle" secondAttribute="centerY" id="D32"/>
+                            <constraint firstItem="ReviewsTitle" firstAttribute="leading" secondItem="AreaTitle" secondAttribute="leading" id="D33"/>
+                            <constraint firstItem="ReviewsTitle" firstAttribute="top" secondItem="ReliabilityTitle" secondAttribute="bottom" constant="20" id="D34"/>
+                            <constraint firstItem="SA2" firstAttribute="trailing" secondItem="ReviewsVal" secondAttribute="trailing" constant="16" id="D35"/>
+                            <constraint firstItem="ReviewsVal" firstAttribute="centerY" secondItem="ReviewsTitle" secondAttribute="centerY" id="D36"/>
+                            <constraint firstItem="ApproveBtn" firstAttribute="leading" secondItem="SA2" secondAttribute="leading" constant="16" id="D37"/>
+                            <constraint firstItem="SA2" firstAttribute="trailing" secondItem="ApproveBtn" secondAttribute="trailing" constant="16" id="D38"/>
+                            <constraint firstItem="ApproveBtn" firstAttribute="top" secondItem="ReviewsTitle" secondAttribute="bottom" constant="50" id="D39"/>
+                            <constraint firstItem="RejectBtn" firstAttribute="leading" secondItem="SA2" secondAttribute="leading" constant="16" id="D40"/>
+                            <constraint firstItem="SA2" firstAttribute="trailing" secondItem="RejectBtn" secondAttribute="trailing" constant="16" id="D41"/>
+                            <constraint firstItem="RejectBtn" firstAttribute="top" secondItem="ApproveBtn" secondAttribute="bottom" constant="15" id="D42"/>
+                            <constraint firstItem="LogoImg" firstAttribute="leading" secondItem="SA2" secondAttribute="leading" constant="16" id="D5"/>
+                            <constraint firstItem="LogoImg" firstAttribute="top" secondItem="SA2" secondAttribute="top" constant="10" id="D6"/>
+                            <constraint firstItem="NameLbl" firstAttribute="leading" secondItem="LogoImg" secondAttribute="trailing" constant="16" id="D7"/>
+                            <constraint firstItem="NameLbl" firstAttribute="top" secondItem="SA2" secondAttribute="top" constant="20" id="D8"/>
+                            <constraint firstItem="StatusLbl" firstAttribute="leading" secondItem="NameLbl" secondAttribute="leading" id="D9"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="NGO Verification Detail" id="NI2"/>
+                    <connections>
+                        <outlet property="approveButton" destination="ApproveBtn" id="O14"/>
+                        <outlet property="areaValueLabel" destination="AreaVal" id="O8"/>
+                        <outlet property="donationsValueLabel" destination="DonationsVal" id="O11"/>
+                        <outlet property="hoursValueLabel" destination="HoursVal" id="O9"/>
+                        <outlet property="logoImageView" destination="LogoImg" id="O4"/>
+                        <outlet property="nameLabel" destination="NameLbl" id="O5"/>
+                        <outlet property="pickupTimeValueLabel" destination="PickupVal" id="O10"/>
+                        <outlet property="ratingsLabel" destination="RatingsLbl" id="O7"/>
+                        <outlet property="rejectButton" destination="RejectBtn" id="O15"/>
+                        <outlet property="reliabilityValueLabel" destination="ReliabilityVal" id="O12"/>
+                        <outlet property="reviewsValueLabel" destination="ReviewsVal" id="O13"/>
+                        <outlet property="statusLabel" destination="StatusLbl" id="O6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FR3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="900" y="0.0"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="secondaryLabelColor">
+            <color red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGrayColor">
+            <color red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemOrangeColor">
+            <color red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="tertiarySystemFillColor">
+            <color red="0.46274509800000002" green="0.46274509800000002" blue="0.50196078430000002" alpha="0.12" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
