@@ -186,7 +186,14 @@
                             <constraint firstItem="UserTableViewID" firstAttribute="trailing" secondItem="UserListSafeAreaID" secondAttribute="trailing" id="TableTrailingID"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="User Management" id="UserListNavItemID"/>
+                    <navigationItem key="navigationItem" title="User Management" id="UserListNavItemID">
+                        <barButtonItem key="leftBarButtonItem" image="chevron.left" catalog="system" id="BackBarButtonID">
+                            <color key="tintColor" systemColor="labelColor"/>
+                            <connections>
+                                <action selector="backButtonTapped:" destination="UserListViewControllerID" id="BackButtonActionID"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="emptyStateLabel" destination="EmptyStateLabelID" id="EmptyOutletID"/>
                         <outlet property="filterButton" destination="FilterButtonID" id="FilterOutletID"/>
@@ -628,6 +635,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="chevron.left" catalog="system" width="128" height="128"/>
         <image name="envelope.fill" width="128" height="128"/>
         <image name="info.circle" width="128" height="128"/>
         <image name="location.fill" width="128" height="128"/>

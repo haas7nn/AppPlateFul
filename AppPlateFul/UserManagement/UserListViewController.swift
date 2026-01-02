@@ -13,12 +13,34 @@ class UserListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "User Management"
+        setupBackButton()
         tableView.delegate = self
         tableView.dataSource = self
         emptyStateLabel.isHidden = !users.isEmpty
         
         // DEBUG: Check navigation controller
         print("DEBUG viewDidLoad: navigationController = \(String(describing: navigationController))")
+    }
+    
+    // MARK: - Setup
+    private func setupBackButton() {
+        let backButton = UIBarButtonItem(
+            image: UIImage(systemName: "chevron.left"),
+            style: .plain,
+            target: self,
+            action: #selector(backButtonTapped)
+        )
+        backButton.tintColor = .label
+        navigationItem.leftBarButtonItem = backButton
+    }
+    
+    // MARK: - Actions
+    @objc private func backButtonTapped() {
+        if let navigationController = navigationController {
+            navigationController.popViewController(animated: true)
+        } else {
+            dismiss(animated: true, completion: nil)
+        }
     }
     
     private func navigateToDetails(for indexPath: IndexPath) {

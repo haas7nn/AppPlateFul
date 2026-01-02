@@ -81,7 +81,96 @@
 		D5F169872EFDACAA0015DFDE /* Notifications.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Notifications.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		5C8053042F081F2500ACF25F /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				FavoriteNGO.swift,
+				FavoriteNGOCell.swift,
+				FavoriteNGODetailsViewController.swift,
+				FavoriteNGOs.storyboard,
+				FavoriteNGOsViewController.swift,
+			);
+			target = D54C77232EF736C60072F713 /* AppPlateFulTests */;
+		};
+		5C8053052F081F2500ACF25F /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				FavoriteNGO.swift,
+				FavoriteNGOCell.swift,
+				FavoriteNGODetailsViewController.swift,
+				FavoriteNGOs.storyboard,
+				FavoriteNGOsViewController.swift,
+			);
+			target = D54C772D2EF736C60072F713 /* AppPlateFulUITests */;
+		};
+		5C8053082F081FAB00ACF25F /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				AddReviewViewController.swift,
+				DiscoveryNGO.swift,
+				NGOCardCell.swift,
+				NGODetailsViewController.swift,
+				NGOInsightsViewController.swift,
+				NgoOrginzationDiscovery.storyboard,
+				NGOReviewsViewController.swift,
+				OrganizationDiscoveryViewController.swift,
+			);
+			target = D54C77232EF736C60072F713 /* AppPlateFulTests */;
+		};
+		5C8053092F081FAB00ACF25F /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				AddReviewViewController.swift,
+				DiscoveryNGO.swift,
+				NGOCardCell.swift,
+				NGODetailsViewController.swift,
+				NGOInsightsViewController.swift,
+				NgoOrginzationDiscovery.storyboard,
+				NGOReviewsViewController.swift,
+				OrganizationDiscoveryViewController.swift,
+			);
+			target = D54C772D2EF736C60072F713 /* AppPlateFulUITests */;
+		};
+		5C8053132F0832EE00ACF25F /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				FAQ.storyboard,
+				FAQViewController.swift,
+			);
+			target = D54C77232EF736C60072F713 /* AppPlateFulTests */;
+		};
+		5C8053142F0832EE00ACF25F /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				FAQ.storyboard,
+				FAQViewController.swift,
+			);
+			target = D54C772D2EF736C60072F713 /* AppPlateFulUITests */;
+		};
+		5C80531E2F08334900ACF25F /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				TermsAndCon.storyboard,
+				TermsViewController.swift,
+			);
+			target = D54C77232EF736C60072F713 /* AppPlateFulTests */;
+		};
+		5C80531F2F08334900ACF25F /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				TermsAndCon.storyboard,
+				TermsViewController.swift,
+			);
+			target = D54C772D2EF736C60072F713 /* AppPlateFulUITests */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		5C8052F42F081F2400ACF25F /* FavoriteNGO */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (5C8053042F081F2500ACF25F /* PBXFileSystemSynchronizedBuildFileExceptionSet */, 5C8053052F081F2500ACF25F /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = FavoriteNGO; sourceTree = "<group>"; };
+		5C8053072F081FA500ACF25F /* NgoOrginizationDiscovery */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (5C8053082F081FAB00ACF25F /* PBXFileSystemSynchronizedBuildFileExceptionSet */, 5C8053092F081FAB00ACF25F /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = NgoOrginizationDiscovery; sourceTree = "<group>"; };
+		5C8053122F0832E300ACF25F /* FAQ */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (5C8053132F0832EE00ACF25F /* PBXFileSystemSynchronizedBuildFileExceptionSet */, 5C8053142F0832EE00ACF25F /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = FAQ; sourceTree = "<group>"; };
+		5C80531D2F08333700ACF25F /* TermsAndConditions */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (5C80531E2F08334900ACF25F /* PBXFileSystemSynchronizedBuildFileExceptionSet */, 5C80531F2F08334900ACF25F /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = TermsAndConditions; sourceTree = "<group>"; };
 		D58F04942F0600090080DF27 /* Privacy Policy */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = "Privacy Policy"; sourceTree = "<group>"; };
 		D58F04B72F06E9E70080DF27 /* Reports 2 */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = "Reports 2"; sourceTree = "<group>"; };
 		D5F84D472F00522A0034CC8D /* AdminDashboard */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = AdminDashboard; sourceTree = "<group>"; };
@@ -169,13 +258,17 @@
 				D5F84D492F0052840034CC8D /* UserManagement */,
 				D5F84D4A2F0052AE0034CC8D /* DonationActivity */,
 				D58F04942F0600090080DF27 /* Privacy Policy */,
-				D54C77132EF736C40072F713 /* SceneDelegate.swift */,
+				5C8053072F081FA500ACF25F /* NgoOrginizationDiscovery */,
+				D58F04B72F06E9E70080DF27 /* Reports 2 */,
+				5C8052F42F081F2400ACF25F /* FavoriteNGO */,
+				5C8053122F0832E300ACF25F /* FAQ */,
+				5C80531D2F08333700ACF25F /* TermsAndConditions */,
 				D54C77112EF736C40072F713 /* AppDelegate.swift */,
+				D54C77132EF736C40072F713 /* SceneDelegate.swift */,
 				D54C771A2EF736C60072F713 /* Assets.xcassets */,
 				D54C77172EF736C40072F713 /* Main.storyboard */,
 				D54C771C2EF736C60072F713 /* LaunchScreen.storyboard */,
 				D54C771F2EF736C60072F713 /* Info.plist */,
-				D58F04B72F06E9E70080DF27 /* Reports 2 */,
 			);
 			path = AppPlateFul;
 			sourceTree = "<group>";
@@ -214,6 +307,10 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
+				5C8052F42F081F2400ACF25F /* FavoriteNGO */,
+				5C8053072F081FA500ACF25F /* NgoOrginizationDiscovery */,
+				5C8053122F0832E300ACF25F /* FAQ */,
+				5C80531D2F08333700ACF25F /* TermsAndConditions */,
 				D58F04942F0600090080DF27 /* Privacy Policy */,
 				D58F04B72F06E9E70080DF27 /* Reports 2 */,
 				D5F84D472F00522A0034CC8D /* AdminDashboard */,

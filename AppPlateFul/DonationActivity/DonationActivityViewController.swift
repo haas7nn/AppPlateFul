@@ -21,6 +21,7 @@ class DonationActivityViewController: UIViewController {
         super.viewDidLoad()
         print("🚀 DonationActivityViewController loaded")
         setupUI()
+        setupNavigationBar()
         setupFilterButton()
         setupNotifications()
         loadDonations()
@@ -42,6 +43,23 @@ class DonationActivityViewController: UIViewController {
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "DonationCell")
         
         print("✅ TableView setup complete")
+    }
+    
+    private func setupNavigationBar() {
+        // Set title
+        title = "Donation Activity"
+        
+        // Create back button programmatically
+        let backButton = UIBarButtonItem(
+            image: UIImage(systemName: "chevron.left"),
+            style: .plain,
+            target: self,
+            action: #selector(backButtonTapped)
+        )
+        backButton.tintColor = .black
+        navigationItem.leftBarButtonItem = backButton
+        
+        print("✅ Back button added")
     }
     
     private func setupFilterButton() {
@@ -86,6 +104,16 @@ class DonationActivityViewController: UIViewController {
     }
     
     // MARK: - Actions
+    @objc private func backButtonTapped() {
+        // If pushed on navigation stack, pop back
+        if let navigationController = navigationController {
+            navigationController.popViewController(animated: true)
+        } else {
+            // If presented modally, dismiss
+            dismiss(animated: true, completion: nil)
+        }
+    }
+    
     @IBAction func homeTapped(_ sender: Any) {
         navigationController?.popViewController(animated: true)
     }

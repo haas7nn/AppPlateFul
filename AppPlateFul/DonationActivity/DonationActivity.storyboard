@@ -206,7 +206,14 @@
                             <constraint firstItem="listSafeArea" firstAttribute="bottom" secondItem="donationTableView" secondAttribute="bottom" id="tv4"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Donation Activity" id="listNavItem"/>
+                    <navigationItem key="navigationItem" title="Donation Activity" id="listNavItem">
+                        <barButtonItem key="leftBarButtonItem" image="chevron.left" catalog="system" id="backBarButton">
+                            <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="backButtonTapped:" destination="DonationListVC" id="backButtonAction"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="emptyStateLabel" destination="emptyStateLabel" id="listOut2"/>
                         <outlet property="tableView" destination="donationTableView" id="listOut1"/>
@@ -470,6 +477,7 @@ Manama, Bahrain</string>
         </scene>
     </scenes>
     <resources>
+        <image name="chevron.left" catalog="system" width="128" height="128"/>
         <image name="chevron.right" width="128" height="128"/>
         <image name="location.fill" catalog="system" width="128" height="119"/>
     </resources>

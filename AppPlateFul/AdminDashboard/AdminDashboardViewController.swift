@@ -70,11 +70,11 @@ class AdminDashboardViewController: UIViewController {
         print("📍 Manage Users tapped")
         let storyboard = UIStoryboard(name: "UserManagement", bundle: nil)
         
-        if let navController = storyboard.instantiateViewController(withIdentifier: "UserManagementNavController") as? UINavigationController {
-            navController.modalPresentationStyle = .fullScreen
-            present(navController, animated: true)
+        // ✅ Get the UserListViewController directly and PUSH it
+        if let userListVC = storyboard.instantiateViewController(withIdentifier: "UserListViewController") as? UserListViewController {
+            navigationController?.pushViewController(userListVC, animated: true)
         } else {
-            print("❌ Could not find UserManagementNavController")
+            print("❌ Could not find UserListViewController")
             showComingSoon(feature: "Manage Users")
         }
     }
@@ -95,7 +95,12 @@ class AdminDashboardViewController: UIViewController {
     
     private func openPendingNGOs() {
         let storyboard = UIStoryboard(name: "NGOReview", bundle: nil)
-        if let navController = storyboard.instantiateViewController(withIdentifier: "NGOReviewNavController") as? UINavigationController {
+        
+        // ✅ Try to push instead of present if possible
+        if let pendingVC = storyboard.instantiateViewController(withIdentifier: "PendingNGOsViewController") as? UIViewController {
+            navigationController?.pushViewController(pendingVC, animated: true)
+        } else if let navController = storyboard.instantiateViewController(withIdentifier: "NGOReviewNavController") as? UINavigationController {
+            // Fallback to modal if needed
             navController.modalPresentationStyle = .fullScreen
             present(navController, animated: true)
         } else {
