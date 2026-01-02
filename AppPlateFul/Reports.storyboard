@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="navCon">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="navScene">
+            <objects>
+                <navigationController id="navCon" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="navBar">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="reportsVC" kind="relationship" relationship="rootViewController" id="rootSegue"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="navFirstResponder" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-500" y="0"/>
+        </scene>
+        
+        <!--Reports & Analytics-->
+        <scene sceneID="reportsScene">
+            <objects>
+                <viewController id="reportsVC" customClass="ReportsAnalyticsViewController" customModule="AppPlateFul" customModuleProvider="target" sceneMemberID="viewController" storyboardIdentifier="ReportsAnalyticsViewController">
+                    <view key="view" contentMode="scaleToFill" id="reportsView">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Reports Screen" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tempLabel">
+                                <rect key="frame" x="100" y="400" width="193" height="52"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                                <color key="textColor" red="0" green="0" blue="0" alpha="1"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="reportsSafeArea"/>
+                        <color key="backgroundColor" red="0.969" green="0.953" blue="0.929" alpha="1"/>
+                        <constraints>
+                            <constraint firstItem="tempLabel" firstAttribute="centerX" secondItem="reportsView" secondAttribute="centerX" id="temp1"/>
+                            <constraint firstItem="tempLabel" firstAttribute="centerY" secondItem="reportsView" secondAttribute="centerY" id="temp2"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Reports &amp; Analytics" id="reportsNavItem"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="reportsFirstResponder" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="100" y="0"/>
+        </scene>
+    </scenes>
+</document>
