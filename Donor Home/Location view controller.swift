@@ -8,6 +8,7 @@ class LocationViewController: UIViewController {
     @IBOutlet weak var locationTextField: UITextField!
     @IBOutlet weak var mapView: MKMapView!
     
+    @IBOutlet weak var confirmButton: UIButton!
     // MARK: - Properties
     let geocoder = CLGeocoder()
 
@@ -15,6 +16,7 @@ class LocationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         mapView.delegate = self
+        confirmButton.layer.cornerRadius = 10
     }
 
     // MARK: - Actions

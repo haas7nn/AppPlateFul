@@ -4,8 +4,10 @@ class DeliveryViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        confirmButton.layer.cornerRadius = 10
     }
-
+    @IBOutlet weak var confirmButton: UIButton!
+    
     @IBAction func confirmDeliveryButtonTapped(_ sender: UIButton) {
         let alert = UIAlertController(title: "Success", message: "Delivery Confirmed ✅", preferredStyle: .alert)
         present(alert, animated: true)
