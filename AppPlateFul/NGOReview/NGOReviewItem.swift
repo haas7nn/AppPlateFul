@@ -4,6 +4,7 @@
 //
 
 import UIKit
+import FirebaseFirestore
 
 struct NGOReviewItem {
     let id: String
@@ -17,21 +18,77 @@ struct NGOReviewItem {
     let pickupReliability: String
     let communityReviews: String
     let status: String = "Pending Verification"
-    
-    // Get image from Assets or fallback to system icon
-    var logoImage: UIImage? {
-        if let assetImage = UIImage(named: logoName) {
-            return assetImage
-        }
-        return UIImage(systemName: "building.2.crop.circle.fill")
+
+    // ✅ Add back the normal initializer (this fixes your sampleData errors)
+    init(
+        id: String,
+        name: String,
+        logoName: String,
+        ratingsCount: Int,
+        area: String,
+        openingHours: String,
+        avgPickupTime: String,
+        collectedDonations: String,
+        pickupReliability: String,
+        communityReviews: String
+    ) {
+        self.id = id
+        self.name = name
+        self.logoName = logoName
+        self.ratingsCount = ratingsCount
+        self.area = area
+        self.openingHours = openingHours
+        self.avgPickupTime = avgPickupTime
+        self.collectedDonations = collectedDonations
+        self.pickupReliability = pickupReliability
+        self.communityReviews = communityReviews
     }
-    
-    // ⚠️ Change logoName values to match YOUR Assets.xcassets names!
+
+    var logoImage: UIImage? {
+        UIImage(named: logoName) ?? UIImage(systemName: "building.2.crop.circle.fill")
+    }
+
+    // ✅ Firestore init (optional)
+    init?(doc: QueryDocumentSnapshot) {
+        let d = doc.data()
+
+        let name = d["name"] as? String ?? ""
+        let logoName = d["logoName"] as? String ?? ""
+
+        if name.isEmpty { return nil }
+
+        self.id = doc.documentID
+        self.name = name
+        self.logoName = logoName
+        self.ratingsCount = d["ratingsCount"] as? Int ?? 0
+        self.area = d["area"] as? String ?? ""
+        self.openingHours = d["openingHours"] as? String ?? ""
+        self.avgPickupTime = d["avgPickupTime"] as? String ?? ""
+        self.collectedDonations = d["collectedDonations"] as? String ?? ""
+        self.pickupReliability = d["pickupReliability"] as? String ?? ""
+        self.communityReviews = d["communityReviews"] as? String ?? ""
+    }
+
+    func toFirestoreData() -> [String: Any] {
+        [
+            "name": name,
+            "logoName": logoName,
+            "ratingsCount": ratingsCount,
+            "area": area,
+            "openingHours": openingHours,
+            "avgPickupTime": avgPickupTime,
+            "collectedDonations": collectedDonations,
+            "pickupReliability": pickupReliability,
+            "communityReviews": communityReviews,
+            "createdAt": Date().timeIntervalSince1970
+        ]
+    }
+
     static let sampleData: [NGOReviewItem] = [
         NGOReviewItem(
             id: "1",
             name: "Islamic Hands",
-            logoName: "islamichands",  // ← Your asset name
+            logoName: "islamichands",
             ratingsCount: 122,
             area: "Sadad, Bahrain",
             openingHours: "9:00AM - 9:00PM",
@@ -43,7 +100,7 @@ struct NGOReviewItem {
         NGOReviewItem(
             id: "2",
             name: "Salmonda Helps",
-            logoName: "salmonda_helps",  // ← Your asset name
+            logoName: "salmonda_helps",
             ratingsCount: 85,
             area: "Sitra, Bahrain",
             openingHours: "8:00AM - 6:00PM",
@@ -55,7 +112,7 @@ struct NGOReviewItem {
         NGOReviewItem(
             id: "3",
             name: "Hope Foundation",
-            logoName: "hope_foundation",  // ← Your asset name
+            logoName: "hope_foundation",
             ratingsCount: 67,
             area: "Manama, Bahrain",
             openingHours: "10:00AM - 8:00PM",
