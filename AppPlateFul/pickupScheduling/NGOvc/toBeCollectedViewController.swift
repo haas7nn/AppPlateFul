@@ -84,6 +84,11 @@ class toBeCollectedViewController: UIViewController {
 
                 DonationService.shared.updateStatus(donationId: donation.id, status: .completed) { _ in
                 }
+            NotificationService.shared.addEventNotification(
+                to: donation.donorId,
+                title: "Donation Collected",
+                message: "Your donation was collected: \(donation.title)."
+            )
 
                 self.donation = donation
                 configureUI()
