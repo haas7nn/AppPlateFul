@@ -1,10 +1,19 @@
+//
+//  DonationModels.swift
+//  AppPlateFul
+//
+//  202301686 - Hasan
+//
+
 import UIKit
 
 // MARK: - Theme Constants
+// Centralized colors and styles for donation-related UI
 struct DonationTheme {
     static let backgroundColor = UIColor(red: 0.976, green: 0.965, blue: 0.941, alpha: 1)
     static let cardBackground = UIColor(red: 0.957, green: 0.937, blue: 0.91, alpha: 1)
     static let primaryBrown = UIColor(red: 0.776, green: 0.635, blue: 0.494, alpha: 1)
+    
     static let textPrimary = UIColor.black
     static let textSecondary = UIColor(red: 0.235, green: 0.235, blue: 0.263, alpha: 1)
     static let textTertiary = UIColor(red: 0.557, green: 0.557, blue: 0.576, alpha: 1)
@@ -16,6 +25,7 @@ struct DonationTheme {
 }
 
 // MARK: - Donation Activity Status (UI)
+// Represents donation status values and their associated colors
 enum DonationActivityStatus: String, CaseIterable {
     case pending = "Pending"
     case ongoing = "Ongoing"
@@ -25,15 +35,20 @@ enum DonationActivityStatus: String, CaseIterable {
 
     var color: UIColor {
         switch self {
-        case .pending: return DonationTheme.statusPending
-        case .ongoing: return DonationTheme.statusOngoing
-        case .completed, .pickedUp: return DonationTheme.statusCompleted
-        case .cancelled: return DonationTheme.statusCancelled
+        case .pending:
+            return DonationTheme.statusPending
+        case .ongoing:
+            return DonationTheme.statusOngoing
+        case .completed, .pickedUp:
+            return DonationTheme.statusCompleted
+        case .cancelled:
+            return DonationTheme.statusCancelled
         }
     }
 }
 
 // MARK: - Filter Option (UI)
+// Used to filter donation list based on status
 enum FilterOption: String, CaseIterable {
     case all = "All"
     case pending = "Pending"
@@ -43,16 +58,22 @@ enum FilterOption: String, CaseIterable {
 
     var status: DonationActivityStatus? {
         switch self {
-        case .all: return nil
-        case .pending: return .pending
-        case .completed: return .completed
-        case .pickedUp: return .pickedUp
-        case .cancelled: return .cancelled
+        case .all:
+            return nil
+        case .pending:
+            return .pending
+        case .completed:
+            return .completed
+        case .pickedUp:
+            return .pickedUp
+        case .cancelled:
+            return .cancelled
         }
     }
 }
 
 // MARK: - Donation Item
+// Represents a donated item and its quantity
 struct DonationItem {
     let name: String
     let quantity: Int
@@ -62,7 +83,8 @@ struct DonationItem {
     }
 }
 
-// MARK: - Address
+// MARK: - Delivery Address
+// Represents pickup or delivery address information
 struct DeliveryAddress {
     let house: String
     let road: String
@@ -76,6 +98,7 @@ struct DeliveryAddress {
 }
 
 // MARK: - Donation Activity Model (UI)
+// Model used to display donation activity in the application
 final class DonationActivityDonation {
     let id: String
     let ngoName: String
@@ -107,16 +130,19 @@ final class DonationActivityDonation {
         self.address = address
     }
 
+    // Combined text for displaying items list
     var itemsDisplayText: String {
         items.map { $0.displayText }.joined(separator: ", ")
     }
 
+    // Formats creation date for UI display
     var formattedCreatedDate: String {
         let formatter = DateFormatter()
         formatter.dateFormat = "dd MMMM yyyy HH:mm"
         return formatter.string(from: createdDate)
     }
 
+    // Formats pickup date for UI display
     var formattedPickupDate: String? {
         guard let pickupDate else { return nil }
         let formatter = DateFormatter()
@@ -126,24 +152,32 @@ final class DonationActivityDonation {
 }
 
 // MARK: - Data Provider (UI)
+// Provides mock donation data and handles UI updates
 final class DonationDataProvider {
     static let shared = DonationDataProvider()
-
+    
     private(set) var donations: [DonationActivityDonation] = []
 
     private init() {
         loadMockData()
     }
 
+    // Loads sample donation data for UI testing
     private func loadMockData() {
         let address1 = DeliveryAddress(
-            house: "House 123", road: "Road 45", block: "Block A",
-            city: "Manama, Bahrain", mobileNumber: "+973 1234 5678"
+            house: "House 123",
+            road: "Road 45",
+            block: "Block A",
+            city: "Manama, Bahrain",
+            mobileNumber: "+973 1234 5678"
         )
 
         let address2 = DeliveryAddress(
-            house: "Villa 78", road: "Street 12", block: "Block B",
-            city: "Riffa, Bahrain", mobileNumber: "+973 9876 5432"
+            house: "Villa 78",
+            road: "Street 12",
+            block: "Block B",
+            city: "Riffa, Bahrain",
+            mobileNumber: "+973 9876 5432"
         )
 
         donations = [
@@ -203,28 +237,44 @@ final class DonationDataProvider {
         ]
     }
 
-    func updateDonationStatus(donationId: String, newStatus: DonationActivityStatus) {
+    // Updates donation status and notifies observers
+    func updateDonationStatus(
+        donationId: String,
+        newStatus: DonationActivityStatus
+    ) {
         if let index = donations.firstIndex(where: { $0.id == donationId }) {
             donations[index].status = newStatus
-            NotificationCenter.default.post(name: .donationStatusUpdated, object: donations[index])
+            NotificationCenter.default.post(
+                name: .donationStatusUpdated,
+                object: donations[index]
+            )
         }
     }
 
+    // Marks donation as reported and notifies observers
     func reportDonation(donationId: String) {
         if let index = donations.firstIndex(where: { $0.id == donationId }) {
             donations[index].isReported = true
-            NotificationCenter.default.post(name: .donationReported, object: donations[index])
+            NotificationCenter.default.post(
+                name: .donationReported,
+                object: donations[index]
+            )
         }
     }
 
+    // Returns donations filtered by selected option
     func filteredDonations(by filter: FilterOption) -> [DonationActivityDonation] {
-        guard let status = filter.status else { return donations }
+        guard let status = filter.status else {
+            return donations
+        }
         return donations.filter { $0.status == status }
     }
 }
 
 // MARK: - Notifications
 extension Notification.Name {
-    static let donationStatusUpdated = Notification.Name("donationStatusUpdated")
-    static let donationReported = Notification.Name("donationReported")
+    static let donationStatusUpdated =
+        Notification.Name("donationStatusUpdated")
+    static let donationReported =
+        Notification.Name("donationReported")
 }

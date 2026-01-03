@@ -2,13 +2,16 @@
 //  NGODetailsViewController.swift
 //  AppPlateFul
 //
+//  202301625 - Samana
+//
 
 import UIKit
 import FirebaseFirestore
 
+// Displays detailed information about a selected NGO
 class NGODetailsViewController: UIViewController {
 
-    // MARK: - Outlets
+    // MARK: - IBOutlets
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var ratingLabel: UILabel!
@@ -24,10 +27,11 @@ class NGODetailsViewController: UIViewController {
 
     // MARK: - Firebase
     private let db = Firestore.firestore()
-    private let userId = UIDevice.current.identifierForVendor?.uuidString ?? "guest"
+    private let userId =
+        UIDevice.current.identifierForVendor?.uuidString ?? "guest"
 
     // MARK: - NGO Data
-    var ngoId: String = ""          // 🔥 REQUIRED
+    var ngoId: String = ""            // Required NGO identifier
     var ngoName: String = ""
     var ngoDescription: String = ""
     var ngoImageName: String = ""
@@ -51,11 +55,13 @@ class NGODetailsViewController: UIViewController {
         checkIfFavorite()
     }
 
-    // MARK: - UI
+    // MARK: - Navigation Bar
+    // Configures navigation bar appearance
     private func configureNavigationBar() {
         let appearance = UINavigationBarAppearance()
         appearance.configureWithOpaqueBackground()
-        appearance.backgroundColor = UIColor(red: 0.98, green: 0.96, blue: 0.94, alpha: 1.0)
+        appearance.backgroundColor =
+            UIColor(red: 0.98, green: 0.96, blue: 0.94, alpha: 1.0)
         appearance.titleTextAttributes = [
             .foregroundColor: UIColor.black,
             .font: UIFont.boldSystemFont(ofSize: 17)
@@ -68,8 +74,11 @@ class NGODetailsViewController: UIViewController {
         navigationController?.navigationBar.tintColor = .systemBlue
     }
 
+    // MARK: - UI
+    // Populates UI with NGO data
     private func configureUI() {
-        imageView.image = UIImage(named: ngoImageName) ?? UIImage(systemName: "photo")
+        imageView.image =
+            UIImage(named: ngoImageName) ?? UIImage(systemName: "photo")
         nameLabel.text = ngoName
         ratingLabel.text = "\(ngoRating) (\(ngoReviews))"
         descriptionLabel.text = ngoDescription
@@ -78,7 +87,8 @@ class NGODetailsViewController: UIViewController {
         addressLabel.text = "Address: \(ngoAddress)"
         verifiedBadgeView.isHidden = !isVerified
 
-        let green = UIColor(red: 0.73, green: 0.80, blue: 0.63, alpha: 1.0)
+        let green =
+            UIColor(red: 0.73, green: 0.80, blue: 0.63, alpha: 1.0)
         addToFavoritesButton.backgroundColor = green
         addToFavoritesButton.layer.cornerRadius = 12
         reviewsButton.backgroundColor = green
@@ -86,6 +96,7 @@ class NGODetailsViewController: UIViewController {
     }
 
     // MARK: - Favorites (Firestore)
+    // Checks if the NGO is already marked as favorite
     private func checkIfFavorite() {
         guard !ngoId.isEmpty else { return }
 
@@ -99,16 +110,30 @@ class NGODetailsViewController: UIViewController {
             }
     }
 
+    // Updates favorite button appearance
     private func updateFavoriteButton() {
         if isFavorite {
-            addToFavoritesButton.setTitle("Remove from Favorites", for: .normal)
-            addToFavoritesButton.setTitleColor(.systemRed, for: .normal)
+            addToFavoritesButton.setTitle(
+                "Remove from Favorites",
+                for: .normal
+            )
+            addToFavoritesButton.setTitleColor(
+                .systemRed,
+                for: .normal
+            )
         } else {
-            addToFavoritesButton.setTitle("Add to Favorites", for: .normal)
-            addToFavoritesButton.setTitleColor(.white, for: .normal)
+            addToFavoritesButton.setTitle(
+                "Add to Favorites",
+                for: .normal
+            )
+            addToFavoritesButton.setTitleColor(
+                .white,
+                for: .normal
+            )
         }
     }
 
+    // Adds NGO to user's favorites in Firestore
     private func addFavorite() {
         db.collection("users")
             .document(userId)
@@ -121,6 +146,7 @@ class NGODetailsViewController: UIViewController {
             ])
     }
 
+    // Removes NGO from user's favorites in Firestore
     private func removeFavorite() {
         db.collection("users")
             .document(userId)
@@ -141,12 +167,20 @@ class NGODetailsViewController: UIViewController {
         updateFavoriteButton()
     }
 
+    // Navigates to NGO reviews screen
     @IBAction func reviewsTapped(_ sender: UIButton) {
-        let storyboard = UIStoryboard(name: "NgoOrginzationDiscovery", bundle: nil)
-        if let reviewsVC = storyboard.instantiateViewController(withIdentifier: "NGOReviewsViewController") as? NGOReviewsViewController {
+        let storyboard =
+            UIStoryboard(name: "NgoOrginzationDiscovery", bundle: nil)
+        if let reviewsVC =
+            storyboard.instantiateViewController(
+                withIdentifier: "NGOReviewsViewController"
+            ) as? NGOReviewsViewController {
             reviewsVC.ngoId = ngoId
             reviewsVC.ngoName = ngoName
-            navigationController?.pushViewController(reviewsVC, animated: true)
+            navigationController?.pushViewController(
+                reviewsVC,
+                animated: true
+            )
         }
     }
 }

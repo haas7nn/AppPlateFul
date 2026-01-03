@@ -23,6 +23,21 @@ final class FirestoreService {
 
     private let db = Firestore.firestore()
 
+<<<<<<< HEAD
+    func fetchNGOs(completion: @escaping ([NGOItem]) -> Void) {
+        db.collection("ngo_reviews").getDocuments { snap, _ in
+            let docs = snap?.documents ?? []
+            let items = docs.map { d -> NGOItem in
+                let x = d.data()
+                return NGOItem(
+                    id: d.documentID,
+                    name: x["name"] as? String ?? "",
+                    tagline: x["tagline"] as? String ?? "",
+                    city: x["city"] as? String ?? "",
+                    category: x["category"] as? String ?? "",
+                    imageName: x["imageName"] as? String ?? ""
+                )
+=======
     func fetchNGOs(completion: @escaping ([NGO]) -> Void) {
         db.collection("ngo_reviews")
             .whereField("status", isEqualTo: "Approved")
@@ -59,6 +74,7 @@ final class FirestoreService {
                 }
 
                 completion(ngos)
+>>>>>>> 6772b267c0f92eddc3b7d2aa31c22437f7a75e86
             }
     }
 

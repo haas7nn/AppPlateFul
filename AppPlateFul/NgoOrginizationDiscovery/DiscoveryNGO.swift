@@ -2,31 +2,37 @@
 //  DiscoveryNGO.swift
 //  AppPlateFul
 //
+//  202301625 - Samana
+//
 
 import Foundation
 import FirebaseFirestore
 
+// Model representing an NGO displayed in the discovery feature
 struct DiscoveryNGO {
 
+    // MARK: - Properties
     let id: String
     let name: String
     let desc: String
     let fullDescription: String
     let verified: Bool
-    let imageName: String
+    let imageURL: String
     let rating: Double
     let reviews: Int
     let phone: String
     let email: String
     let address: String
 
+    // MARK: - Initializer
+    // Manual initializer
     init(
         id: String,
         name: String,
         desc: String,
         fullDescription: String,
         verified: Bool,
-        imageName: String,
+        imageURL: String,
         rating: Double,
         reviews: Int,
         phone: String,
@@ -38,7 +44,7 @@ struct DiscoveryNGO {
         self.desc = desc
         self.fullDescription = fullDescription
         self.verified = verified
-        self.imageName = imageName
+        self.imageURL = imageURL
         self.rating = rating
         self.reviews = reviews
         self.phone = phone
@@ -46,50 +52,54 @@ struct DiscoveryNGO {
         self.address = address
     }
 
-    init?(doc: DocumentSnapshot) {
-        let data = doc.data() ?? [:]
+    // MARK: - Firestore Initializer
+    // Creates a DiscoveryNGO instance from Firestore document data
+    init?(doc: QueryDocumentSnapshot) {
+        let data = doc.data()
 
         let name = data["name"] as? String ?? ""
         if name.isEmpty { return nil }
 
-        let desc = data["desc"] as? String ?? ""
-        let fullDescription = data["fullDescription"] as? String ?? ""
-        let verified = data["verified"] as? Bool ?? false
-        let imageName = data["imageName"] as? String ?? ""
-        let phone = data["phone"] as? String ?? ""
-        let email = data["email"] as? String ?? ""
-        let address = data["address"] as? String ?? ""
+        let approved = data["approved"] as? Bool ?? false
+        let area = data["area"] as? String ?? ""
+        let status = data["status"] as? String ?? ""
+        let communityReviews = data["communityReviews"] as? String ?? ""
+        let openingHours = data["openingHours"] as? String ?? ""
+        let avgPickupTime = data["avgPickupTime"] as? String ?? ""
+        let pickupReliability = data["pickupReliability"] as? String ?? ""
+        let collectedDonations = data["collectedDonations"] as? String ?? ""
+        let ratingsCount = data["ratingsCount"] as? Int ?? 0
+        let logoURL = data["logoURL"] as? String ?? ""
 
-        let rating: Double
-        if let r = data["rating"] as? Double {
-            rating = r
-        } else if let r = data["rating"] as? Int {
-            rating = Double(r)
-        } else {
-            rating = 0.0
-        }
+        // Generates a short description for list display
+        let shortDesc: String = {
+            if !communityReviews.isEmpty { return communityReviews }
+            if !status.isEmpty { return status }
+            if !area.isEmpty { return area }
+            return "NGO"
+        }()
 
-        let reviews: Int
-        if let c = data["reviews"] as? Int {
-            reviews = c
-        } else if let c = data["reviews"] as? Double {
-            reviews = Int(c)
-        } else {
-            reviews = 0
-        }
+        // Detailed description for profile view
+        let longDesc = """
+        Area: \(area)
+        Hours: \(openingHours)
+        Avg pickup: \(avgPickupTime)
+        Reliability: \(pickupReliability)
+        Donations: \(collectedDonations)
+        """
 
         self.init(
             id: doc.documentID,
             name: name,
-            desc: desc,
-            fullDescription: fullDescription,
-            verified: verified,
-            imageName: imageName,
-            rating: rating,
-            reviews: reviews,
-            phone: phone,
-            email: email,
-            address: address
+            desc: shortDesc,
+            fullDescription: longDesc,
+            verified: approved,
+            imageURL: logoURL,
+            rating: 0.0,
+            reviews: ratingsCount,
+            phone: "",
+            email: "",
+            address: area
         )
     }
 }

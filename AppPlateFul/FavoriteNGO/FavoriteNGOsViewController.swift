@@ -1,19 +1,32 @@
+//
+//  FavoriteNGOsViewController.swift
+//  AppPlateFul
+//
+//  202301625 - Samana
+//
+
 import UIKit
 import FirebaseFirestore
 
+// Displays the user's favorite NGOs using a collection view
 final class FavoriteNGOsViewController: UIViewController,
-                                       UICollectionViewDataSource,
-                                       UICollectionViewDelegateFlowLayout {
+                                        UICollectionViewDataSource,
+                                        UICollectionViewDelegateFlowLayout {
 
+    // MARK: - IBOutlets
     @IBOutlet private weak var collectionView: UICollectionView!
 
+    // MARK: - Firebase
     private let db = Firestore.firestore()
+
+    // MARK: - Data
     private var favorites: [FavoriteNGO] = []
 
     private var userId: String {
         UIDevice.current.identifierForVendor?.uuidString ?? "guest"
     }
 
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Favorite NGOs"
@@ -34,6 +47,8 @@ final class FavoriteNGOsViewController: UIViewController,
         navigationController?.setNavigationBarHidden(false, animated: animated)
     }
 
+    // MARK: - Firestore
+    // Loads favorites from Firestore for the current user
     private func fetchFavorites() {
         db.collection("users")
             .document(userId)
@@ -49,11 +64,12 @@ final class FavoriteNGOsViewController: UIViewController,
             }
     }
 
+    // MARK: - Actions
     @IBAction private func backButtonTapped(_ sender: Any) {
         navigationController?.popViewController(animated: true)
     }
 
-    // MARK: - DataSource
+    // MARK: - UICollectionViewDataSource
     func collectionView(_ collectionView: UICollectionView,
                         numberOfItemsInSection section: Int) -> Int {
         favorites.count
@@ -80,16 +96,18 @@ final class FavoriteNGOsViewController: UIViewController,
         return cell
     }
 
+    // MARK: - Navigation
     private func openDetails(for ngo: FavoriteNGO) {
         let sb = UIStoryboard(name: "FavoriteNGOs", bundle: nil)
         let vc = sb.instantiateViewController(
             withIdentifier: "FavoriteNGODetailsViewController"
         ) as! FavoriteNGODetailsViewController
+
         vc.ngo = ngo
         navigationController?.pushViewController(vc, animated: true)
     }
 
-    // MARK: - Layout
+    // MARK: - UICollectionViewDelegateFlowLayout
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -105,9 +123,13 @@ final class FavoriteNGOsViewController: UIViewController,
 
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
-                        minimumLineSpacingForSectionAt section: Int) -> CGFloat { 16 }
+                        minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        16
+    }
 
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
-                        minimumInteritemSpacingForSectionAt section: Int) -> CGFloat { 16 }
+                        minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        16
+    }
 }

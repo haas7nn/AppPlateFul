@@ -66,8 +66,10 @@ class DonorHomeViewController: UIViewController {
     }
     
     @IBAction func myDonationsTapped(_ sender: UIButton) {
-        print("📍 My Donations tapped")
-        showComingSoon(feature: "My Donations")
+        let storyboard = UIStoryboard(name: "DonationSchedulingStoryboard", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "sche")
+
+            navigationController?.pushViewController(vc, animated: true)
     }
     
     @IBAction func trackDeliveriesTapped(_ sender: UIButton) {
