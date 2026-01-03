@@ -23,7 +23,6 @@ class UserTableViewCell: UITableViewCell {
         avatarImageView?.clipsToBounds = true
     }
 
-    // ✅ THIS FIXES THE ERROR
     func configure(with user: User) {
         configure(
             name: user.name,
@@ -32,12 +31,13 @@ class UserTableViewCell: UITableViewCell {
         )
     }
 
-    // Existing method (kept)
     func configure(name: String, status: String, isStarred: Bool = false) {
         nameLabel?.text = name
-        statusLabel?.text = status
 
-        switch status.lowercased() {
+        let cleanStatus = status.trimmingCharacters(in: .whitespacesAndNewlines)
+        statusLabel?.text = cleanStatus.isEmpty ? "-" : cleanStatus
+
+        switch cleanStatus.lowercased() {
         case "active":
             statusLabel?.textColor = .systemGreen
         case "inactive":

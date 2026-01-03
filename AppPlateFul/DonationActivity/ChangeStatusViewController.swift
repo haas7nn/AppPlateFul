@@ -9,15 +9,24 @@
 import UIKit
 
 protocol ChangeStatusDelegate: AnyObject {
-    func didChangeStatus(to newStatus: DonationStatus)
+    func didChangeStatus(to newStatus: DonationActivityStatus)
 }
 
 class ChangeStatusViewController: UIViewController {
     
     weak var delegate: ChangeStatusDelegate?
-    private var currentStatus: DonationStatus
-    private var selectedStatus: DonationStatus?
-    private let statusOptions: [DonationStatus] = [.completed, .ongoing, .cancelled]
+    
+    private var currentStatus: DonationActivityStatus
+    private var selectedStatus: DonationActivityStatus?
+    
+    private let statusOptions: [DonationActivityStatus] = [
+        .pending,
+        .ongoing,
+        .completed,
+        .pickedUp,
+        .cancelled
+    ]
+    
     private var optionButtons: [UIButton] = []
     
     private let backgroundView: UIView = {
@@ -74,9 +83,12 @@ class ChangeStatusViewController: UIViewController {
         return button
     }()
     
-    init(currentStatus: DonationStatus) {
+    // MARK: - Init
+    init(currentStatus: DonationActivityStatus) {
         self.currentStatus = currentStatus
         super.init(nibName: nil, bundle: nil)
+        modalPresentationStyle = .overCurrentContext
+        modalTransitionStyle = .crossDissolve
     }
     
     required init?(coder: NSCoder) {
@@ -90,6 +102,7 @@ class ChangeStatusViewController: UIViewController {
         createStatusOptions()
     }
     
+    // MARK: - UI
     private func setupUI() {
         view.addSubview(backgroundView)
         view.addSubview(containerView)
@@ -196,7 +209,7 @@ class ChangeStatusViewController: UIViewController {
     }
     
     @objc private func updateTapped() {
-        guard let selectedStatus = selectedStatus else { return }
+        guard let selectedStatus else { return }
         dismiss(animated: true) { [weak self] in
             self?.delegate?.didChangeStatus(to: selectedStatus)
         }

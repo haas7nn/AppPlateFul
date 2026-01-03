@@ -12,7 +12,7 @@ class DonationActivityViewController: UIViewController {
     @IBOutlet weak var emptyStateLabel: UILabel?
     
     // MARK: - Properties
-    private var donations: [Donation] = []
+    private var donations: [DonationActivityDonation] = []
     private var currentFilter: FilterOption = .all
     private var filterButton: UIButton!
     
@@ -39,17 +39,12 @@ class DonationActivityViewController: UIViewController {
         tableView.dataSource = self
         tableView.contentInset = UIEdgeInsets(top: 8, left: 0, bottom: 20, right: 0)
         
-        // ✅ Register cell class as fallback
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "DonationCell")
-        
-        print("✅ TableView setup complete")
     }
     
     private func setupNavigationBar() {
-        // Set title
         title = "Donation Activity"
         
-        // Create back button programmatically
         let backButton = UIBarButtonItem(
             image: UIImage(systemName: "chevron.left"),
             style: .plain,
@@ -58,8 +53,6 @@ class DonationActivityViewController: UIViewController {
         )
         backButton.tintColor = .black
         navigationItem.leftBarButtonItem = backButton
-        
-        print("✅ Back button added")
     }
     
     private func setupFilterButton() {
@@ -79,42 +72,34 @@ class DonationActivityViewController: UIViewController {
         filterButton.configuration = config
         
         filterButton.addTarget(self, action: #selector(filterTapped), for: .touchUpInside)
-        
-        let filterBarButton = UIBarButtonItem(customView: filterButton)
-        navigationItem.rightBarButtonItem = filterBarButton
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: filterButton)
     }
     
     private func setupNotifications() {
         NotificationCenter.default.addObserver(
-            self, selector: #selector(handleStatusUpdate),
-            name: .donationStatusUpdated, object: nil
+            self,
+            selector: #selector(handleStatusUpdate),
+            name: .donationStatusUpdated,
+            object: nil
         )
+        
         NotificationCenter.default.addObserver(
-            self, selector: #selector(handleDonationReported),
-            name: .donationReported, object: nil
+            self,
+            selector: #selector(handleDonationReported),
+            name: .donationReported,
+            object: nil
         )
     }
     
     // MARK: - Data
     private func loadDonations() {
         donations = DonationDataProvider.shared.filteredDonations(by: currentFilter)
-        print("📊 Loaded \(donations.count) donations")
         emptyStateLabel?.isHidden = !donations.isEmpty
         tableView.reloadData()
     }
     
     // MARK: - Actions
     @objc private func backButtonTapped() {
-        // If pushed on navigation stack, pop back
-        if let navigationController = navigationController {
-            navigationController.popViewController(animated: true)
-        } else {
-            // If presented modally, dismiss
-            dismiss(animated: true, completion: nil)
-        }
-    }
-    
-    @IBAction func homeTapped(_ sender: Any) {
         navigationController?.popViewController(animated: true)
     }
     
@@ -135,7 +120,7 @@ class DonationActivityViewController: UIViewController {
     }
     
     // MARK: - Navigation
-    private func showReportConfirmation(for donation: Donation) {
+    private func showReportConfirmation(for donation: DonationActivityDonation) {
         let popup = ReportConfirmationPopup()
         popup.modalPresentationStyle = .overCurrentContext
         popup.modalTransitionStyle = .crossDissolve
@@ -166,13 +151,11 @@ class DonationActivityViewController: UIViewController {
 extension DonationActivityViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return donations.count
+        donations.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let donation = donations[indexPath.row]
-        
-        // Use basic cell with default configuration (works without storyboard cell)
         let cell = tableView.dequeueReusableCell(withIdentifier: "DonationCell", for: indexPath)
         
         var content = cell.defaultContentConfiguration()
@@ -195,9 +178,9 @@ extension DonationActivityViewController: UITableViewDelegate, UITableViewDataSo
         tableView.deselectRow(at: indexPath, animated: true)
         
         let donation = donations[indexPath.row]
-        
-        guard let detailVC = storyboard?.instantiateViewController(withIdentifier: "DonationDetailViewController") as? DonationDetailViewController else {
-            print("❌ Could not find DonationDetailViewController")
+        guard let detailVC = storyboard?.instantiateViewController(
+            withIdentifier: "DonationDetailViewController"
+        ) as? DonationDetailViewController else {
             return
         }
         
@@ -206,7 +189,7 @@ extension DonationActivityViewController: UITableViewDelegate, UITableViewDataSo
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
+        100
     }
 }
 

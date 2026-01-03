@@ -2,13 +2,13 @@
 // AdminDashboardViewController.swift
 // AppPlateFul
 // 202301686
-
+//
 
 import UIKit
 
 class AdminDashboardViewController: UIViewController {
     
-    // MARK: - IBOutlets (Made optional to prevent crash)
+    // MARK: - IBOutlets
     @IBOutlet weak var btn1: UIButton?
     @IBOutlet weak var btn2: UIButton?
     @IBOutlet weak var btn3: UIButton?
@@ -44,7 +44,6 @@ class AdminDashboardViewController: UIViewController {
     }
     
     // MARK: - IBActions
-    
     @IBAction func pendingNGOsTapped(_ sender: UIButton) {
         print("📍 Pending NGOs tapped")
         openPendingNGOs()
@@ -71,7 +70,6 @@ class AdminDashboardViewController: UIViewController {
         print("📍 Manage Users tapped")
         let storyboard = UIStoryboard(name: "UserManagement", bundle: nil)
         
-        // ✅ Get the UserListViewController directly and PUSH it
         if let userListVC = storyboard.instantiateViewController(withIdentifier: "UserListViewController") as? UserListViewController {
             navigationController?.pushViewController(userListVC, animated: true)
         } else {
@@ -93,24 +91,19 @@ class AdminDashboardViewController: UIViewController {
     }
     
     // MARK: - Navigation
-    
     private func openPendingNGOs() {
         let storyboard = UIStoryboard(name: "NGOReview", bundle: nil)
         
-        // ✅ Try to push instead of present if possible
-        if let pendingVC = storyboard.instantiateViewController(withIdentifier: "PendingNGOsViewController") as? UIViewController {
-            navigationController?.pushViewController(pendingVC, animated: true)
-        } else if let navController = storyboard.instantiateViewController(withIdentifier: "NGOReviewNavController") as? UINavigationController {
-            // Fallback to modal if needed
-            navController.modalPresentationStyle = .fullScreen
-            present(navController, animated: true)
-        } else {
+        guard let listVC = storyboard.instantiateViewController(withIdentifier: "NGOReviewListViewController") as? NGOReviewListViewController else {
+            print("❌ Could not find NGOReviewListViewController in NGOReview.storyboard")
             showComingSoon(feature: "NGO Review")
+            return
         }
+        
+        navigationController?.pushViewController(listVC, animated: true)
     }
     
     // MARK: - Helper
-    
     private func showComingSoon(feature: String) {
         let alert = UIAlertController(
             title: "Coming Soon",

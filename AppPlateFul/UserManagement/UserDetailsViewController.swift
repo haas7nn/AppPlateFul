@@ -29,22 +29,24 @@ class UserDetailsViewController: UIViewController {
     
     // MARK: - Setup
     private func setupUI() {
-        avatarImageView?.layer.cornerRadius = 50
-        avatarImageView?.clipsToBounds = true
+        avatarImageView.layer.cornerRadius = 50
+        avatarImageView.clipsToBounds = true
     }
     
     private func configureContent() {
         guard let user = user else { return }
         
-        nameLabel?.text = user.name
-        emailLabel?.text = user.email
-        phoneLabel?.text = user.phone
-        roleLabel?.text = user.role
-        statusLabel?.text = user.status
-        joinDateLabel?.text = user.joinDate
+        nameLabel.text = user.displayName
+        emailLabel.text = user.email ?? "-"
+        phoneLabel.text = user.phone ?? "-"
         
-        // Set avatar
-        avatarImageView?.image = UIImage(systemName: user.profileImageName)
-        avatarImageView?.tintColor = .systemGray2
+        roleLabel.text = user.role.rawValue.uppercased()
+        statusLabel.text = user.status ?? "-"
+        joinDateLabel.text = user.joinDate ?? "-"
+        
+        let iconName = user.profileImageName ?? "person.circle.fill"
+        avatarImageView.image = UIImage(systemName: iconName)
+        avatarImageView.tintColor = .systemGray2
     }
 }
+

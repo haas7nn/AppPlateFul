@@ -71,6 +71,7 @@ extension UserListViewController: UITableViewDelegate, UITableViewDataSource {
 
         let user = users[indexPath.row]
         cell.configure(with: user)
+
         cell.delegate = self
         cell.indexPath = indexPath
 
