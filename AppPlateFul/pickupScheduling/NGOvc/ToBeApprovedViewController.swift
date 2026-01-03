@@ -71,6 +71,14 @@ final class ToBeApprovedViewController: UIViewController {
 
     @IBAction private func approveTapped(_ sender: UIButton) {
         updateStatusAndStore(newStatus: .toBeCollected)
+        guard let donation else { return }
+
+        NotificationService.shared.addEventNotification(
+            to: donation.donorId,
+            title: "Pickup Approved",
+            message: "Your pickup time was approved for \(donation.title)."
+        )
+
 
         showStatusAlert(
                   title: "Pickup time Approved",
@@ -82,6 +90,13 @@ final class ToBeApprovedViewController: UIViewController {
 
     @IBAction private func rejectTapped(_ sender: UIButton) {
         updateStatusAndStore(newStatus: .accepted)
+        guard let donation else { return }
+
+        NotificationService.shared.addEventNotification(
+            to: donation.donorId,
+            title: "Pickup Rejected",
+            message: "Pickup time rejected. Please reschedule \(donation.title)."
+        )
 
         showStatusAlert(
                    title: "Pickup time Rejected",

@@ -46,6 +46,14 @@ class DonationSchedulingPageViewController: UIViewController {
 
            DonationService.shared.attachPickupSchedule(donationId: donation.id, pickup: schedule) { _ in
            }
+            if let ngoId = donation.ngoId {
+            NotificationService.shared.addEventNotification(
+                to: ngoId,
+                title: "Pickup Scheduled",
+                message: "Pickup was scheduled for \(donation.title)."
+            )
+                }
+        
 
            self.donation.scheduledPickup = schedule
            self.donation.status = .toBeApproved

@@ -59,7 +59,7 @@ class toBeCollectedViewController: UIViewController {
             // Button state based on status
             if donation.status == .completed {
                 markAsCollectedbtn.isEnabled = false
-                markAsCollectedbtn.setTitle("Collected ✓", for: .normal)
+                markAsCollectedbtn.setTitle("Collected ", for: .normal)
                 markAsCollectedbtn.alpha = 0.6
             } else {
                 markAsCollectedbtn.isEnabled = true
@@ -84,6 +84,11 @@ class toBeCollectedViewController: UIViewController {
 
                 DonationService.shared.updateStatus(donationId: donation.id, status: .completed) { _ in
                 }
+            NotificationService.shared.addEventNotification(
+                to: donation.donorId,
+                title: "Donation Collected",
+                message: "Your donation was collected: \(donation.title)."
+            )
 
                 self.donation = donation
                 configureUI()
