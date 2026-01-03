@@ -7,43 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-<<<<<<< HEAD
-		9C56C3E72F08822600C80966 /* AvailableDonationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C56C3E22F08822600C80966 /* AvailableDonationCell.swift */; };
-		9C56C3E82F08822600C80966 /* DonationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C56C3DD2F08822600C80966 /* DonationService.swift */; };
-		9C56C3E92F08822600C80966 /* DonationSchedulingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C56C3E32F08822600C80966 /* DonationSchedulingTableViewCell.swift */; };
-		9C56C3EA2F08822600C80966 /* showPendingDonationDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C56C3E02F08822600C80966 /* showPendingDonationDetailsViewController.swift */; };
-		9C56C3EB2F08822600C80966 /* NotificationsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C56C3E52F08822600C80966 /* NotificationsTableViewCell.swift */; };
-		9C56C3EC2F08822600C80966 /* showPickupInfoDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C56C3E12F08822600C80966 /* showPickupInfoDetailsViewController.swift */; };
-		9C56C3ED2F08822600C80966 /* MyPickupsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C56C3E42F08822600C80966 /* MyPickupsTableViewCell.swift */; };
-		9C56C3EE2F08822600C80966 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C56C3DE2F08822600C80966 /* NotificationService.swift */; };
-		9C56C3F82F08826F00C80966 /* Notification.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C56C3F62F08826F00C80966 /* Notification.storyboard */; };
-		9C56C3F92F08826F00C80966 /* AcceptedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C56C3F02F08826F00C80966 /* AcceptedViewController.swift */; };
-		9C56C3FA2F08826F00C80966 /* MyPickupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C56C3F22F08826F00C80966 /* MyPickupsViewController.swift */; };
-		9C56C3FB2F08826F00C80966 /* toBeCollectedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C56C3F42F08826F00C80966 /* toBeCollectedViewController.swift */; };
-		9C56C3FC2F08826F00C80966 /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C56C3F72F08826F00C80966 /* NotificationsViewController.swift */; };
-		9C56C3FD2F08826F00C80966 /* ToBeApprovedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C56C3F32F08826F00C80966 /* ToBeApprovedViewController.swift */; };
-		9C56C3FE2F08826F00C80966 /* AvailableDonationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C56C3F12F08826F00C80966 /* AvailableDonationsViewController.swift */; };
-		9C56C3FF2F08826F00C80966 /* AcceptAvailableDonationDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C56C3EF2F08826F00C80966 /* AcceptAvailableDonationDetailsViewController.swift */; };
-		9C56C4012F08829B00C80966 /* NgoFlow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C56C4002F08829B00C80966 /* NgoFlow.storyboard */; };
-		9C56C4052F0882BE00C80966 /* DonationSchedulingStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C56C4032F0882BE00C80966 /* DonationSchedulingStoryboard.storyboard */; };
-		9C56C4062F0882BE00C80966 /* DonationSchedulingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C56C4042F0882BE00C80966 /* DonationSchedulingViewController.swift */; };
-		9C56C4072F0882BE00C80966 /* DonationSchedulingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C56C4022F0882BE00C80966 /* DonationSchedulingPageViewController.swift */; };
-		9C56C40F2F0882E800C80966 /* PickupSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C56C40B2F0882E800C80966 /* PickupSchedule.swift */; };
-		9C56C4102F0882E800C80966 /* DonationStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C56C40A2F0882E800C80966 /* DonationStatus.swift */; };
-		9C56C4112F0882E800C80966 /* Donation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C56C4092F0882E800C80966 /* Donation.swift */; };
-		9C56C4122F0882E800C80966 /* AppNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C56C4082F0882E800C80966 /* AppNotification.swift */; };
-		C00C1E8D2F096AF700FAD4FD /* DonationsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00C1E882F096AF700FAD4FD /* DonationsListViewController.swift */; };
-		C00C1E8E2F096AF700FAD4FD /* DonationReceiptViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00C1E842F096AF700FAD4FD /* DonationReceiptViewController.swift */; };
-		C00C1E8F2F096AF700FAD4FD /* AddDonationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00C1E822F096AF700FAD4FD /* AddDonationViewController.swift */; };
-		C00C1E902F096AF700FAD4FD /* DonationDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00C1E862F096AF700FAD4FD /* DonationDetailsViewController.swift */; };
-		C00C1E912F096AF700FAD4FD /* DonationHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00C1E832F096AF700FAD4FD /* DonationHomeViewController.swift */; };
-		C00C1E922F096AF700FAD4FD /* TrackingOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00C1E8B2F096AF700FAD4FD /* TrackingOrderViewController.swift */; };
-		C00C1E932F096AF700FAD4FD /* AddDonation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C00C1E812F096AF700FAD4FD /* AddDonation.storyboard */; };
-		C00C1E942F096AF700FAD4FD /* TrackingOrder.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C00C1E8A2F096AF700FAD4FD /* TrackingOrder.storyboard */; };
-		C00C1E952F096AF700FAD4FD /* DonationsList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C00C1E872F096AF700FAD4FD /* DonationsList.storyboard */; };
-=======
 		5C37676B2F097BFC00736425 /* NGOSeeder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C37676A2F097BFC00736425 /* NGOSeeder.swift */; };
->>>>>>> dev
 		D54C77122EF736C40072F713 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54C77112EF736C40072F713 /* AppDelegate.swift */; };
 		D54C77142EF736C40072F713 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54C77132EF736C40072F713 /* SceneDelegate.swift */; };
 		D54C77192EF736C40072F713 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = D54C77182EF736C40072F713 /* Base */; };
@@ -101,44 +65,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-<<<<<<< HEAD
-		9C56C3DD2F08822600C80966 /* DonationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonationService.swift; sourceTree = "<group>"; };
-		9C56C3DE2F08822600C80966 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
-		9C56C3E02F08822600C80966 /* showPendingDonationDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = showPendingDonationDetailsViewController.swift; sourceTree = "<group>"; };
-		9C56C3E12F08822600C80966 /* showPickupInfoDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = showPickupInfoDetailsViewController.swift; sourceTree = "<group>"; };
-		9C56C3E22F08822600C80966 /* AvailableDonationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailableDonationCell.swift; sourceTree = "<group>"; };
-		9C56C3E32F08822600C80966 /* DonationSchedulingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonationSchedulingTableViewCell.swift; sourceTree = "<group>"; };
-		9C56C3E42F08822600C80966 /* MyPickupsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPickupsTableViewCell.swift; sourceTree = "<group>"; };
-		9C56C3E52F08822600C80966 /* NotificationsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsTableViewCell.swift; sourceTree = "<group>"; };
-		9C56C3EF2F08826F00C80966 /* AcceptAvailableDonationDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcceptAvailableDonationDetailsViewController.swift; sourceTree = "<group>"; };
-		9C56C3F02F08826F00C80966 /* AcceptedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcceptedViewController.swift; sourceTree = "<group>"; };
-		9C56C3F12F08826F00C80966 /* AvailableDonationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailableDonationsViewController.swift; sourceTree = "<group>"; };
-		9C56C3F22F08826F00C80966 /* MyPickupsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPickupsViewController.swift; sourceTree = "<group>"; };
-		9C56C3F32F08826F00C80966 /* ToBeApprovedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToBeApprovedViewController.swift; sourceTree = "<group>"; };
-		9C56C3F42F08826F00C80966 /* toBeCollectedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = toBeCollectedViewController.swift; sourceTree = "<group>"; };
-		9C56C3F62F08826F00C80966 /* Notification.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Notification.storyboard; sourceTree = "<group>"; };
-		9C56C3F72F08826F00C80966 /* NotificationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsViewController.swift; sourceTree = "<group>"; };
-		9C56C4002F08829B00C80966 /* NgoFlow.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NgoFlow.storyboard; sourceTree = "<group>"; };
-		9C56C4022F0882BE00C80966 /* DonationSchedulingPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonationSchedulingPageViewController.swift; sourceTree = "<group>"; };
-		9C56C4032F0882BE00C80966 /* DonationSchedulingStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DonationSchedulingStoryboard.storyboard; sourceTree = "<group>"; };
-		9C56C4042F0882BE00C80966 /* DonationSchedulingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonationSchedulingViewController.swift; sourceTree = "<group>"; };
-		9C56C4082F0882E800C80966 /* AppNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNotification.swift; sourceTree = "<group>"; };
-		9C56C4092F0882E800C80966 /* Donation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Donation.swift; sourceTree = "<group>"; };
-		9C56C40A2F0882E800C80966 /* DonationStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonationStatus.swift; sourceTree = "<group>"; };
-		9C56C40B2F0882E800C80966 /* PickupSchedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickupSchedule.swift; sourceTree = "<group>"; };
-		9C56C40C2F0882E800C80966 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		C00C1E812F096AF700FAD4FD /* AddDonation.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddDonation.storyboard; sourceTree = "<group>"; };
-		C00C1E822F096AF700FAD4FD /* AddDonationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDonationViewController.swift; sourceTree = "<group>"; };
-		C00C1E832F096AF700FAD4FD /* DonationHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonationHomeViewController.swift; sourceTree = "<group>"; };
-		C00C1E842F096AF700FAD4FD /* DonationReceiptViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonationReceiptViewController.swift; sourceTree = "<group>"; };
-		C00C1E862F096AF700FAD4FD /* DonationDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonationDetailsViewController.swift; sourceTree = "<group>"; };
-		C00C1E872F096AF700FAD4FD /* DonationsList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DonationsList.storyboard; sourceTree = "<group>"; };
-		C00C1E882F096AF700FAD4FD /* DonationsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonationsListViewController.swift; sourceTree = "<group>"; };
-		C00C1E8A2F096AF700FAD4FD /* TrackingOrder.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TrackingOrder.storyboard; sourceTree = "<group>"; };
-		C00C1E8B2F096AF700FAD4FD /* TrackingOrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackingOrderViewController.swift; sourceTree = "<group>"; };
-=======
 		5C37676A2F097BFC00736425 /* NGOSeeder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NGOSeeder.swift; sourceTree = "<group>"; };
->>>>>>> dev
 		D54C770E2EF736C40072F713 /* AppPlateFul.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppPlateFul.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D54C77112EF736C40072F713 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D54C77132EF736C40072F713 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -306,117 +233,9 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-<<<<<<< HEAD
-		9C56C3DF2F08822600C80966 /* Services */ = {
-			isa = PBXGroup;
-			children = (
-				9C56C3DD2F08822600C80966 /* DonationService.swift */,
-				9C56C3DE2F08822600C80966 /* NotificationService.swift */,
-			);
-			path = Services;
-			sourceTree = "<group>";
-		};
-		9C56C3E62F08822600C80966 /* TableCells */ = {
-			isa = PBXGroup;
-			children = (
-				9C56C3E22F08822600C80966 /* AvailableDonationCell.swift */,
-				9C56C3E32F08822600C80966 /* DonationSchedulingTableViewCell.swift */,
-				9C56C3E42F08822600C80966 /* MyPickupsTableViewCell.swift */,
-			);
-			path = TableCells;
-			sourceTree = "<group>";
-		};
-		9C56C3F52F08826F00C80966 /* NGOvc */ = {
-			isa = PBXGroup;
-			children = (
-				9C56C3EF2F08826F00C80966 /* AcceptAvailableDonationDetailsViewController.swift */,
-				9C56C3F02F08826F00C80966 /* AcceptedViewController.swift */,
-				9C56C3F12F08826F00C80966 /* AvailableDonationsViewController.swift */,
-				9C56C3F22F08826F00C80966 /* MyPickupsViewController.swift */,
-				9C56C3F32F08826F00C80966 /* ToBeApprovedViewController.swift */,
-				9C56C3F42F08826F00C80966 /* toBeCollectedViewController.swift */,
-			);
-			path = NGOvc;
-			sourceTree = "<group>";
-		};
-		9C56C40D2F0882E800C80966 /* Modules */ = {
-			isa = PBXGroup;
-			children = (
-				9C56C4082F0882E800C80966 /* AppNotification.swift */,
-				9C56C4092F0882E800C80966 /* Donation.swift */,
-				9C56C40A2F0882E800C80966 /* DonationStatus.swift */,
-				9C56C40B2F0882E800C80966 /* PickupSchedule.swift */,
-				9C56C40C2F0882E800C80966 /* User.swift */,
-			);
-			path = Modules;
-			sourceTree = "<group>";
-		};
-		9C56C4132F08832400C80966 /* pickupScheduling */ = {
-			isa = PBXGroup;
-			children = (
-				9C56C4022F0882BE00C80966 /* DonationSchedulingPageViewController.swift */,
-				9C56C4042F0882BE00C80966 /* DonationSchedulingViewController.swift */,
-				9C56C3E12F08822600C80966 /* showPickupInfoDetailsViewController.swift */,
-				9C56C4032F0882BE00C80966 /* DonationSchedulingStoryboard.storyboard */,
-				9C56C3F52F08826F00C80966 /* NGOvc */,
-				9C56C4002F08829B00C80966 /* NgoFlow.storyboard */,
-				9C56C3E02F08822600C80966 /* showPendingDonationDetailsViewController.swift */,
-				9C56C3E62F08822600C80966 /* TableCells */,
-			);
-			path = pickupScheduling;
-			sourceTree = "<group>";
-		};
-		9C56C4142F08833900C80966 /* Notification */ = {
-			isa = PBXGroup;
-			children = (
-				9C56C3F72F08826F00C80966 /* NotificationsViewController.swift */,
-				9C56C3F62F08826F00C80966 /* Notification.storyboard */,
-				9C56C3E52F08822600C80966 /* NotificationsTableViewCell.swift */,
-			);
-			path = Notification;
-			sourceTree = "<group>";
-		};
-		C00C1E852F096AF700FAD4FD /* AddDonation */ = {
-			isa = PBXGroup;
-			children = (
-				C00C1E812F096AF700FAD4FD /* AddDonation.storyboard */,
-				C00C1E822F096AF700FAD4FD /* AddDonationViewController.swift */,
-				C00C1E832F096AF700FAD4FD /* DonationHomeViewController.swift */,
-				C00C1E842F096AF700FAD4FD /* DonationReceiptViewController.swift */,
-			);
-			name = AddDonation;
-			path = AppPlateFul/AddDonation;
-			sourceTree = "<group>";
-		};
-		C00C1E892F096AF700FAD4FD /* DonationsList */ = {
-			isa = PBXGroup;
-			children = (
-				C00C1E862F096AF700FAD4FD /* DonationDetailsViewController.swift */,
-				C00C1E872F096AF700FAD4FD /* DonationsList.storyboard */,
-				C00C1E882F096AF700FAD4FD /* DonationsListViewController.swift */,
-			);
-			name = DonationsList;
-			path = AppPlateFul/DonationsList;
-			sourceTree = "<group>";
-		};
-		C00C1E8C2F096AF700FAD4FD /* TrackingOrder */ = {
-			isa = PBXGroup;
-			children = (
-				C00C1E8A2F096AF700FAD4FD /* TrackingOrder.storyboard */,
-				C00C1E8B2F096AF700FAD4FD /* TrackingOrderViewController.swift */,
-			);
-			name = TrackingOrder;
-			path = AppPlateFul/TrackingOrder;
-			sourceTree = "<group>";
-		};
-=======
->>>>>>> dev
 		D54C77052EF736C40072F713 = {
 			isa = PBXGroup;
 			children = (
-				C00C1E852F096AF700FAD4FD /* AddDonation */,
-				C00C1E892F096AF700FAD4FD /* DonationsList */,
-				C00C1E8C2F096AF700FAD4FD /* TrackingOrder */,
 				D58F04F32F0740D60080DF27 /* FirestoreService.swift */,
 				D5F169872EFDACAA0015DFDE /* Notifications.storyboard */,
 				D54C77102EF736C40072F713 /* AppPlateFul */,
@@ -600,14 +419,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D54C771B2EF736C60072F713 /* Assets.xcassets in Resources */,
-<<<<<<< HEAD
-				9C56C3F82F08826F00C80966 /* Notification.storyboard in Resources */,
-				C00C1E932F096AF700FAD4FD /* AddDonation.storyboard in Resources */,
-				C00C1E942F096AF700FAD4FD /* TrackingOrder.storyboard in Resources */,
-				C00C1E952F096AF700FAD4FD /* DonationsList.storyboard in Resources */,
-=======
 				D54C771E2EF736C60072F713 /* Base in Resources */,
->>>>>>> dev
 				D54C77192EF736C40072F713 /* Base in Resources */,
 				D58F04BF2F073C8A0080DF27 /* GoogleService-Info.plist in Resources */,
 				D5F169882EFDACAA0015DFDE /* Notifications.storyboard in Resources */,
@@ -641,28 +453,6 @@
 				5C37676B2F097BFC00736425 /* NGOSeeder.swift in Sources */,
 				D54C77122EF736C40072F713 /* AppDelegate.swift in Sources */,
 				D54C77142EF736C40072F713 /* SceneDelegate.swift in Sources */,
-<<<<<<< HEAD
-				9C56C40F2F0882E800C80966 /* PickupSchedule.swift in Sources */,
-				9C56C4102F0882E800C80966 /* DonationStatus.swift in Sources */,
-				9C56C4112F0882E800C80966 /* Donation.swift in Sources */,
-				9C56C4122F0882E800C80966 /* AppNotification.swift in Sources */,
-				C00C1E8D2F096AF700FAD4FD /* DonationsListViewController.swift in Sources */,
-				C00C1E8E2F096AF700FAD4FD /* DonationReceiptViewController.swift in Sources */,
-				C00C1E8F2F096AF700FAD4FD /* AddDonationViewController.swift in Sources */,
-				C00C1E902F096AF700FAD4FD /* DonationDetailsViewController.swift in Sources */,
-				C00C1E912F096AF700FAD4FD /* DonationHomeViewController.swift in Sources */,
-				C00C1E922F096AF700FAD4FD /* TrackingOrderViewController.swift in Sources */,
-				9C56C4062F0882BE00C80966 /* DonationSchedulingViewController.swift in Sources */,
-				9C56C4072F0882BE00C80966 /* DonationSchedulingPageViewController.swift in Sources */,
-				9C56C3F92F08826F00C80966 /* AcceptedViewController.swift in Sources */,
-				9C56C3FA2F08826F00C80966 /* MyPickupsViewController.swift in Sources */,
-				9C56C3FB2F08826F00C80966 /* toBeCollectedViewController.swift in Sources */,
-				9C56C3FC2F08826F00C80966 /* NotificationsViewController.swift in Sources */,
-				9C56C3FD2F08826F00C80966 /* ToBeApprovedViewController.swift in Sources */,
-				9C56C3FE2F08826F00C80966 /* AvailableDonationsViewController.swift in Sources */,
-				9C56C3FF2F08826F00C80966 /* AcceptAvailableDonationDetailsViewController.swift in Sources */,
-=======
->>>>>>> dev
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
