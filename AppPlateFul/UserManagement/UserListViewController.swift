@@ -112,3 +112,95 @@ class UserListViewController: UIViewController {
     }
     
     // MARK: - Actions
+    @objc private func backButtonTapped() {
+        if let navigationController = navigationController {
+            navigationController.popViewController(animated: true)
+        } else {
+            dismiss(animated: true)
+        }
+    }
+    
+    // Navigates to user detail screen
+    private func navigateToDetails(for indexPath: IndexPath) {
+        let displayUsers = isSearching ? filteredUsers : users
+        
+        guard let detailVC = storyboard?.instantiateViewController(
+            withIdentifier: "UserDetailsViewController"
+        ) as? UserDetailsViewController else {
+            return
+        }
+        
+        detailVC.user = displayUsers[indexPath.row]
+        navigationController?.pushViewController(detailVC, animated: true)
+    }
+}
+
+// MARK: - UITableViewDelegate, UITableViewDataSource
+extension UserListViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        isSearching ? filteredUsers.count : users.count
+    }
+    
+    func tableView(
+        _ tableView: UITableView,
+        cellForRowAt indexPath: IndexPath
+    ) -> UITableViewCell {
+        
+        guard let cell = tableView.dequeueReusableCell(
+            withIdentifier: "UserCell",
+            for: indexPath
+        ) as? UserTableViewCell else {
+            return UITableViewCell()
+        }
+        
+        let displayUsers = isSearching ? filteredUsers : users
+        let user = displayUsers[indexPath.row]
+        
+        cell.configure(
+            name: user.displayName,
+            status: user.status ?? "-",
+            isStarred: user.isFavorite ?? false
+        )
+        
+        cell.delegate = self
+        cell.indexPath = indexPath
+        return cell
+    }
+    
+    func tableView(
+        _ tableView: UITableView,
+        heightForRowAt indexPath: IndexPath
+    ) -> CGFloat {
+        80
+    }
+    
+    func tableView(
+        _ tableView: UITableView,
+        didSelectRowAt indexPath: IndexPath
+    ) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        navigateToDetails(for: indexPath)
+    }
+}
+
+// MARK: - UserCellDelegate
+extension UserListViewController: UserCellDelegate {
+    
+    func didTapInfoButton(at indexPath: IndexPath) {
+        navigateToDetails(for: indexPath)
+    }
+    
+    func didTapStarButton(at indexPath: IndexPath) {
+        let user = users[indexPath.row]
+        let newFavorite = !(user.isFavorite ?? false)
+        
+        users[indexPath.row].isFavorite = newFavorite
+        tableView.reloadRows(at: [indexPath], with: .automatic)
+        
+        UserService.shared.updateFavorite(
+            userId: user.id,
+            isFavorite: newFavorite
+        ) { _ in }
+    }
+}
