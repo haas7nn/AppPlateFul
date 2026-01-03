@@ -3,14 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C08DE6C02F0808CF00260008 /* AddDonation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C08DE6BF2F0808CF00260008 /* AddDonation.storyboard */; };
-		C08DE6C22F08093D00260008 /* AddDonationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08DE6C12F08093D00260008 /* AddDonationViewController.swift */; };
-		C08DE6C62F08102B00260008 /* DonationHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08DE6C52F08102B00260008 /* DonationHomeViewController.swift */; };
-		C09599F22F087007000B4D05 /* DonationReceiptViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09599F12F087007000B4D05 /* DonationReceiptViewController.swift */; };
+		C0F934252F0931CE009E0F63 /* CloudinaryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F934242F0931CE009E0F63 /* CloudinaryService.swift */; };
+		C0F934272F0932CB009E0F63 /* Cloudinary in Frameworks */ = {isa = PBXBuildFile; productRef = C0F934262F0932CB009E0F63 /* Cloudinary */; };
 		D54C77122EF736C40072F713 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54C77112EF736C40072F713 /* AppDelegate.swift */; };
 		D54C77142EF736C40072F713 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54C77132EF736C40072F713 /* SceneDelegate.swift */; };
 		D54C77162EF736C40072F713 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54C77152EF736C40072F713 /* ViewController.swift */; };
@@ -40,10 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		C08DE6BF2F0808CF00260008 /* AddDonation.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddDonation.storyboard; sourceTree = "<group>"; };
-		C08DE6C12F08093D00260008 /* AddDonationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDonationViewController.swift; sourceTree = "<group>"; };
-		C08DE6C52F08102B00260008 /* DonationHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonationHomeViewController.swift; sourceTree = "<group>"; };
-		C09599F12F087007000B4D05 /* DonationReceiptViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonationReceiptViewController.swift; sourceTree = "<group>"; };
+		C0F934242F0931CE009E0F63 /* CloudinaryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudinaryService.swift; sourceTree = "<group>"; };
 		D54C770E2EF736C40072F713 /* AppPlateFul.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppPlateFul.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D54C77112EF736C40072F713 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D54C77132EF736C40072F713 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -59,11 +54,18 @@
 		D54C77342EF736C60072F713 /* AppPlateFulUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppPlateFulUITestsLaunchTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		C0F934172F08ADBD009E0F63 /* AddDonation */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = AddDonation; sourceTree = "<group>"; };
+		C0F9341C2F092373009E0F63 /* TrackingOrder */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = TrackingOrder; sourceTree = "<group>"; };
+		C0F934282F093C30009E0F63 /* DonationsList */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = DonationsList; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
+
 /* Begin PBXFrameworksBuildPhase section */
 		D54C770B2EF736C40072F713 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C0F934272F0932CB009E0F63 /* Cloudinary in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -107,17 +109,17 @@
 		D54C77102EF736C40072F713 /* AppPlateFul */ = {
 			isa = PBXGroup;
 			children = (
+				C0F934282F093C30009E0F63 /* DonationsList */,
+				C0F9341C2F092373009E0F63 /* TrackingOrder */,
+				C0F934172F08ADBD009E0F63 /* AddDonation */,
 				D54C77112EF736C40072F713 /* AppDelegate.swift */,
 				D54C77132EF736C40072F713 /* SceneDelegate.swift */,
+				C0F934242F0931CE009E0F63 /* CloudinaryService.swift */,
 				D54C77152EF736C40072F713 /* ViewController.swift */,
 				D54C77172EF736C40072F713 /* Main.storyboard */,
 				D54C771A2EF736C60072F713 /* Assets.xcassets */,
 				D54C771C2EF736C60072F713 /* LaunchScreen.storyboard */,
 				D54C771F2EF736C60072F713 /* Info.plist */,
-				C08DE6BF2F0808CF00260008 /* AddDonation.storyboard */,
-				C09599F12F087007000B4D05 /* DonationReceiptViewController.swift */,
-				C08DE6C12F08093D00260008 /* AddDonationViewController.swift */,
-				C08DE6C52F08102B00260008 /* DonationHomeViewController.swift */,
 			);
 			path = AppPlateFul;
 			sourceTree = "<group>";
@@ -153,6 +155,11 @@
 			buildRules = (
 			);
 			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				C0F934172F08ADBD009E0F63 /* AddDonation */,
+				C0F9341C2F092373009E0F63 /* TrackingOrder */,
+				C0F934282F093C30009E0F63 /* DonationsList */,
 			);
 			name = AppPlateFul;
 			productName = AppPlateFul;
@@ -227,6 +234,9 @@
 				Base,
 			);
 			mainGroup = D54C77052EF736C40072F713;
+			packageReferences = (
+				C0F934232F09319E009E0F63 /* XCRemoteSwiftPackageReference "cloudinary_ios" */,
+			);
 			productRefGroup = D54C770F2EF736C40072F713 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -245,7 +255,6 @@
 			files = (
 				D54C771B2EF736C60072F713 /* Assets.xcassets in Resources */,
 				D54C771E2EF736C60072F713 /* Base in Resources */,
-				C08DE6C02F0808CF00260008 /* AddDonation.storyboard in Resources */,
 				D54C77192EF736C40072F713 /* Base in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -272,11 +281,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				D54C77162EF736C40072F713 /* ViewController.swift in Sources */,
-				C09599F22F087007000B4D05 /* DonationReceiptViewController.swift in Sources */,
 				D54C77122EF736C40072F713 /* AppDelegate.swift in Sources */,
-				C08DE6C22F08093D00260008 /* AddDonationViewController.swift in Sources */,
 				D54C77142EF736C40072F713 /* SceneDelegate.swift in Sources */,
-				C08DE6C62F08102B00260008 /* DonationHomeViewController.swift in Sources */,
+				C0F934252F0931CE009E0F63 /* CloudinaryService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -617,6 +624,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		C0F934232F09319E009E0F63 /* XCRemoteSwiftPackageReference "cloudinary_ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/cloudinary/cloudinary_ios";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.2.4;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		C0F934262F0932CB009E0F63 /* Cloudinary */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C0F934232F09319E009E0F63 /* XCRemoteSwiftPackageReference "cloudinary_ios" */;
+			productName = Cloudinary;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = D54C77062EF736C40072F713 /* Project object */;
 }

@@ -53,12 +53,94 @@ class AddDonationViewController: UIViewController {
         setupDatePickers()
         setDefaultDates()
         setupNotesButtons()
+        setupImages()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(false, animated: animated)
         navigationController?.navigationBar.prefersLargeTitles = true
+    }
+    
+    // MARK: - Setup Images
+    private func setupImages() {
+        // Find and add image to Food section (Chicken Shawarma)
+        setupFoodImage()
+        
+        // Find and add image to Other Items section (Canned Beans)
+        setupOtherImage()
+    }
+    
+    private func setupFoodImage() {
+        // Find the food card image placeholder
+        // Looking for FoodImg view (120x138 size) inside FoodCard inside FoodContainer
+        for subview in foodContainer.subviews {
+            // Find the FoodCard (green card with corner radius)
+            if subview.backgroundColor == UIColor(red: 0.678, green: 0.757, blue: 0.58, alpha: 1.0) ||
+               subview.frame.height == 170 {
+                // This is likely the FoodCard
+                for cardSubview in subview.subviews {
+                    // Find the image placeholder (120 width)
+                    if cardSubview.frame.width == 120 {
+                        addImageToView(cardSubview, imageName: "chicken_shawarma")
+                        return
+                    }
+                }
+            }
+        }
+        
+        // Alternative: Search by traversing all subviews
+        findAndAddImage(in: foodContainer, width: 120, imageName: "chicken_shawarma")
+    }
+    
+    private func setupOtherImage() {
+        // Find the other card image placeholder
+        // Looking for OtherImg view (120x138 size) inside OtherCard inside OtherContainer
+        for subview in otherContainer.subviews {
+            // Find the OtherCard (green card with corner radius)
+            if subview.backgroundColor == UIColor(red: 0.678, green: 0.757, blue: 0.58, alpha: 1.0) ||
+               subview.frame.height == 170 {
+                // This is likely the OtherCard
+                for cardSubview in subview.subviews {
+                    // Find the image placeholder (120 width)
+                    if cardSubview.frame.width == 120 {
+                        addImageToView(cardSubview, imageName: "canned_beans")
+                        return
+                    }
+                }
+            }
+        }
+        
+        // Alternative: Search by traversing all subviews
+        findAndAddImage(in: otherContainer, width: 120, imageName: "canned_beans")
+    }
+    
+    private func findAndAddImage(in containerView: UIView, width: CGFloat, imageName: String) {
+        for subview in containerView.subviews {
+            if subview.frame.width == width && !(subview is UILabel) && !(subview is UIButton) {
+                addImageToView(subview, imageName: imageName)
+                return
+            }
+            // Recursively search in subviews
+            findAndAddImage(in: subview, width: width, imageName: imageName)
+        }
+    }
+    
+    private func addImageToView(_ view: UIView, imageName: String) {
+        // Remove any existing image views
+        for subview in view.subviews {
+            if subview is UIImageView {
+                subview.removeFromSuperview()
+            }
+        }
+        
+        let imageView = UIImageView(frame: view.bounds)
+        imageView.image = UIImage(named: imageName)
+        imageView.contentMode = .scaleAspectFill
+        imageView.clipsToBounds = true
+        imageView.layer.cornerRadius = 12
+        imageView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        view.addSubview(imageView)
     }
     
     // MARK: - Notes Buttons Setup
