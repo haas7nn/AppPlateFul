@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A049304E2F0983FF009BAB11 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A049304D2F0983FF009BAB11 /* GoogleService-Info.plist */; };
+		A0F267182F0868EE00F80759 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = A0F267172F0868EE00F80759 /* FirebaseAnalytics */; };
+		A0F2671A2F0868EE00F80759 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = A0F267192F0868EE00F80759 /* FirebaseAuth */; };
+		A0F2671C2F0868EE00F80759 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = A0F2671B2F0868EE00F80759 /* FirebaseFirestore */; };
+		A0F267202F086C9600F80759 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F2671F2F086C9600F80759 /* ProfileViewController.swift */; };
+		A0F267222F086CBC00F80759 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F267212F086CBC00F80759 /* EditProfileViewController.swift */; };
 		5C37676B2F097BFC00736425 /* NGOSeeder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C37676A2F097BFC00736425 /* NGOSeeder.swift */; };
 		9C56C8782F0999C600C80966 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C56C8762F0999C600C80966 /* User.swift */; };
 		9C56C8792F0999C600C80966 /* PickupSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C56C8752F0999C600C80966 /* PickupSchedule.swift */; };
@@ -90,6 +96,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A049304D2F0983FF009BAB11 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		A0F2671F2F086C9600F80759 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		A0F267212F086CBC00F80759 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		5C37676A2F097BFC00736425 /* NGOSeeder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NGOSeeder.swift; sourceTree = "<group>"; };
 		9C56C8722F0999C600C80966 /* AppNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNotification.swift; sourceTree = "<group>"; };
 		9C56C8732F0999C600C80966 /* Donation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Donation.swift; sourceTree = "<group>"; };
@@ -239,6 +248,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0F267182F0868EE00F80759 /* FirebaseAnalytics in Frameworks */,
+				A0F2671A2F0868EE00F80759 /* FirebaseAuth in Frameworks */,
+				A0F2671C2F0868EE00F80759 /* FirebaseFirestore in Frameworks */,
 				D58F04CE2F073DBB0080DF27 /* FirebaseAppDistribution-Beta in Frameworks */,
 				D58F04DA2F073DBB0080DF27 /* FirebaseFirestore in Frameworks */,
 				D58F04D22F073DBB0080DF27 /* FirebaseAuthCombine-Community in Frameworks */,
@@ -393,11 +405,14 @@
 				5C8053122F0832E300ACF25F /* FAQ */,
 				5C80531D2F08333700ACF25F /* TermsAndConditions */,
 				D54C77112EF736C40072F713 /* AppDelegate.swift */,
+				A049304D2F0983FF009BAB11 /* GoogleService-Info.plist */,
 				D54C77132EF736C40072F713 /* SceneDelegate.swift */,
 				D54C771A2EF736C60072F713 /* Assets.xcassets */,
 				D54C77172EF736C40072F713 /* Main.storyboard */,
 				D54C771C2EF736C60072F713 /* LaunchScreen.storyboard */,
 				D54C771F2EF736C60072F713 /* Info.plist */,
+				A0F2671F2F086C9600F80759 /* ProfileViewController.swift */,
+				A0F267212F086CBC00F80759 /* EditProfileViewController.swift */,
 				5C37676A2F097BFC00736425 /* NGOSeeder.swift */,
 			);
 			path = AppPlateFul;
@@ -523,6 +538,7 @@
 			);
 			mainGroup = D54C77052EF736C40072F713;
 			packageReferences = (
+				A0F267162F0868EE00F80759 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				D58F04C02F073DBB0080DF27 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = D54C770F2EF736C40072F713 /* Products */;
@@ -542,6 +558,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D54C771B2EF736C60072F713 /* Assets.xcassets in Resources */,
+				A049304E2F0983FF009BAB11 /* GoogleService-Info.plist in Resources */,
 				D54C771E2EF736C60072F713 /* Base in Resources */,
 				D54C77192EF736C40072F713 /* Base in Resources */,
 				D58F04BF2F073C8A0080DF27 /* GoogleService-Info.plist in Resources */,
@@ -600,6 +617,8 @@
 				9C56C8822F0999EF00C80966 /* NotificationsViewController.swift in Sources */,
 				9C56C8832F0999EF00C80966 /* NotificationsTableViewCell.swift in Sources */,
 				D54C77122EF736C40072F713 /* AppDelegate.swift in Sources */,
+				A0F267202F086C9600F80759 /* ProfileViewController.swift in Sources */,
+				A0F267222F086CBC00F80759 /* EditProfileViewController.swift in Sources */,
 				D54C77142EF736C40072F713 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -784,6 +803,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = D9R96VGCH9;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AppPlateFul/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -812,6 +832,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = D9R96VGCH9;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AppPlateFul/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -943,6 +964,9 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		A0F267162F0868EE00F80759 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
 		D58F04C02F073DBB0080DF27 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
@@ -954,6 +978,21 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		A0F267172F0868EE00F80759 /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A0F267162F0868EE00F80759 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		A0F267192F0868EE00F80759 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A0F267162F0868EE00F80759 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		A0F2671B2F0868EE00F80759 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A0F267162F0868EE00F80759 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
 		D58F04C12F073DBB0080DF27 /* FirebaseAI */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = D58F04C02F073DBB0080DF27 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
