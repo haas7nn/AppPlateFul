@@ -9,11 +9,13 @@
 /* Begin PBXBuildFile section */
 		BBA453382F089ED90005EA87 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA453272F089ED90005EA87 /* ProfileViewController.swift */; };
 		BBDBB32F2F08B0B1002E8207 /* Donation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBDBB32E2F08B0B1002E8207 /* Donation.swift */; };
+		BBDBB3772F08EAA6002E8207 /* DonationUpdateStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBDBB3762F08EAA6002E8207 /* DonationUpdateStruct.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		BBA453272F089ED90005EA87 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		BBDBB32E2F08B0B1002E8207 /* Donation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Donation.swift; sourceTree = "<group>"; };
+		BBDBB3762F08EAA6002E8207 /* DonationUpdateStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonationUpdateStruct.swift; sourceTree = "<group>"; };
 		BBFEBD782EF8572D00FDADF0 /* Donor Home.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Donor Home.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -53,6 +55,7 @@
 			isa = PBXGroup;
 			children = (
 				BBDBB32E2F08B0B1002E8207 /* Donation.swift */,
+				BBDBB3762F08EAA6002E8207 /* DonationUpdateStruct.swift */,
 				BBA453272F089ED90005EA87 /* ProfileViewController.swift */,
 				BB171DF32F089B3800388E2B /* Donor Home */,
 				BBFEBD792EF8572D00FDADF0 /* Products */,
@@ -142,6 +145,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BBDBB32F2F08B0B1002E8207 /* Donation.swift in Sources */,
+				BBDBB3772F08EAA6002E8207 /* DonationUpdateStruct.swift in Sources */,
 				BBA453382F089ED90005EA87 /* ProfileViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -5,12 +5,13 @@ class DonationHistoryViewController: UIViewController {
     // MARK: - Outlets
     @IBOutlet weak var donationsStackView: UIStackView! // Stack view in storyboard
     
+   
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
         setupDonationButtons()
     }
+    
 
     // MARK: - Add actions to the buttons in the stack view
     func setupDonationButtons() {
@@ -20,6 +21,9 @@ class DonationHistoryViewController: UIViewController {
             }
         }
     }
+    
+    
+    
 
     // MARK: - Button tapped
     @objc func detailsButtonTapped(_ sender: UIButton) {
@@ -61,4 +65,57 @@ class DonationHistoryViewController: UIViewController {
             detailsVC.donation = donation
         }
     }
+    
+    
+    // MARK: - Filter button action
+    // MARK: - Filter Button Action
+    @IBAction func filterButtonTapped(_ sender: UIBarButtonItem) {
+        let alert = UIAlertController(title: "Filter Donations", message: nil, preferredStyle: .actionSheet)
+        
+        alert.addAction(UIAlertAction(title: "All", style: .default, handler: { _ in
+            self.applyFilter(status: nil)
+            sender.title = "Filter: All"
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Completed", style: .default, handler: { _ in
+            self.applyFilter(status: "Completed")
+            sender.title = "Filter: Completed"
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Pending", style: .default, handler: { _ in
+            self.applyFilter(status: "Pending")
+            sender.title = "Filter: Pending"
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        
+        // iPad support
+        if let popover = alert.popoverPresentationController {
+            popover.barButtonItem = sender
+        }
+        
+        present(alert, animated: true)
+    }
+
+    // MARK: - Apply Filter
+    func applyFilter(status: String?) {
+        for row in donationsStackView.arrangedSubviews {
+            // Find the label with tag 3 (status label)
+            if let statusLabel = row.viewWithTag(3) as? UILabel {
+                if let statusText = statusLabel.text {
+                    // Show all if no filter, else hide rows that don’t match
+                    row.isHidden = status != nil && statusText != status
+                } else {
+                    row.isHidden = true
+                }
+            } else {
+                row.isHidden = false
+            }
+        }
+    }
 }
+
+
+
+
+
