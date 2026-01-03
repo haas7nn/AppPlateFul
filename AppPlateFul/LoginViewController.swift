@@ -1,5 +1,6 @@
 import UIKit
 import FirebaseAuth
+import FirebaseFirestore
 
 final class LoginViewController: UIViewController {
 
@@ -10,6 +11,9 @@ final class LoginViewController: UIViewController {
     @IBOutlet weak var registerTabButton: UIButton!
     @IBOutlet weak var loginTabButton: UIButton!
     @IBOutlet weak var cardView: UIView!
+
+    // MARK: - Firebase
+    private let db = Firestore.firestore()
 
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -74,6 +78,7 @@ final class LoginViewController: UIViewController {
         textField.leftViewMode = .always
         textField.rightView = UIView(frame: CGRect(x: 0, y: 0, width: 16, height: 20))
         textField.rightViewMode = .always
+        textField.rightViewMode = .always
     }
 
     @objc private func dismissKeyboard() { view.endEditing(true) }
@@ -106,15 +111,48 @@ final class LoginViewController: UIViewController {
                 return
             }
 
+            guard let uid = Auth.auth().currentUser?.uid else { return }
+
             self.showAlert(title: "Done ✅", message: "Logged in successfully!") { [weak self] in
-                self?.goToHome()
+                self?.routeUser(uid: uid)
             }
         }
     }
 
-    // MARK: - Navigation
+    // MARK: - Role Routing (NEW)
+    private func routeUser(uid: String) {
+        db.collection("users").document(uid).getDocument { [weak self] snap, err in
+            guard let self else { return }
+
+            if let err = err {
+                self.showAlert(title: "Error", message: err.localizedDescription)
+                return
+            }
+
+            let role = (snap?.data()?["role"] as? String)?.lowercased() ?? ""
+
+            switch role {
+            case "ngo":
+                self.goToVC("NGOHomeVC")
+            case "donor":
+                self.goToVC("DonorHomeVC")
+            case "admin":
+                self.goToVC("AdminHomeVC")
+            default:
+                self.showAlert(title: "No Role", message: "Role not set for this user.")
+            }
+        }
+    }
+
+    private func goToVC(_ id: String) {
+        let sb = UIStoryboard(name: "Main", bundle: nil)
+        let vc = sb.instantiateViewController(withIdentifier: id)
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: true)
+    }
+
+    // MARK: - Navigation (OLD - keep if you want)
     private func goToHome() {
-        // ✳️ غيّري "HomeVC" لِـ Storyboard ID حق صفحة الهوم عندك
         let sb = UIStoryboard(name: "Main", bundle: nil)
         let home = sb.instantiateViewController(withIdentifier: "HomeVC")
         home.modalPresentationStyle = .fullScreen
