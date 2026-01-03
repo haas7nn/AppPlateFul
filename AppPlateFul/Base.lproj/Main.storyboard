@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23727" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="H6H-d1-ku8">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23727" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2wg-h3-mlE">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Tracking Order-->
+        <!--Tracking Order View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController storyboardIdentifier="TrackingOrderViewController" id="BYZ-38-t0r" customClass="TrackingOrderViewController" customModule="AppPlateFul" customModuleProvider="target" sceneMemberID="viewController">
@@ -107,43 +107,53 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Confirm Delivery"/>
                                 <connections>
-                                    <action selector="didTapConfirm:" destination="BYZ-38-t0r" eventType="touchUpInside" id="T7e-8u-jZ9"/>
+                                    <action selector="didTapConfirm:" destination="BYZ-38-t0r" eventType="touchUpInside" id="L72-7r-TIJ"/>
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Tracking" translatesAutoresizingMaskIntoConstraints="NO" id="f4P-yS-G9V">
                                 <rect key="frame" x="90" y="216" width="212" height="136"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tracking Order" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ugu-kc-ven">
+                                <rect key="frame" x="109" y="118" width="175" height="42"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" name="light"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Tracking Order" id="fvy-yV-dti"/>
+                    <navigationItem key="navigationItem" id="fvy-yV-dti"/>
                     <connections>
-                        <outlet property="confirmButton" destination="tse-gE-JdH" id="L8K-NF-9kg"/>
+                        <outlet property="confirmButton" destination="tse-gE-JdH" id="8wx-Gq-8Qf"/>
+                        <outlet property="deliveredView" destination="Q0o-AI-eCi" id="5nk-Zd-FsY"/>
+                        <outlet property="statusTimeLabel" destination="U1X-Ug-6FD" id="4pk-cG-WCz"/>
+                        <outlet property="statusTitleLabel" destination="1gt-yX-1Mj" id="quz-sK-bTt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="973.28244274809151" y="-2.1126760563380285"/>
+            <point key="canvasLocation" x="2826.7175572519081" y="-2.1126760563380285"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="ggU-Rh-otZ">
+        <scene sceneID="Wbr-Nm-MbH">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="H6H-d1-ku8" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="2wg-h3-mlE" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="RQY-Bj-N0N">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="HJF-bL-BPh">
                         <rect key="frame" x="0.0" y="118" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="jFw-GF-vpQ"/>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="Kc6-xF-12c"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="xcc-0h-MBY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="b9L-hy-wOc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="46.564885496183201" y="-2.1126760563380285"/>
+            <point key="canvasLocation" x="1900" y="-2.1126760563380285"/>
         </scene>
     </scenes>
     <resources>
