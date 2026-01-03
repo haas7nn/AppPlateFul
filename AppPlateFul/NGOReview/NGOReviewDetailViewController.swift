@@ -67,7 +67,7 @@ class NGOReviewDetailViewController: UIViewController {
         let reviewRef = db.collection("ngo_reviews").document(ngo.id)
 
         if approved {
-            let approvedRef = db.collection("ngos").document(ngo.id)
+            let approvedRef = db.collection("ngo_reviews").document(ngo.id)
             let batch = db.batch()
             batch.setData(ngo.toFirestoreData(), forDocument: approvedRef)
             batch.deleteDocument(reviewRef)

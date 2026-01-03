@@ -38,7 +38,7 @@
 >>>>>>> origin/dev
       "identity" : "firebase-ios-sdk",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/firebase/firebase-ios-sdk",
+      "location" : "https://github.com/firebase/firebase-ios-sdk.git",
       "state" : {
         "revision" : "45210bd1ea695779e6de016ab00fea8c0b7eb2ef",
         "version" : "12.7.0"
