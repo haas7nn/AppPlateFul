@@ -358,10 +358,6 @@
 			children = (
 				D58F04F32F0740D60080DF27 /* FirestoreService.swift */,
 				D5F169872EFDACAA0015DFDE /* Notifications.storyboard */,
-				9C56C3DF2F08822600C80966 /* Services */,
-				9C56C4132F08832400C80966 /* pickupScheduling */,
-				9C56C40D2F0882E800C80966 /* Modules */,
-				9C56C4142F08833900C80966 /* Notification */,
 				D54C77102EF736C40072F713 /* AppPlateFul */,
 				D54C77272EF736C60072F713 /* AppPlateFulTests */,
 				D54C77312EF736C60072F713 /* AppPlateFulUITests */,
@@ -382,6 +378,10 @@
 		D54C77102EF736C40072F713 /* AppPlateFul */ = {
 			isa = PBXGroup;
 			children = (
+				9C56C3DF2F08822600C80966 /* Services */,
+				9C56C4132F08832400C80966 /* pickupScheduling */,
+				9C56C40D2F0882E800C80966 /* Modules */,
+				9C56C4142F08833900C80966 /* Notification */,
 				D5F84D472F00522A0034CC8D /* AdminDashboard */,
 				D5F84D482F00524D0034CC8D /* NGOReview */,
 				D5F84D492F0052840034CC8D /* UserManagement */,
