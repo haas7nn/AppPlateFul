@@ -68,7 +68,7 @@ class OrganizationDiscoveryViewController: UIViewController {
 
     // MARK: - Firestore
     private func fetchNGOs() {
-        db.collection("ngos_reviews").getDocuments { [weak self] snapshot, error in
+        db.collection("ngo_reviews").getDocuments { [weak self] snapshot, error in
             if let error = error {
                 print("Firestore NGOs error:", error)
                 return

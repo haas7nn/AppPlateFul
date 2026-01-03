@@ -7,37 +7,41 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9C56C3E72F08822600C80966 /* AvailableDonationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C56C3E22F08822600C80966 /* AvailableDonationCell.swift */; };
-		9C56C3E82F08822600C80966 /* DonationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C56C3DD2F08822600C80966 /* DonationService.swift */; };
-		9C56C3E92F08822600C80966 /* DonationSchedulingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C56C3E32F08822600C80966 /* DonationSchedulingTableViewCell.swift */; };
-		9C56C3EA2F08822600C80966 /* showPendingDonationDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C56C3E02F08822600C80966 /* showPendingDonationDetailsViewController.swift */; };
-		9C56C3EB2F08822600C80966 /* NotificationsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C56C3E52F08822600C80966 /* NotificationsTableViewCell.swift */; };
-		9C56C3EC2F08822600C80966 /* showPickupInfoDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C56C3E12F08822600C80966 /* showPickupInfoDetailsViewController.swift */; };
-		9C56C3ED2F08822600C80966 /* MyPickupsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C56C3E42F08822600C80966 /* MyPickupsTableViewCell.swift */; };
-		9C56C3EE2F08822600C80966 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C56C3DE2F08822600C80966 /* NotificationService.swift */; };
-		9C56C3F82F08826F00C80966 /* Notification.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C56C3F62F08826F00C80966 /* Notification.storyboard */; };
-		9C56C3F92F08826F00C80966 /* AcceptedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C56C3F02F08826F00C80966 /* AcceptedViewController.swift */; };
-		9C56C3FA2F08826F00C80966 /* MyPickupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C56C3F22F08826F00C80966 /* MyPickupsViewController.swift */; };
-		9C56C3FB2F08826F00C80966 /* toBeCollectedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C56C3F42F08826F00C80966 /* toBeCollectedViewController.swift */; };
-		9C56C3FC2F08826F00C80966 /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C56C3F72F08826F00C80966 /* NotificationsViewController.swift */; };
-		9C56C3FD2F08826F00C80966 /* ToBeApprovedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C56C3F32F08826F00C80966 /* ToBeApprovedViewController.swift */; };
-		9C56C3FE2F08826F00C80966 /* AvailableDonationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C56C3F12F08826F00C80966 /* AvailableDonationsViewController.swift */; };
-		9C56C3FF2F08826F00C80966 /* AcceptAvailableDonationDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C56C3EF2F08826F00C80966 /* AcceptAvailableDonationDetailsViewController.swift */; };
-		9C56C4012F08829B00C80966 /* NgoFlow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C56C4002F08829B00C80966 /* NgoFlow.storyboard */; };
-		9C56C4052F0882BE00C80966 /* DonationSchedulingStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C56C4032F0882BE00C80966 /* DonationSchedulingStoryboard.storyboard */; };
-		9C56C4062F0882BE00C80966 /* DonationSchedulingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C56C4042F0882BE00C80966 /* DonationSchedulingViewController.swift */; };
-		9C56C4072F0882BE00C80966 /* DonationSchedulingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C56C4022F0882BE00C80966 /* DonationSchedulingPageViewController.swift */; };
-		9C56C40F2F0882E800C80966 /* PickupSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C56C40B2F0882E800C80966 /* PickupSchedule.swift */; };
-		9C56C4102F0882E800C80966 /* DonationStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C56C40A2F0882E800C80966 /* DonationStatus.swift */; };
-		9C56C4112F0882E800C80966 /* Donation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C56C4092F0882E800C80966 /* Donation.swift */; };
-		9C56C4122F0882E800C80966 /* AppNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C56C4082F0882E800C80966 /* AppNotification.swift */; };
+		5C37676B2F097BFC00736425 /* NGOSeeder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C37676A2F097BFC00736425 /* NGOSeeder.swift */; };
+		9C56C8782F0999C600C80966 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C56C8762F0999C600C80966 /* User.swift */; };
+		9C56C8792F0999C600C80966 /* PickupSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C56C8752F0999C600C80966 /* PickupSchedule.swift */; };
+		9C56C87A2F0999C600C80966 /* AppNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C56C8722F0999C600C80966 /* AppNotification.swift */; };
+		9C56C87B2F0999C600C80966 /* DonationStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C56C8742F0999C600C80966 /* DonationStatus.swift */; };
+		9C56C87C2F0999C600C80966 /* Donation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C56C8732F0999C600C80966 /* Donation.swift */; };
+		9C56C8812F0999EF00C80966 /* Notification.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C56C87D2F0999EF00C80966 /* Notification.storyboard */; };
+		9C56C8822F0999EF00C80966 /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C56C87F2F0999EF00C80966 /* NotificationsViewController.swift */; };
+		9C56C8832F0999EF00C80966 /* NotificationsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C56C87E2F0999EF00C80966 /* NotificationsTableViewCell.swift */; };
+		9C56C8962F099A0400C80966 /* NgoFlow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C56C8922F099A0400C80966 /* NgoFlow.storyboard */; };
+		9C56C8972F099A0400C80966 /* DonationSchedulingStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C56C8902F099A0400C80966 /* DonationSchedulingStoryboard.storyboard */; };
+		9C56C8982F099A0400C80966 /* AcceptedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C56C8852F099A0400C80966 /* AcceptedViewController.swift */; };
+		9C56C8992F099A0400C80966 /* AvailableDonationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C56C88B2F099A0400C80966 /* AvailableDonationCell.swift */; };
+		9C56C89A2F099A0400C80966 /* DonationSchedulingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C56C88F2F099A0400C80966 /* DonationSchedulingPageViewController.swift */; };
+		9C56C89B2F099A0400C80966 /* AcceptAvailableDonationDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C56C8842F099A0400C80966 /* AcceptAvailableDonationDetailsViewController.swift */; };
+		9C56C89C2F099A0400C80966 /* showPendingDonationDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C56C8932F099A0400C80966 /* showPendingDonationDetailsViewController.swift */; };
+		9C56C89D2F099A0400C80966 /* AvailableDonationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C56C8862F099A0400C80966 /* AvailableDonationsViewController.swift */; };
+		9C56C89E2F099A0400C80966 /* DonationSchedulingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C56C8912F099A0400C80966 /* DonationSchedulingViewController.swift */; };
+		9C56C89F2F099A0400C80966 /* MyPickupsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C56C88D2F099A0400C80966 /* MyPickupsTableViewCell.swift */; };
+		9C56C8A02F099A0400C80966 /* MyPickupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C56C8872F099A0400C80966 /* MyPickupsViewController.swift */; };
+		9C56C8A12F099A0400C80966 /* ToBeApprovedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C56C8882F099A0400C80966 /* ToBeApprovedViewController.swift */; };
+		9C56C8A22F099A0400C80966 /* showPickupInfoDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C56C8942F099A0400C80966 /* showPickupInfoDetailsViewController.swift */; };
+		9C56C8A32F099A0400C80966 /* DonationSchedulingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C56C88C2F099A0400C80966 /* DonationSchedulingTableViewCell.swift */; };
+		9C56C8A42F099A0400C80966 /* toBeCollectedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C56C8892F099A0400C80966 /* toBeCollectedViewController.swift */; };
+		9C56C8A82F099A1600C80966 /* DonationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C56C8A52F099A1600C80966 /* DonationService.swift */; };
+		9C56C8A92F099A1600C80966 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C56C8A62F099A1600C80966 /* NotificationService.swift */; };
 		D54C77122EF736C40072F713 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54C77112EF736C40072F713 /* AppDelegate.swift */; };
 		D54C77142EF736C40072F713 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54C77132EF736C40072F713 /* SceneDelegate.swift */; };
 		D54C77192EF736C40072F713 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = D54C77182EF736C40072F713 /* Base */; };
 		D54C771B2EF736C60072F713 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D54C771A2EF736C60072F713 /* Assets.xcassets */; };
+		D54C771E2EF736C60072F713 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = D54C771D2EF736C60072F713 /* Base */; };
 		D54C77292EF736C60072F713 /* AppPlateFulTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54C77282EF736C60072F713 /* AppPlateFulTests.swift */; };
 		D54C77332EF736C60072F713 /* AppPlateFulUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54C77322EF736C60072F713 /* AppPlateFulUITests.swift */; };
 		D54C77352EF736C60072F713 /* AppPlateFulUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54C77342EF736C60072F713 /* AppPlateFulUITestsLaunchTests.swift */; };
+		D58F04BF2F073C8A0080DF27 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D58F04BE2F073C8A0080DF27 /* GoogleService-Info.plist */; };
 		D58F04C22F073DBB0080DF27 /* FirebaseAI in Frameworks */ = {isa = PBXBuildFile; productRef = D58F04C12F073DBB0080DF27 /* FirebaseAI */; };
 		D58F04C42F073DBB0080DF27 /* FirebaseAILogic in Frameworks */ = {isa = PBXBuildFile; productRef = D58F04C32F073DBB0080DF27 /* FirebaseAILogic */; };
 		D58F04C62F073DBB0080DF27 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = D58F04C52F073DBB0080DF27 /* FirebaseAnalytics */; };
@@ -65,8 +69,6 @@
 		D58F04F12F073DC40080DF27 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D58F04BE2F073C8A0080DF27 /* GoogleService-Info.plist */; };
 		D58F04F22F073DC40080DF27 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D58F04BE2F073C8A0080DF27 /* GoogleService-Info.plist */; };
 		D58F04F42F0740D60080DF27 /* FirestoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D58F04F32F0740D60080DF27 /* FirestoreService.swift */; };
-		D5DA1B732F092424004126BA /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C56C40C2F0882E800C80966 /* User.swift */; };
-		D5DA1B782F093ABC004126BA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D58F04BE2F073C8A0080DF27 /* GoogleService-Info.plist */; };
 		D5F169882EFDACAA0015DFDE /* Notifications.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D5F169872EFDACAA0015DFDE /* Notifications.storyboard */; };
 /* End PBXBuildFile section */
 
@@ -88,31 +90,32 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		9C56C3DD2F08822600C80966 /* DonationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonationService.swift; sourceTree = "<group>"; };
-		9C56C3DE2F08822600C80966 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
-		9C56C3E02F08822600C80966 /* showPendingDonationDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = showPendingDonationDetailsViewController.swift; sourceTree = "<group>"; };
-		9C56C3E12F08822600C80966 /* showPickupInfoDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = showPickupInfoDetailsViewController.swift; sourceTree = "<group>"; };
-		9C56C3E22F08822600C80966 /* AvailableDonationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailableDonationCell.swift; sourceTree = "<group>"; };
-		9C56C3E32F08822600C80966 /* DonationSchedulingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonationSchedulingTableViewCell.swift; sourceTree = "<group>"; };
-		9C56C3E42F08822600C80966 /* MyPickupsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPickupsTableViewCell.swift; sourceTree = "<group>"; };
-		9C56C3E52F08822600C80966 /* NotificationsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsTableViewCell.swift; sourceTree = "<group>"; };
-		9C56C3EF2F08826F00C80966 /* AcceptAvailableDonationDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcceptAvailableDonationDetailsViewController.swift; sourceTree = "<group>"; };
-		9C56C3F02F08826F00C80966 /* AcceptedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcceptedViewController.swift; sourceTree = "<group>"; };
-		9C56C3F12F08826F00C80966 /* AvailableDonationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailableDonationsViewController.swift; sourceTree = "<group>"; };
-		9C56C3F22F08826F00C80966 /* MyPickupsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPickupsViewController.swift; sourceTree = "<group>"; };
-		9C56C3F32F08826F00C80966 /* ToBeApprovedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToBeApprovedViewController.swift; sourceTree = "<group>"; };
-		9C56C3F42F08826F00C80966 /* toBeCollectedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = toBeCollectedViewController.swift; sourceTree = "<group>"; };
-		9C56C3F62F08826F00C80966 /* Notification.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Notification.storyboard; sourceTree = "<group>"; };
-		9C56C3F72F08826F00C80966 /* NotificationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsViewController.swift; sourceTree = "<group>"; };
-		9C56C4002F08829B00C80966 /* NgoFlow.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NgoFlow.storyboard; sourceTree = "<group>"; };
-		9C56C4022F0882BE00C80966 /* DonationSchedulingPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonationSchedulingPageViewController.swift; sourceTree = "<group>"; };
-		9C56C4032F0882BE00C80966 /* DonationSchedulingStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DonationSchedulingStoryboard.storyboard; sourceTree = "<group>"; };
-		9C56C4042F0882BE00C80966 /* DonationSchedulingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonationSchedulingViewController.swift; sourceTree = "<group>"; };
-		9C56C4082F0882E800C80966 /* AppNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNotification.swift; sourceTree = "<group>"; };
-		9C56C4092F0882E800C80966 /* Donation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Donation.swift; sourceTree = "<group>"; };
-		9C56C40A2F0882E800C80966 /* DonationStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonationStatus.swift; sourceTree = "<group>"; };
-		9C56C40B2F0882E800C80966 /* PickupSchedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickupSchedule.swift; sourceTree = "<group>"; };
-		9C56C40C2F0882E800C80966 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		5C37676A2F097BFC00736425 /* NGOSeeder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NGOSeeder.swift; sourceTree = "<group>"; };
+		9C56C8722F0999C600C80966 /* AppNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNotification.swift; sourceTree = "<group>"; };
+		9C56C8732F0999C600C80966 /* Donation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Donation.swift; sourceTree = "<group>"; };
+		9C56C8742F0999C600C80966 /* DonationStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonationStatus.swift; sourceTree = "<group>"; };
+		9C56C8752F0999C600C80966 /* PickupSchedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickupSchedule.swift; sourceTree = "<group>"; };
+		9C56C8762F0999C600C80966 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		9C56C87D2F0999EF00C80966 /* Notification.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Notification.storyboard; sourceTree = "<group>"; };
+		9C56C87E2F0999EF00C80966 /* NotificationsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsTableViewCell.swift; sourceTree = "<group>"; };
+		9C56C87F2F0999EF00C80966 /* NotificationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsViewController.swift; sourceTree = "<group>"; };
+		9C56C8842F099A0400C80966 /* AcceptAvailableDonationDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcceptAvailableDonationDetailsViewController.swift; sourceTree = "<group>"; };
+		9C56C8852F099A0400C80966 /* AcceptedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcceptedViewController.swift; sourceTree = "<group>"; };
+		9C56C8862F099A0400C80966 /* AvailableDonationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailableDonationsViewController.swift; sourceTree = "<group>"; };
+		9C56C8872F099A0400C80966 /* MyPickupsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPickupsViewController.swift; sourceTree = "<group>"; };
+		9C56C8882F099A0400C80966 /* ToBeApprovedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToBeApprovedViewController.swift; sourceTree = "<group>"; };
+		9C56C8892F099A0400C80966 /* toBeCollectedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = toBeCollectedViewController.swift; sourceTree = "<group>"; };
+		9C56C88B2F099A0400C80966 /* AvailableDonationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailableDonationCell.swift; sourceTree = "<group>"; };
+		9C56C88C2F099A0400C80966 /* DonationSchedulingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonationSchedulingTableViewCell.swift; sourceTree = "<group>"; };
+		9C56C88D2F099A0400C80966 /* MyPickupsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPickupsTableViewCell.swift; sourceTree = "<group>"; };
+		9C56C88F2F099A0400C80966 /* DonationSchedulingPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonationSchedulingPageViewController.swift; sourceTree = "<group>"; };
+		9C56C8902F099A0400C80966 /* DonationSchedulingStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DonationSchedulingStoryboard.storyboard; sourceTree = "<group>"; };
+		9C56C8912F099A0400C80966 /* DonationSchedulingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonationSchedulingViewController.swift; sourceTree = "<group>"; };
+		9C56C8922F099A0400C80966 /* NgoFlow.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NgoFlow.storyboard; sourceTree = "<group>"; };
+		9C56C8932F099A0400C80966 /* showPendingDonationDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = showPendingDonationDetailsViewController.swift; sourceTree = "<group>"; };
+		9C56C8942F099A0400C80966 /* showPickupInfoDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = showPickupInfoDetailsViewController.swift; sourceTree = "<group>"; };
+		9C56C8A52F099A1600C80966 /* DonationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonationService.swift; sourceTree = "<group>"; };
+		9C56C8A62F099A1600C80966 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		D54C770E2EF736C40072F713 /* AppPlateFul.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppPlateFul.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D54C77112EF736C40072F713 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D54C77132EF736C40072F713 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -158,6 +161,7 @@
 			membershipExceptions = (
 				AddReviewViewController.swift,
 				DiscoveryNGO.swift,
+				NGO.swift,
 				NGOCardCell.swift,
 				NGODetailsViewController.swift,
 				NGOInsightsViewController.swift,
@@ -172,6 +176,7 @@
 			membershipExceptions = (
 				AddReviewViewController.swift,
 				DiscoveryNGO.swift,
+				NGO.swift,
 				NGOCardCell.swift,
 				NGODetailsViewController.swift,
 				NGOInsightsViewController.swift,
@@ -213,16 +218,10 @@
 			);
 			target = D54C772D2EF736C60072F713 /* AppPlateFulUITests */;
 		};
-		D5DA1B722F09234A004126BA /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				User.swift,
-			);
-			target = D54C770D2EF736C40072F713 /* AppPlateFul */;
-		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		5C3767512F09649900736425 /* DonorDashboard */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = DonorDashboard; sourceTree = "<group>"; };
 		5C8052F42F081F2400ACF25F /* FavoriteNGO */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (5C8053042F081F2500ACF25F /* PBXFileSystemSynchronizedBuildFileExceptionSet */, 5C8053052F081F2500ACF25F /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = FavoriteNGO; sourceTree = "<group>"; };
 		5C8053072F081FA500ACF25F /* NgoOrginizationDiscovery */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (5C8053082F081FAB00ACF25F /* PBXFileSystemSynchronizedBuildFileExceptionSet */, 5C8053092F081FAB00ACF25F /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = NgoOrginizationDiscovery; sourceTree = "<group>"; };
 		5C8053122F0832E300ACF25F /* FAQ */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (5C8053132F0832EE00ACF25F /* PBXFileSystemSynchronizedBuildFileExceptionSet */, 5C8053142F0832EE00ACF25F /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = FAQ; sourceTree = "<group>"; };
@@ -231,7 +230,7 @@
 		D58F04B72F06E9E70080DF27 /* Reports 2 */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = "Reports 2"; sourceTree = "<group>"; };
 		D5F84D472F00522A0034CC8D /* AdminDashboard */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = AdminDashboard; sourceTree = "<group>"; };
 		D5F84D482F00524D0034CC8D /* NGOReview */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = NGOReview; sourceTree = "<group>"; };
-		D5F84D492F0052840034CC8D /* UserManagement */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (D5DA1B722F09234A004126BA /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = UserManagement; sourceTree = "<group>"; };
+		D5F84D492F0052840034CC8D /* UserManagement */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = UserManagement; sourceTree = "<group>"; };
 		D5F84D4A2F0052AE0034CC8D /* DonationActivity */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = DonationActivity; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
@@ -284,73 +283,73 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		9C56C3DF2F08822600C80966 /* Services */ = {
+		9C56C8772F0999C600C80966 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				9C56C3DD2F08822600C80966 /* DonationService.swift */,
-				9C56C3DE2F08822600C80966 /* NotificationService.swift */,
-			);
-			path = Services;
-			sourceTree = "<group>";
-		};
-		9C56C3E62F08822600C80966 /* TableCells */ = {
-			isa = PBXGroup;
-			children = (
-				9C56C3E22F08822600C80966 /* AvailableDonationCell.swift */,
-				9C56C3E32F08822600C80966 /* DonationSchedulingTableViewCell.swift */,
-				9C56C3E42F08822600C80966 /* MyPickupsTableViewCell.swift */,
-			);
-			path = TableCells;
-			sourceTree = "<group>";
-		};
-		9C56C3F52F08826F00C80966 /* NGOvc */ = {
-			isa = PBXGroup;
-			children = (
-				9C56C3EF2F08826F00C80966 /* AcceptAvailableDonationDetailsViewController.swift */,
-				9C56C3F02F08826F00C80966 /* AcceptedViewController.swift */,
-				9C56C3F12F08826F00C80966 /* AvailableDonationsViewController.swift */,
-				9C56C3F22F08826F00C80966 /* MyPickupsViewController.swift */,
-				9C56C3F32F08826F00C80966 /* ToBeApprovedViewController.swift */,
-				9C56C3F42F08826F00C80966 /* toBeCollectedViewController.swift */,
-			);
-			path = NGOvc;
-			sourceTree = "<group>";
-		};
-		9C56C40D2F0882E800C80966 /* Modules */ = {
-			isa = PBXGroup;
-			children = (
-				9C56C4082F0882E800C80966 /* AppNotification.swift */,
-				9C56C4092F0882E800C80966 /* Donation.swift */,
-				9C56C40A2F0882E800C80966 /* DonationStatus.swift */,
-				9C56C40B2F0882E800C80966 /* PickupSchedule.swift */,
-				9C56C40C2F0882E800C80966 /* User.swift */,
+				9C56C8722F0999C600C80966 /* AppNotification.swift */,
+				9C56C8732F0999C600C80966 /* Donation.swift */,
+				9C56C8742F0999C600C80966 /* DonationStatus.swift */,
+				9C56C8752F0999C600C80966 /* PickupSchedule.swift */,
+				9C56C8762F0999C600C80966 /* User.swift */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
 		};
-		9C56C4132F08832400C80966 /* pickupScheduling */ = {
+		9C56C8802F0999EF00C80966 /* Notification */ = {
 			isa = PBXGroup;
 			children = (
-				9C56C4022F0882BE00C80966 /* DonationSchedulingPageViewController.swift */,
-				9C56C4042F0882BE00C80966 /* DonationSchedulingViewController.swift */,
-				9C56C3E12F08822600C80966 /* showPickupInfoDetailsViewController.swift */,
-				9C56C4032F0882BE00C80966 /* DonationSchedulingStoryboard.storyboard */,
-				9C56C3F52F08826F00C80966 /* NGOvc */,
-				9C56C4002F08829B00C80966 /* NgoFlow.storyboard */,
-				9C56C3E02F08822600C80966 /* showPendingDonationDetailsViewController.swift */,
-				9C56C3E62F08822600C80966 /* TableCells */,
+				9C56C87D2F0999EF00C80966 /* Notification.storyboard */,
+				9C56C87E2F0999EF00C80966 /* NotificationsTableViewCell.swift */,
+				9C56C87F2F0999EF00C80966 /* NotificationsViewController.swift */,
+			);
+			path = Notification;
+			sourceTree = "<group>";
+		};
+		9C56C88A2F099A0400C80966 /* NGOvc */ = {
+			isa = PBXGroup;
+			children = (
+				9C56C8842F099A0400C80966 /* AcceptAvailableDonationDetailsViewController.swift */,
+				9C56C8852F099A0400C80966 /* AcceptedViewController.swift */,
+				9C56C8862F099A0400C80966 /* AvailableDonationsViewController.swift */,
+				9C56C8872F099A0400C80966 /* MyPickupsViewController.swift */,
+				9C56C8882F099A0400C80966 /* ToBeApprovedViewController.swift */,
+				9C56C8892F099A0400C80966 /* toBeCollectedViewController.swift */,
+			);
+			path = NGOvc;
+			sourceTree = "<group>";
+		};
+		9C56C88E2F099A0400C80966 /* TableCells */ = {
+			isa = PBXGroup;
+			children = (
+				9C56C88B2F099A0400C80966 /* AvailableDonationCell.swift */,
+				9C56C88C2F099A0400C80966 /* DonationSchedulingTableViewCell.swift */,
+				9C56C88D2F099A0400C80966 /* MyPickupsTableViewCell.swift */,
+			);
+			path = TableCells;
+			sourceTree = "<group>";
+		};
+		9C56C8952F099A0400C80966 /* pickupScheduling */ = {
+			isa = PBXGroup;
+			children = (
+				9C56C88A2F099A0400C80966 /* NGOvc */,
+				9C56C88E2F099A0400C80966 /* TableCells */,
+				9C56C88F2F099A0400C80966 /* DonationSchedulingPageViewController.swift */,
+				9C56C8902F099A0400C80966 /* DonationSchedulingStoryboard.storyboard */,
+				9C56C8912F099A0400C80966 /* DonationSchedulingViewController.swift */,
+				9C56C8922F099A0400C80966 /* NgoFlow.storyboard */,
+				9C56C8932F099A0400C80966 /* showPendingDonationDetailsViewController.swift */,
+				9C56C8942F099A0400C80966 /* showPickupInfoDetailsViewController.swift */,
 			);
 			path = pickupScheduling;
 			sourceTree = "<group>";
 		};
-		9C56C4142F08833900C80966 /* Notification */ = {
+		9C56C8A72F099A1600C80966 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				9C56C3F72F08826F00C80966 /* NotificationsViewController.swift */,
-				9C56C3F62F08826F00C80966 /* Notification.storyboard */,
-				9C56C3E52F08822600C80966 /* NotificationsTableViewCell.swift */,
+				9C56C8A52F099A1600C80966 /* DonationService.swift */,
+				9C56C8A62F099A1600C80966 /* NotificationService.swift */,
 			);
-			path = Notification;
+			path = Services;
 			sourceTree = "<group>";
 		};
 		D54C77052EF736C40072F713 = {
@@ -378,10 +377,11 @@
 		D54C77102EF736C40072F713 /* AppPlateFul */ = {
 			isa = PBXGroup;
 			children = (
-				9C56C3DF2F08822600C80966 /* Services */,
-				9C56C4132F08832400C80966 /* pickupScheduling */,
-				9C56C40D2F0882E800C80966 /* Modules */,
-				9C56C4142F08833900C80966 /* Notification */,
+				9C56C8A72F099A1600C80966 /* Services */,
+				9C56C8952F099A0400C80966 /* pickupScheduling */,
+				9C56C8802F0999EF00C80966 /* Notification */,
+				9C56C8772F0999C600C80966 /* Modules */,
+				5C3767512F09649900736425 /* DonorDashboard */,
 				D5F84D472F00522A0034CC8D /* AdminDashboard */,
 				D5F84D482F00524D0034CC8D /* NGOReview */,
 				D5F84D492F0052840034CC8D /* UserManagement */,
@@ -398,6 +398,7 @@
 				D54C77172EF736C40072F713 /* Main.storyboard */,
 				D54C771C2EF736C60072F713 /* LaunchScreen.storyboard */,
 				D54C771F2EF736C60072F713 /* Info.plist */,
+				5C37676A2F097BFC00736425 /* NGOSeeder.swift */,
 			);
 			path = AppPlateFul;
 			sourceTree = "<group>";
@@ -436,6 +437,7 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
+				5C3767512F09649900736425 /* DonorDashboard */,
 				5C8052F42F081F2400ACF25F /* FavoriteNGO */,
 				5C8053072F081FA500ACF25F /* NgoOrginizationDiscovery */,
 				5C8053122F0832E300ACF25F /* FAQ */,
@@ -539,13 +541,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9C56C4012F08829B00C80966 /* NgoFlow.storyboard in Resources */,
 				D54C771B2EF736C60072F713 /* Assets.xcassets in Resources */,
-				9C56C3F82F08826F00C80966 /* Notification.storyboard in Resources */,
+				D54C771E2EF736C60072F713 /* Base in Resources */,
 				D54C77192EF736C40072F713 /* Base in Resources */,
+				D58F04BF2F073C8A0080DF27 /* GoogleService-Info.plist in Resources */,
 				D5F169882EFDACAA0015DFDE /* Notifications.storyboard in Resources */,
-				9C56C4052F0882BE00C80966 /* DonationSchedulingStoryboard.storyboard in Resources */,
-				D5DA1B782F093ABC004126BA /* GoogleService-Info.plist in Resources */,
+				9C56C8962F099A0400C80966 /* NgoFlow.storyboard in Resources */,
+				9C56C8972F099A0400C80966 /* DonationSchedulingStoryboard.storyboard in Resources */,
+				9C56C8812F0999EF00C80966 /* Notification.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -572,31 +575,32 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9C56C8782F0999C600C80966 /* User.swift in Sources */,
+				9C56C8A82F099A1600C80966 /* DonationService.swift in Sources */,
+				9C56C8A92F099A1600C80966 /* NotificationService.swift in Sources */,
+				9C56C8792F0999C600C80966 /* PickupSchedule.swift in Sources */,
+				9C56C87A2F0999C600C80966 /* AppNotification.swift in Sources */,
+				9C56C87B2F0999C600C80966 /* DonationStatus.swift in Sources */,
+				9C56C87C2F0999C600C80966 /* Donation.swift in Sources */,
+				9C56C8982F099A0400C80966 /* AcceptedViewController.swift in Sources */,
+				9C56C8992F099A0400C80966 /* AvailableDonationCell.swift in Sources */,
+				9C56C89A2F099A0400C80966 /* DonationSchedulingPageViewController.swift in Sources */,
+				9C56C89B2F099A0400C80966 /* AcceptAvailableDonationDetailsViewController.swift in Sources */,
+				9C56C89C2F099A0400C80966 /* showPendingDonationDetailsViewController.swift in Sources */,
+				9C56C89D2F099A0400C80966 /* AvailableDonationsViewController.swift in Sources */,
+				9C56C89E2F099A0400C80966 /* DonationSchedulingViewController.swift in Sources */,
+				9C56C89F2F099A0400C80966 /* MyPickupsTableViewCell.swift in Sources */,
+				9C56C8A02F099A0400C80966 /* MyPickupsViewController.swift in Sources */,
+				9C56C8A12F099A0400C80966 /* ToBeApprovedViewController.swift in Sources */,
+				9C56C8A22F099A0400C80966 /* showPickupInfoDetailsViewController.swift in Sources */,
+				9C56C8A32F099A0400C80966 /* DonationSchedulingTableViewCell.swift in Sources */,
+				9C56C8A42F099A0400C80966 /* toBeCollectedViewController.swift in Sources */,
 				D58F04F42F0740D60080DF27 /* FirestoreService.swift in Sources */,
-				9C56C3E72F08822600C80966 /* AvailableDonationCell.swift in Sources */,
-				9C56C3E82F08822600C80966 /* DonationService.swift in Sources */,
-				9C56C3E92F08822600C80966 /* DonationSchedulingTableViewCell.swift in Sources */,
-				9C56C3EA2F08822600C80966 /* showPendingDonationDetailsViewController.swift in Sources */,
-				9C56C3EB2F08822600C80966 /* NotificationsTableViewCell.swift in Sources */,
-				D5DA1B732F092424004126BA /* User.swift in Sources */,
-				9C56C3EC2F08822600C80966 /* showPickupInfoDetailsViewController.swift in Sources */,
-				9C56C3ED2F08822600C80966 /* MyPickupsTableViewCell.swift in Sources */,
-				9C56C3EE2F08822600C80966 /* NotificationService.swift in Sources */,
+				5C37676B2F097BFC00736425 /* NGOSeeder.swift in Sources */,
+				9C56C8822F0999EF00C80966 /* NotificationsViewController.swift in Sources */,
+				9C56C8832F0999EF00C80966 /* NotificationsTableViewCell.swift in Sources */,
 				D54C77122EF736C40072F713 /* AppDelegate.swift in Sources */,
 				D54C77142EF736C40072F713 /* SceneDelegate.swift in Sources */,
-				9C56C40F2F0882E800C80966 /* PickupSchedule.swift in Sources */,
-				9C56C4102F0882E800C80966 /* DonationStatus.swift in Sources */,
-				9C56C4112F0882E800C80966 /* Donation.swift in Sources */,
-				9C56C4122F0882E800C80966 /* AppNotification.swift in Sources */,
-				9C56C4062F0882BE00C80966 /* DonationSchedulingViewController.swift in Sources */,
-				9C56C4072F0882BE00C80966 /* DonationSchedulingPageViewController.swift in Sources */,
-				9C56C3F92F08826F00C80966 /* AcceptedViewController.swift in Sources */,
-				9C56C3FA2F08826F00C80966 /* MyPickupsViewController.swift in Sources */,
-				9C56C3FB2F08826F00C80966 /* toBeCollectedViewController.swift in Sources */,
-				9C56C3FC2F08826F00C80966 /* NotificationsViewController.swift in Sources */,
-				9C56C3FD2F08826F00C80966 /* ToBeApprovedViewController.swift in Sources */,
-				9C56C3FE2F08826F00C80966 /* AvailableDonationsViewController.swift in Sources */,
-				9C56C3FF2F08826F00C80966 /* AcceptAvailableDonationDetailsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

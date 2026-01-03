@@ -8,20 +8,17 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                willConnectTo session: UISceneSession,
                options connectionOptions: UIScene.ConnectionOptions) {
 
-        guard let windowScene = (scene as? UIWindowScene) else { return }
+        guard let windowScene = scene as? UIWindowScene else { return }
 
+        // 🔥 RUN ONCE ONLY — DELETE AFTER SEEDING
+        UserSeeder.seedUsers()
 
         let window = UIWindow(windowScene: windowScene)
 
-        // Start on Admin Dashboard
-        let storyboard = UIStoryboard(name: "AdminDashboard", bundle: nil)
+        let storyboard = UIStoryboard(name: "DonorDashboard", bundle: nil)
+        let rootVC = storyboard.instantiateInitialViewController()
 
-        guard let initialVC = storyboard.instantiateInitialViewController() else {
-            assertionFailure("Initial View Controller is not set in AdminDashboard.storyboard")
-            return
-        }
-
-        window.rootViewController = initialVC
+        window.rootViewController = rootVC
         self.window = window
         window.makeKeyAndVisible()
     }
