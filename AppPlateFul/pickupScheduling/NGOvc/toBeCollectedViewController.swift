@@ -59,7 +59,7 @@ class toBeCollectedViewController: UIViewController {
             // Button state based on status
             if donation.status == .completed {
                 markAsCollectedbtn.isEnabled = false
-                markAsCollectedbtn.setTitle("Collected ✓", for: .normal)
+                markAsCollectedbtn.setTitle("Collected ", for: .normal)
                 markAsCollectedbtn.alpha = 0.6
             } else {
                 markAsCollectedbtn.isEnabled = true
