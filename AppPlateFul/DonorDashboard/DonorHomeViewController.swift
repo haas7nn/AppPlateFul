@@ -15,8 +15,6 @@ class DonorHomeViewController: UIViewController {
     @IBOutlet weak var donationUpdatesBtn: UIButton?
     @IBOutlet weak var recurringDonationsBtn: UIButton?
     
-
-
     override func viewDidLoad() {
         super.viewDidLoad()
         print("🚀 DonorHome viewDidLoad")
@@ -55,7 +53,7 @@ class DonorHomeViewController: UIViewController {
         print("📍 Favourite NGOs tapped")
         
         let storyboard = UIStoryboard(name: "NgoOrginzationDiscovery", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier:"OrganizationDiscoveryVC")
+        let vc = storyboard.instantiateViewController(withIdentifier: "OrganizationDiscoveryVC")
         
         if let nav = navigationController {
             nav.pushViewController(vc, animated: true)
@@ -72,17 +70,49 @@ class DonorHomeViewController: UIViewController {
     
     @IBAction func trackDeliveriesTapped(_ sender: UIButton) {
         print("📍 Track Deliveries tapped")
-        showComingSoon(feature: "Track Deliveries")
+        openTrackingOrder()
     }
     
     @IBAction func donationUpdatesTapped(_ sender: UIButton) {
         print("📍 Donation Updates tapped")
-        showComingSoon(feature: "Donation Updates")
+        openDonationsList()
     }
     
     @IBAction func recurringDonationsTapped(_ sender: UIButton) {
         print("📍 Recurring Donations tapped")
         showComingSoon(feature: "Recurring Donations")
+    }
+    
+    // MARK: - Navigation to DonationsList Storyboard
+    private func openDonationsList() {
+        let storyboard = UIStoryboard(name: "DonationsList", bundle: nil)
+        
+        guard let donationsListVC = storyboard.instantiateViewController(withIdentifier: "DonationsListViewController") as? DonationsListViewController else {
+            print("❌ Error: Could not find DonationsListViewController in DonationsList.storyboard")
+            print("💡 Make sure Storyboard ID is set to 'DonationsListViewController' in Identity Inspector")
+            return
+        }
+        
+        donationsListVC.modalPresentationStyle = .fullScreen
+        present(donationsListVC, animated: true)
+        
+        print("✅ Opened DonationsListViewController from DonationsList.storyboard")
+    }
+    
+    // MARK: - Navigation to TrackingOrder Storyboard
+    private func openTrackingOrder() {
+        let storyboard = UIStoryboard(name: "TrackingOrder", bundle: nil)
+        
+        guard let trackingOrderVC = storyboard.instantiateViewController(withIdentifier: "TrackingOrderViewController") as? TrackingOrderViewController else {
+            print("❌ Error: Could not find TrackingOrderViewController in TrackingOrder.storyboard")
+            print("💡 Make sure Storyboard ID is set to 'TrackingOrderViewController' in Identity Inspector")
+            return
+        }
+        
+        trackingOrderVC.modalPresentationStyle = .fullScreen
+        present(trackingOrderVC, animated: true)
+        
+        print("✅ Opened TrackingOrderViewController from TrackingOrder.storyboard")
     }
     
     // MARK: - Helper

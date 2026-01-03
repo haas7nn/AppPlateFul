@@ -8,6 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		5C37676B2F097BFC00736425 /* NGOSeeder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C37676A2F097BFC00736425 /* NGOSeeder.swift */; };
+		C01899222F0994AA003B54BA /* AddDonationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01899172F0994AA003B54BA /* AddDonationViewController.swift */; };
+		C01899232F0994AA003B54BA /* DonationsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C018991D2F0994AA003B54BA /* DonationsListViewController.swift */; };
+		C01899242F0994AA003B54BA /* DonationReceiptViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01899192F0994AA003B54BA /* DonationReceiptViewController.swift */; };
+		C01899252F0994AA003B54BA /* DonationDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C018991B2F0994AA003B54BA /* DonationDetailsViewController.swift */; };
+		C01899262F0994AA003B54BA /* DonationHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01899182F0994AA003B54BA /* DonationHomeViewController.swift */; };
+		C01899272F0994AA003B54BA /* TrackingOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01899202F0994AA003B54BA /* TrackingOrderViewController.swift */; };
+		C01899282F0994AA003B54BA /* AddDonation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C01899162F0994AA003B54BA /* AddDonation.storyboard */; };
+		C01899292F0994AA003B54BA /* DonationsList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C018991C2F0994AA003B54BA /* DonationsList.storyboard */; };
+		C018992A2F0994AA003B54BA /* TrackingOrder.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C018991F2F0994AA003B54BA /* TrackingOrder.storyboard */; };
 		D54C77122EF736C40072F713 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54C77112EF736C40072F713 /* AppDelegate.swift */; };
 		D54C77142EF736C40072F713 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54C77132EF736C40072F713 /* SceneDelegate.swift */; };
 		D54C77192EF736C40072F713 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = D54C77182EF736C40072F713 /* Base */; };
@@ -66,6 +75,15 @@
 
 /* Begin PBXFileReference section */
 		5C37676A2F097BFC00736425 /* NGOSeeder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NGOSeeder.swift; sourceTree = "<group>"; };
+		C01899162F0994AA003B54BA /* AddDonation.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddDonation.storyboard; sourceTree = "<group>"; };
+		C01899172F0994AA003B54BA /* AddDonationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDonationViewController.swift; sourceTree = "<group>"; };
+		C01899182F0994AA003B54BA /* DonationHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonationHomeViewController.swift; sourceTree = "<group>"; };
+		C01899192F0994AA003B54BA /* DonationReceiptViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonationReceiptViewController.swift; sourceTree = "<group>"; };
+		C018991B2F0994AA003B54BA /* DonationDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonationDetailsViewController.swift; sourceTree = "<group>"; };
+		C018991C2F0994AA003B54BA /* DonationsList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DonationsList.storyboard; sourceTree = "<group>"; };
+		C018991D2F0994AA003B54BA /* DonationsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonationsListViewController.swift; sourceTree = "<group>"; };
+		C018991F2F0994AA003B54BA /* TrackingOrder.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TrackingOrder.storyboard; sourceTree = "<group>"; };
+		C01899202F0994AA003B54BA /* TrackingOrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackingOrderViewController.swift; sourceTree = "<group>"; };
 		D54C770E2EF736C40072F713 /* AppPlateFul.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppPlateFul.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D54C77112EF736C40072F713 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D54C77132EF736C40072F713 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -233,9 +251,45 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C018991A2F0994AA003B54BA /* AddDonation */ = {
+			isa = PBXGroup;
+			children = (
+				C01899162F0994AA003B54BA /* AddDonation.storyboard */,
+				C01899172F0994AA003B54BA /* AddDonationViewController.swift */,
+				C01899182F0994AA003B54BA /* DonationHomeViewController.swift */,
+				C01899192F0994AA003B54BA /* DonationReceiptViewController.swift */,
+			);
+			name = AddDonation;
+			path = AppPlateFul/AddDonation;
+			sourceTree = "<group>";
+		};
+		C018991E2F0994AA003B54BA /* DonationsList */ = {
+			isa = PBXGroup;
+			children = (
+				C018991B2F0994AA003B54BA /* DonationDetailsViewController.swift */,
+				C018991C2F0994AA003B54BA /* DonationsList.storyboard */,
+				C018991D2F0994AA003B54BA /* DonationsListViewController.swift */,
+			);
+			name = DonationsList;
+			path = AppPlateFul/DonationsList;
+			sourceTree = "<group>";
+		};
+		C01899212F0994AA003B54BA /* TrackingOrder */ = {
+			isa = PBXGroup;
+			children = (
+				C018991F2F0994AA003B54BA /* TrackingOrder.storyboard */,
+				C01899202F0994AA003B54BA /* TrackingOrderViewController.swift */,
+			);
+			name = TrackingOrder;
+			path = AppPlateFul/TrackingOrder;
+			sourceTree = "<group>";
+		};
 		D54C77052EF736C40072F713 = {
 			isa = PBXGroup;
 			children = (
+				C018991A2F0994AA003B54BA /* AddDonation */,
+				C018991E2F0994AA003B54BA /* DonationsList */,
+				C01899212F0994AA003B54BA /* TrackingOrder */,
 				D58F04F32F0740D60080DF27 /* FirestoreService.swift */,
 				D5F169872EFDACAA0015DFDE /* Notifications.storyboard */,
 				D54C77102EF736C40072F713 /* AppPlateFul */,
@@ -418,6 +472,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C01899282F0994AA003B54BA /* AddDonation.storyboard in Resources */,
+				C01899292F0994AA003B54BA /* DonationsList.storyboard in Resources */,
+				C018992A2F0994AA003B54BA /* TrackingOrder.storyboard in Resources */,
 				D54C771B2EF736C60072F713 /* Assets.xcassets in Resources */,
 				D54C771E2EF736C60072F713 /* Base in Resources */,
 				D54C77192EF736C40072F713 /* Base in Resources */,
@@ -449,6 +506,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C01899222F0994AA003B54BA /* AddDonationViewController.swift in Sources */,
+				C01899232F0994AA003B54BA /* DonationsListViewController.swift in Sources */,
+				C01899242F0994AA003B54BA /* DonationReceiptViewController.swift in Sources */,
+				C01899252F0994AA003B54BA /* DonationDetailsViewController.swift in Sources */,
+				C01899262F0994AA003B54BA /* DonationHomeViewController.swift in Sources */,
+				C01899272F0994AA003B54BA /* TrackingOrderViewController.swift in Sources */,
 				D58F04F42F0740D60080DF27 /* FirestoreService.swift in Sources */,
 				5C37676B2F097BFC00736425 /* NGOSeeder.swift in Sources */,
 				D54C77122EF736C40072F713 /* AppDelegate.swift in Sources */,

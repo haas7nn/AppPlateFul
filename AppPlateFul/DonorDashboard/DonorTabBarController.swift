@@ -5,12 +5,17 @@
 
 import UIKit
 
-class DonorTabBarController: UITabBarController {
+class DonorTabBarController: UITabBarController, UITabBarControllerDelegate {
+    
+    // MARK: - Properties
+    // Donate tab is at index 2 (Home=0, Find NGOs=1, Donate=2, History=3, Profile=4)
+    private let donateTabIndex = 2
     
     override func viewDidLoad() {
         super.viewDidLoad()
         print("🚀 DonorTabBar viewDidLoad")
         setupTabBar()
+        self.delegate = self
     }
     
     private func setupTabBar() {
@@ -32,5 +37,44 @@ class DonorTabBarController: UITabBarController {
             tabBar.standardAppearance = appearance
             tabBar.scrollEdgeAppearance = appearance
         }
+    }
+    
+    // MARK: - UITabBarControllerDelegate
+    func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
+        
+        guard let viewControllers = tabBarController.viewControllers,
+              let index = viewControllers.firstIndex(of: viewController) else {
+            return true
+        }
+        
+        // Check if Donate tab is being tapped
+        if index == donateTabIndex {
+            print("📍 Donate tab tapped - opening AddDonations storyboard")
+            openAddDonationScreen()
+            return false  // Prevent default tab selection
+        }
+        
+        return true  // Allow other tabs to work normally
+    }
+    
+    // MARK: - Navigation to AddDonation (from separate storyboard)
+    private func openAddDonationScreen() {
+        // Load from your separate AddDonations.storyboard
+        let storyboard = UIStoryboard(name: "AddDonations", bundle: nil)
+        
+        guard let addDonationVC = storyboard.instantiateViewController(withIdentifier: "AddDonationViewController") as? AddDonationViewController else {
+            print("❌ Error: Could not find AddDonationViewController in AddDonations.storyboard")
+            print("💡 Make sure Storyboard ID is set to 'AddDonationViewController' in Identity Inspector")
+            return
+        }
+        
+        // Wrap in navigation controller for proper navigation to receipt screen
+        let navController = UINavigationController(rootViewController: addDonationVC)
+        navController.modalPresentationStyle = .fullScreen
+        
+        // Present the AddDonation screen
+        present(navController, animated: true)
+        
+        print("✅ Opened AddDonationViewController from AddDonations.storyboard")
     }
 }
