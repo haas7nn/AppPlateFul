@@ -21,8 +21,5 @@
 			</array>
 		</dict>
 	</dict>
-	<key>CFBundleIdentifier</key>
-	<string>&lt;key&gt;UIMainStoryboardFile&lt;/key&gt;
-&lt;string&gt;Main&lt;/string&gt;</string>
 </dict>
 </plist>
