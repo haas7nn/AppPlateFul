@@ -23,23 +23,47 @@ final class FirestoreService {
 
     private let db = Firestore.firestore()
 
-    func fetchNGOs(completion: @escaping ([NGOItem]) -> Void) {
-        db.collection("ngos").getDocuments { snap, _ in
-            let docs = snap?.documents ?? []
-            let items = docs.map { d -> NGOItem in
-                let x = d.data()
-                return NGOItem(
-                    id: d.documentID,
-                    name: x["name"] as? String ?? "",
-                    tagline: x["tagline"] as? String ?? "",
-                    city: x["city"] as? String ?? "",
-                    category: x["category"] as? String ?? "",
-                    imageName: x["imageName"] as? String ?? ""
-                )
+    func fetchNGOs(completion: @escaping ([NGO]) -> Void) {
+        db.collection("ngo_reviews")
+            .whereField("status", isEqualTo: "Approved")
+            .getDocuments { snap, error in
+
+                if let error = error {
+                    print("❌ fetchNGOs:", error.localizedDescription)
+                    completion([])
+                    return
+                }
+
+                let docs = snap?.documents ?? []
+
+                let ngos = docs.map { d -> NGO in
+                    let x = d.data()
+
+                    let ratingsCount = x["ratingsCount"] as? Int ?? 0
+                    let rating = min(5.0, max(0.0, Double(ratingsCount) / 200.0))
+
+                    return NGO(
+                        id: d.documentID,
+                        name: x["name"] as? String ?? "",
+                        desc: x["desc"] as? String ?? (x["communityReviews"] as? String ?? ""),
+                        fullDescription: x["fullDescription"] as? String ?? "",
+                        area: x["area"] as? String ?? "",
+                        rating: rating,
+                        reviews: ratingsCount,
+                        logoURL: x["logoURL"] as? String ?? "",
+                        phone: x["phone"] as? String ?? "",
+                        email: x["email"] as? String ?? "",
+                        address: x["address"] as? String ?? (x["area"] as? String ?? ""),
+                        verified: (x["status"] as? String ?? "") == "Approved"
+                    )
+                }
+
+                completion(ngos)
             }
-            completion(items)
-        }
     }
+
+
+
 
     func setFavorite(userKey: String, ngoId: String, isFav: Bool, completion: @escaping (Error?) -> Void) {
         let ref = db.collection("users").document(userKey).collection("favorites").document(ngoId)

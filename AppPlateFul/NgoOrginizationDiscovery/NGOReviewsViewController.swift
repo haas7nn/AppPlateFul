@@ -85,7 +85,7 @@ class NGOReviewsViewController: UIViewController,
     private func fetchReviews() {
         guard !ngoId.isEmpty else { return }
 
-        db.collection("ngos_reviews")
+        db.collection("ngo_reviews")
             .document(ngoId)
             .collection("reviews")
             .order(by: "createdAt", descending: true)

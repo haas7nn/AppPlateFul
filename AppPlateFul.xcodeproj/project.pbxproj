@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5C37676B2F097BFC00736425 /* NGOSeeder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C37676A2F097BFC00736425 /* NGOSeeder.swift */; };
 		D54C77122EF736C40072F713 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54C77112EF736C40072F713 /* AppDelegate.swift */; };
 		D54C77142EF736C40072F713 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54C77132EF736C40072F713 /* SceneDelegate.swift */; };
 		D54C77192EF736C40072F713 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = D54C77182EF736C40072F713 /* Base */; };
@@ -64,6 +65,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5C37676A2F097BFC00736425 /* NGOSeeder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NGOSeeder.swift; sourceTree = "<group>"; };
 		D54C770E2EF736C40072F713 /* AppPlateFul.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppPlateFul.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D54C77112EF736C40072F713 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D54C77132EF736C40072F713 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 			membershipExceptions = (
 				AddReviewViewController.swift,
 				DiscoveryNGO.swift,
+				NGO.swift,
 				NGOCardCell.swift,
 				NGODetailsViewController.swift,
 				NGOInsightsViewController.swift,
@@ -123,6 +126,7 @@
 			membershipExceptions = (
 				AddReviewViewController.swift,
 				DiscoveryNGO.swift,
+				NGO.swift,
 				NGOCardCell.swift,
 				NGODetailsViewController.swift,
 				NGOInsightsViewController.swift,
@@ -167,6 +171,7 @@
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		5C3767512F09649900736425 /* DonorDashboard */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = DonorDashboard; sourceTree = "<group>"; };
 		5C8052F42F081F2400ACF25F /* FavoriteNGO */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (5C8053042F081F2500ACF25F /* PBXFileSystemSynchronizedBuildFileExceptionSet */, 5C8053052F081F2500ACF25F /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = FavoriteNGO; sourceTree = "<group>"; };
 		5C8053072F081FA500ACF25F /* NgoOrginizationDiscovery */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (5C8053082F081FAB00ACF25F /* PBXFileSystemSynchronizedBuildFileExceptionSet */, 5C8053092F081FAB00ACF25F /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = NgoOrginizationDiscovery; sourceTree = "<group>"; };
 		5C8053122F0832E300ACF25F /* FAQ */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (5C8053132F0832EE00ACF25F /* PBXFileSystemSynchronizedBuildFileExceptionSet */, 5C8053142F0832EE00ACF25F /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = FAQ; sourceTree = "<group>"; };
@@ -253,6 +258,7 @@
 		D54C77102EF736C40072F713 /* AppPlateFul */ = {
 			isa = PBXGroup;
 			children = (
+				5C3767512F09649900736425 /* DonorDashboard */,
 				D5F84D472F00522A0034CC8D /* AdminDashboard */,
 				D5F84D482F00524D0034CC8D /* NGOReview */,
 				D5F84D492F0052840034CC8D /* UserManagement */,
@@ -269,6 +275,7 @@
 				D54C77172EF736C40072F713 /* Main.storyboard */,
 				D54C771C2EF736C60072F713 /* LaunchScreen.storyboard */,
 				D54C771F2EF736C60072F713 /* Info.plist */,
+				5C37676A2F097BFC00736425 /* NGOSeeder.swift */,
 			);
 			path = AppPlateFul;
 			sourceTree = "<group>";
@@ -307,6 +314,7 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
+				5C3767512F09649900736425 /* DonorDashboard */,
 				5C8052F42F081F2400ACF25F /* FavoriteNGO */,
 				5C8053072F081FA500ACF25F /* NgoOrginizationDiscovery */,
 				5C8053122F0832E300ACF25F /* FAQ */,
@@ -442,6 +450,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D58F04F42F0740D60080DF27 /* FirestoreService.swift in Sources */,
+				5C37676B2F097BFC00736425 /* NGOSeeder.swift in Sources */,
 				D54C77122EF736C40072F713 /* AppDelegate.swift in Sources */,
 				D54C77142EF736C40072F713 /* SceneDelegate.swift in Sources */,
 			);
