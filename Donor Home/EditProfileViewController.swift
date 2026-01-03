@@ -144,8 +144,8 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
     // MARK: - Save Button Styling
     func styleSaveButton() {
         saveButton.layer.cornerRadius = 10
-        saveButton.backgroundColor = UIColor.systemBlue
-        saveButton.setTitleColor(.white, for: .normal)
+        //saveButton.backgroundColor = UIColor.systemBlue
+        //saveButton.setTitleColor(.white, for: .normal)
     }
     
     // MARK: - Validation Functions
