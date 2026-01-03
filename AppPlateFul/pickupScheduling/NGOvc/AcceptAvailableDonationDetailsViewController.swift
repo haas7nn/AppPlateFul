@@ -49,51 +49,69 @@ class AcceptAvailableDonationDetailsViewController: UIViewController {
     @IBAction func acceptDonationTapped(_ sender: Any) {
         
         guard let donation else { return }
-        
-        DonationService.shared.updateStatus(donationId: donation.id, status: .accepted) { _ in
-        }
-        
-        self.donation.status = .accepted
-        
-        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .alert)
-        
-        let image = UIImage(systemName: "checkmark.circle.fill")?
-            .withTintColor(.systemGreen, renderingMode: .alwaysOriginal)
-        
-        let imageView = UIImageView(image: image)
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.contentMode = .scaleAspectFit
-        
-        alert.view.addSubview(imageView)
-        
-        NSLayoutConstraint.activate([
-            imageView.centerXAnchor.constraint(equalTo: alert.view.centerXAnchor),
-            imageView.topAnchor.constraint(equalTo: alert.view.topAnchor, constant: 30),
-            imageView.widthAnchor.constraint(equalToConstant: 40),
-            imageView.heightAnchor.constraint(equalToConstant: 40)
-        ])
-        
-        let paragraphStyle = NSMutableParagraphStyle()
-        paragraphStyle.alignment = .center
-        
-        let attributedTitle = NSAttributedString(
-            string: "\n\n\nDonation Accepted",
-            attributes: [
-                .paragraphStyle: paragraphStyle,
-                .font: UIFont.systemFont(ofSize: 17, weight: .semibold)
-            ]
-        )
-        
-        alert.setValue(attributedTitle, forKey: "attributedTitle")
-        
-        let okAction = UIAlertAction(title: "OK", style: .default) { _ in
-            self.navigationController?.popViewController(animated: true)
-        }
-        
-        alert.addAction(okAction)
-        present(alert, animated: true)
-    }
-   }
+
+               let currentNgoId = UserDefaults.standard.string(forKey: "currentUserId")
+               if let currentNgoId, !currentNgoId.isEmpty {
+                   self.donation.ngoId = currentNgoId
+               }
+
+               DonationService.shared.updateStatus(donationId: donation.id, status: .accepted) { _ in
+               }
+
+               NotificationService.shared.addEventNotification(
+                   to: donation.donorId,
+                   title: "Donation Accepted",
+                   message: "An NGO accepted your donation: \(donation.title)."
+               )
+
+               if let ngoId = self.donation.ngoId {
+                   NotificationService.shared.addEventNotification(
+                       to: ngoId,
+                       title: "Donation Accepted",
+                       message: "You accepted a donation: \(donation.title)."
+                   )
+               }
+
+               self.donation.status = .accepted
+
+               let alert = UIAlertController(title: nil, message: nil, preferredStyle: .alert)
+
+               let image = UIImage(systemName: "checkmark.circle.fill")?
+                   .withTintColor(.systemGreen, renderingMode: .alwaysOriginal)
+
+               let imageView = UIImageView(image: image)
+               imageView.translatesAutoresizingMaskIntoConstraints = false
+               imageView.contentMode = .scaleAspectFit
+               alert.view.addSubview(imageView)
+
+               NSLayoutConstraint.activate([
+                   imageView.centerXAnchor.constraint(equalTo: alert.view.centerXAnchor),
+                   imageView.topAnchor.constraint(equalTo: alert.view.topAnchor, constant: 30),
+                   imageView.widthAnchor.constraint(equalToConstant: 40),
+                   imageView.heightAnchor.constraint(equalToConstant: 40)
+               ])
+
+               let paragraphStyle = NSMutableParagraphStyle()
+               paragraphStyle.alignment = .center
+
+               let attributedTitle = NSAttributedString(
+                   string: "\n\n\nDonation Accepted",
+                   attributes: [
+                       .paragraphStyle: paragraphStyle,
+                       .font: UIFont.systemFont(ofSize: 17, weight: .semibold)
+                   ]
+               )
+
+               alert.setValue(attributedTitle, forKey: "attributedTitle")
+
+               let okAction = UIAlertAction(title: "OK", style: .default) { _ in
+                   self.navigationController?.popViewController(animated: true)
+               }
+
+               alert.addAction(okAction)
+               present(alert, animated: true)
+           }
+       }
 
    // MARK: - Date Formatter Helper
 private extension DateFormatter {
