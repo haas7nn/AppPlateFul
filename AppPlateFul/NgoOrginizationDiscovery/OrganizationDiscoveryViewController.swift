@@ -2,13 +2,16 @@
 //  OrganizationDiscoveryViewController.swift
 //  AppPlateFul
 //
+//  202301625 - Samana
+//
 
 import UIKit
 import FirebaseFirestore
 
+// Displays a list of approved NGOs with search and filter functionality
 class OrganizationDiscoveryViewController: UIViewController {
 
-    // MARK: - Outlets
+    // MARK: - IBOutlets
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var filterStackView: UIStackView!
@@ -17,12 +20,16 @@ class OrganizationDiscoveryViewController: UIViewController {
 
     // MARK: - Firebase
     private let db = Firestore.firestore()
+    private var listener: ListenerRegistration?
 
     // MARK: - Data
     private var allNgos: [DiscoveryNGO] = []
     private var filteredNgos: [DiscoveryNGO] = []
     private var isShowingVerifiedOnly = false
     private var isSearchActive = false
+
+    // MARK: - Image Cache
+    private let imageCache = NSCache<NSString, UIImage>()
 
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -38,14 +45,22 @@ class OrganizationDiscoveryViewController: UIViewController {
         searchBar.isHidden = true
         searchBar.showsCancelButton = true
 
-        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        let tap = UITapGestureRecognizer(
+            target: self,
+            action: #selector(dismissKeyboard)
+        )
         tap.cancelsTouchesInView = false
         view.addGestureRecognizer(tap)
 
         updateButtonStyles()
-        fetchNGOs()
+        listenApprovedNGOs()
     }
 
+    deinit {
+        listener?.remove()
+    }
+
+    // MARK: - Navigation Bar
     private func configureNavigationBar() {
         let appearance = UINavigationBarAppearance()
         appearance.configureWithOpaqueBackground()
@@ -67,24 +82,30 @@ class OrganizationDiscoveryViewController: UIViewController {
     }
 
     // MARK: - Firestore
-    private func fetchNGOs() {
-        db.collection("ngos_reviews").getDocuments { [weak self] snapshot, error in
-            if let error = error {
-                print("Firestore NGOs error:", error)
-                return
-            }
+    // Listens for approved NGOs in real time
+    private func listenApprovedNGOs() {
+        listener?.remove()
 
-            let docs = snapshot?.documents ?? []
-            self?.allNgos = docs.compactMap { DiscoveryNGO(doc: $0) }
-            self?.applyFilters()
-        }
+        listener = db.collection("ngo_reviews")
+            .whereField("approved", isEqualTo: true)
+            .order(by: "createdAt", descending: true)
+            .addSnapshotListener { [weak self] snapshot, error in
+                if let error = error {
+                    print("Firestore NGOs error:", error.localizedDescription)
+                    return
+                }
+
+                let docs = snapshot?.documents ?? []
+                self?.allNgos = docs.compactMap { DiscoveryNGO(doc: $0) }
+                self?.applyFilters()
+            }
     }
 
     // MARK: - Actions
     @IBAction func searchNGOsTapped(_ sender: UIButton) {
         isSearchActive.toggle()
 
-        UIView.animate(withDuration: 0.3) {
+        UIView.animate(withDuration: 0.25) {
             self.searchBar.isHidden = !self.isSearchActive
             self.filterStackView.isHidden = self.isSearchActive
         }
@@ -135,7 +156,8 @@ class OrganizationDiscoveryViewController: UIViewController {
             searchNGOsButton.backgroundColor = .systemBlue
             searchNGOsButton.setTitleColor(.white, for: .normal)
         } else {
-            searchNGOsButton.backgroundColor = UIColor(red: 0.92, green: 0.92, blue: 0.94, alpha: 1.0)
+            searchNGOsButton.backgroundColor =
+                UIColor(red: 0.92, green: 0.92, blue: 0.94, alpha: 1.0)
             searchNGOsButton.setTitleColor(.systemBlue, for: .normal)
         }
 
@@ -143,16 +165,62 @@ class OrganizationDiscoveryViewController: UIViewController {
             verifiedButton.backgroundColor = .systemBlue
             verifiedButton.setTitleColor(.white, for: .normal)
         } else {
-            verifiedButton.backgroundColor = UIColor(red: 0.92, green: 0.92, blue: 0.94, alpha: 1.0)
+            verifiedButton.backgroundColor =
+                UIColor(red: 0.92, green: 0.92, blue: 0.94, alpha: 1.0)
             verifiedButton.setTitleColor(.systemBlue, for: .normal)
         }
     }
 
-    // MARK: - Navigation to Details
-    private func openDetails(for ngo: DiscoveryNGO) {
-        let storyboard = UIStoryboard(name: "NgoOrginzationDiscovery", bundle: nil)
+    // MARK: - Image Loading
+    private func loadImage(
+        urlString: String,
+        into imageView: UIImageView,
+        at indexPath: IndexPath
+    ) {
+        let key = NSString(string: urlString)
 
-        guard let detailsVC = storyboard.instantiateViewController(withIdentifier: "NGODetailsViewController") as? NGODetailsViewController else {
+        if let cached = imageCache.object(forKey: key) {
+            imageView.image = cached
+            imageView.tintColor = nil
+            return
+        }
+
+        guard let url = URL(string: urlString) else {
+            imageView.image = UIImage(systemName: "building.2.fill")
+            imageView.tintColor = .gray
+            return
+        }
+
+        imageView.image = UIImage(systemName: "building.2.fill")
+        imageView.tintColor = .gray
+
+        URLSession.shared.dataTask(with: url) { [weak self] data, _, _ in
+            guard let self = self,
+                  let data = data,
+                  let img = UIImage(data: data) else { return }
+
+            self.imageCache.setObject(img, forKey: key)
+
+            DispatchQueue.main.async {
+                if let cell =
+                    self.collectionView.cellForItem(at: indexPath)
+                        as? NGOCardCell {
+                    cell.logoImageView.image = img
+                    cell.logoImageView.tintColor = nil
+                }
+            }
+        }.resume()
+    }
+
+    // MARK: - Navigation
+    private func openDetails(for ngo: DiscoveryNGO) {
+        let storyboard =
+            UIStoryboard(name: "NgoOrginzationDiscovery", bundle: nil)
+
+        guard let detailsVC =
+            storyboard.instantiateViewController(
+                withIdentifier: "NGODetailsViewController"
+            ) as? NGODetailsViewController else {
             print("Could not find NGODetailsViewController")
             return
         }
@@ -160,7 +228,7 @@ class OrganizationDiscoveryViewController: UIViewController {
         detailsVC.ngoId = ngo.id
         detailsVC.ngoName = ngo.name
         detailsVC.ngoDescription = ngo.fullDescription
-        detailsVC.ngoImageName = ngo.imageName
+        detailsVC.ngoImageName = ngo.imageURL
         detailsVC.ngoRating = ngo.rating
         detailsVC.ngoReviews = ngo.reviews
         detailsVC.ngoPhone = ngo.phone
@@ -175,15 +243,23 @@ class OrganizationDiscoveryViewController: UIViewController {
 // MARK: - UICollectionViewDataSource
 extension OrganizationDiscoveryViewController: UICollectionViewDataSource {
 
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return filteredNgos.count
+    func collectionView(
+        _ collectionView: UICollectionView,
+        numberOfItemsInSection section: Int
+    ) -> Int {
+        filteredNgos.count
     }
 
-    func collectionView(_ collectionView: UICollectionView,
-                        cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        cellForItemAt indexPath: IndexPath
+    ) -> UICollectionViewCell {
 
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "NGOCardCell",
-                                                      for: indexPath) as! NGOCardCell
+        let cell =
+            collectionView.dequeueReusableCell(
+                withReuseIdentifier: "NGOCardCell",
+                for: indexPath
+            ) as! NGOCardCell
 
         let ngo = filteredNgos[indexPath.item]
         cell.nameLabel.text = ngo.name
@@ -191,11 +267,15 @@ extension OrganizationDiscoveryViewController: UICollectionViewDataSource {
         cell.verifiedBadgeView.isHidden = !ngo.verified
         cell.delegate = self
 
-        if let image = UIImage(named: ngo.imageName) {
-            cell.logoImageView.image = image
-            cell.logoImageView.tintColor = nil
+        if !ngo.imageURL.isEmpty {
+            loadImage(
+                urlString: ngo.imageURL,
+                into: cell.logoImageView,
+                at: indexPath
+            )
         } else {
-            cell.logoImageView.image = UIImage(systemName: "building.2.fill")
+            cell.logoImageView.image =
+                UIImage(systemName: "building.2.fill")
             cell.logoImageView.tintColor = .gray
         }
 
@@ -206,7 +286,10 @@ extension OrganizationDiscoveryViewController: UICollectionViewDataSource {
 // MARK: - UICollectionViewDelegate
 extension OrganizationDiscoveryViewController: UICollectionViewDelegate {
 
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        didSelectItemAt indexPath: IndexPath
+    ) {
         let ngo = filteredNgos[indexPath.item]
         openDetails(for: ngo)
     }
@@ -216,21 +299,26 @@ extension OrganizationDiscoveryViewController: UICollectionViewDelegate {
 extension OrganizationDiscoveryViewController: NGOCardCellDelegate {
 
     func didTapLearnMore(at cell: NGOCardCell) {
-        guard let indexPath = collectionView.indexPath(for: cell) else { return }
+        guard let indexPath =
+            collectionView.indexPath(for: cell) else { return }
         let ngo = filteredNgos[indexPath.item]
         openDetails(for: ngo)
     }
 }
 
 // MARK: - UICollectionViewDelegateFlowLayout
-extension OrganizationDiscoveryViewController: UICollectionViewDelegateFlowLayout {
+extension OrganizationDiscoveryViewController:
+    UICollectionViewDelegateFlowLayout {
 
-    func collectionView(_ collectionView: UICollectionView,
-                        layout collectionViewLayout: UICollectionViewLayout,
-                        sizeForItemAt indexPath: IndexPath) -> CGSize {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        layout collectionViewLayout: UICollectionViewLayout,
+        sizeForItemAt indexPath: IndexPath
+    ) -> CGSize {
 
         let spacing: CGFloat = 16
-        let width = (collectionView.bounds.width - spacing) / 2
+        let width =
+            (collectionView.bounds.width - spacing) / 2
         return CGSize(width: width, height: 280)
     }
 }
@@ -238,19 +326,26 @@ extension OrganizationDiscoveryViewController: UICollectionViewDelegateFlowLayou
 // MARK: - UISearchBarDelegate
 extension OrganizationDiscoveryViewController: UISearchBarDelegate {
 
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+    func searchBar(
+        _ searchBar: UISearchBar,
+        textDidChange searchText: String
+    ) {
         applyFilters()
     }
 
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+    func searchBarSearchButtonClicked(
+        _ searchBar: UISearchBar
+    ) {
         searchBar.resignFirstResponder()
     }
 
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+    func searchBarCancelButtonClicked(
+        _ searchBar: UISearchBar
+    ) {
         searchBar.text = ""
         isSearchActive = false
 
-        UIView.animate(withDuration: 0.3) {
+        UIView.animate(withDuration: 0.25) {
             self.searchBar.isHidden = true
             self.filterStackView.isHidden = false
         }
@@ -260,4 +355,3 @@ extension OrganizationDiscoveryViewController: UISearchBarDelegate {
         updateButtonStyles()
     }
 }
-

@@ -1,20 +1,34 @@
+//
+//  FavoriteNGOCell.swift
+//  AppPlateFul
+//
+//  202301625 - Samana
+//
+
 import UIKit
 
+// Collection view cell representing a favorite NGO card
 final class FavoriteNGOCell: UICollectionViewCell {
 
+    // MARK: - IBOutlets
     @IBOutlet weak var logoImageView: UIImageView!
     @IBOutlet weak var starContainerView: UIView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var learnMoreButton: UIButton!
 
+    // MARK: - Actions
+    // Callback triggered when Learn More is tapped
     var onLearnMoreTapped: (() -> Void)?
 
+    // MARK: - Lifecycle
     override func awakeFromNib() {
         super.awakeFromNib()
         setupShadow()
     }
 
+    // MARK: - UI
+    // Configures card shadow and corner radius
     private func setupShadow() {
         contentView.layer.cornerRadius = 16
         contentView.layer.masksToBounds = true
@@ -26,6 +40,7 @@ final class FavoriteNGOCell: UICollectionViewCell {
         layer.masksToBounds = false
     }
 
+    // MARK: - Button Action
     @IBAction func learnMoreTapped(_ sender: UIButton) {
         onLearnMoreTapped?()
     }

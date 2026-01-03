@@ -2,16 +2,19 @@
 //  ReportConfirmationPopup.swift
 //  AppPlateFul
 //
-//  Created by Hassan Fardan on 27/12/2025.
+//  202301686 - Hasan
 //
-
 
 import UIKit
 
+// Popup view controller used to confirm reporting a donation
 class ReportConfirmationPopup: UIViewController {
     
+    // MARK: - Callback
+    // Executed when user confirms the report action
     var onConfirm: (() -> Void)?
     
+    // MARK: - UI Elements
     private let backgroundView: UIView = {
         let view = UIView()
         view.backgroundColor = UIColor.black.withAlphaComponent(0.4)
@@ -47,7 +50,8 @@ class ReportConfirmationPopup: UIViewController {
     
     private let messageLabel: UILabel = {
         let label = UILabel()
-        label.text = "Are you sure you want to report this donation? This action cannot be undone."
+        label.text =
+            "Are you sure you want to report this donation? This action cannot be undone."
         label.font = UIFont.systemFont(ofSize: 14)
         label.textColor = DonationTheme.textSecondary
         label.textAlignment = .center
@@ -69,7 +73,8 @@ class ReportConfirmationPopup: UIViewController {
         let button = UIButton(type: .system)
         button.setTitle("Cancel", for: .normal)
         button.setTitleColor(DonationTheme.textPrimary, for: .normal)
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .medium)
+        button.titleLabel?.font =
+            UIFont.systemFont(ofSize: 16, weight: .medium)
         button.backgroundColor = DonationTheme.cardBackground
         button.layer.cornerRadius = 12
         return button
@@ -79,31 +84,48 @@ class ReportConfirmationPopup: UIViewController {
         let button = UIButton(type: .system)
         button.setTitle("Report", for: .normal)
         button.setTitleColor(.white, for: .normal)
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .semibold)
+        button.titleLabel?.font =
+            UIFont.systemFont(ofSize: 16, weight: .semibold)
         button.backgroundColor = .systemRed
         button.layer.cornerRadius = 12
         return button
     }()
     
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
     }
     
+    // MARK: - UI Setup
+    // Builds and lays out the popup interface
     private func setupUI() {
         view.addSubview(backgroundView)
         view.addSubview(containerView)
+        
         containerView.addSubview(iconImageView)
         containerView.addSubview(titleLabel)
         containerView.addSubview(messageLabel)
         containerView.addSubview(buttonsStackView)
+        
         buttonsStackView.addArrangedSubview(cancelButton)
         buttonsStackView.addArrangedSubview(confirmButton)
         
-        cancelButton.addTarget(self, action: #selector(cancelTapped), for: .touchUpInside)
-        confirmButton.addTarget(self, action: #selector(confirmTapped), for: .touchUpInside)
+        cancelButton.addTarget(
+            self,
+            action: #selector(cancelTapped),
+            for: .touchUpInside
+        )
+        confirmButton.addTarget(
+            self,
+            action: #selector(confirmTapped),
+            for: .touchUpInside
+        )
         
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(cancelTapped))
+        let tapGesture = UITapGestureRecognizer(
+            target: self,
+            action: #selector(cancelTapped)
+        )
         backgroundView.addGestureRecognizer(tapGesture)
         
         NSLayoutConstraint.activate([
@@ -138,10 +160,13 @@ class ReportConfirmationPopup: UIViewController {
         ])
     }
     
+    // MARK: - Actions
+    // Dismisses popup without reporting
     @objc private func cancelTapped() {
         dismiss(animated: true)
     }
     
+    // Confirms report action and executes callback
     @objc private func confirmTapped() {
         dismiss(animated: true) { [weak self] in
             self?.onConfirm?()

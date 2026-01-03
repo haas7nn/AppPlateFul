@@ -2,11 +2,12 @@
 //  PrivacyPolicyViewController.swift
 //  AppPlateFul
 //
-//  Created by Hassan Fardan on 01/01/2026.
+//  202301686 - Hasan
 //
 
 import UIKit
 
+// Displays the application's privacy policy content
 class PrivacyPolicyViewController: UIViewController {
     
     // MARK: - IBOutlets
@@ -19,14 +20,17 @@ class PrivacyPolicyViewController: UIViewController {
     }
     
     // MARK: - Setup
+    // Configures base UI appearance
     private func setupUI() {
-        view.backgroundColor = UIColor(red: 0.969, green: 0.957, blue: 0.937, alpha: 1)
+        view.backgroundColor =
+            UIColor(red: 0.969, green: 0.957, blue: 0.937, alpha: 1)
         
-        // Hide default navigation title (title is in content)
+        // Title is handled inside the content view
         navigationItem.title = ""
     }
     
     // MARK: - Actions
+    // Navigates back to previous screen
     @IBAction func backTapped(_ sender: Any) {
         if let nav = navigationController {
             nav.popViewController(animated: true)

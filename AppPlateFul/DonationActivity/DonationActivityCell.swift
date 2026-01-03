@@ -2,17 +2,17 @@
 //  DonationActivityCell.swift
 //  AppPlateFul
 //
-//  Created by Hassan Fardan on 27/12/2025.
+//  202301686 - Hasan
 //
-
-// DonationActivityCell.swift
 
 import UIKit
 
+// Delegate protocol for handling report action from the cell
 protocol DonationActivityCellDelegate: AnyObject {
     func didTapReport(for donation: DonationActivityDonation)
 }
 
+// Custom table view cell for displaying donation activity details
 class DonationActivityCell: UITableViewCell {
     
     // MARK: - IBOutlets
@@ -38,6 +38,7 @@ class DonationActivityCell: UITableViewCell {
         setupUI()
     }
     
+    // Configures UI styling for the cell
     private func setupUI() {
         selectionStyle = .none
         backgroundColor = .clear
@@ -53,6 +54,7 @@ class DonationActivityCell: UITableViewCell {
     }
     
     // MARK: - Configuration
+    // Populates cell with donation activity data
     func configure(with donation: DonationActivityDonation) {
         self.donation = donation
         
@@ -79,11 +81,13 @@ class DonationActivityCell: UITableViewCell {
     }
     
     // MARK: - Actions
+    // Notifies delegate when report button is tapped
     @objc private func reportTapped() {
         guard let donation else { return }
         delegate?.didTapReport(for: donation)
     }
     
+    // Resets UI content before cell reuse
     override func prepareForReuse() {
         super.prepareForReuse()
         logoImageView.image = nil

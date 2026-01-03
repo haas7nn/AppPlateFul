@@ -2,20 +2,26 @@
 //  FilterPopupViewController.swift
 //  AppPlateFul
 //
-//  Created by Hassan Fardan on 27/12/2025.
+//  202301686 - Hasan
 //
 
 import UIKit
 
+// Delegate protocol for communicating selected filter option
 protocol FilterPopupDelegate: AnyObject {
     func didSelectFilter(_ filter: FilterOption)
 }
 
+// Popup view controller for selecting donation filters
 class FilterPopupViewController: UIViewController {
     
+    // MARK: - Delegate
     weak var delegate: FilterPopupDelegate?
+    
+    // MARK: - State
     private var currentFilter: FilterOption
     
+    // MARK: - UI Elements
     private let backgroundView: UIView = {
         let view = UIView()
         view.backgroundColor = UIColor.black.withAlphaComponent(0.4)
@@ -48,6 +54,7 @@ class FilterPopupViewController: UIViewController {
         return stack
     }()
     
+    // MARK: - Initializers
     init(currentFilter: FilterOption) {
         self.currentFilter = currentFilter
         super.init(nibName: nil, bundle: nil)
@@ -58,19 +65,25 @@ class FilterPopupViewController: UIViewController {
         super.init(coder: coder)
     }
     
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
         createFilterOptions()
     }
     
+    // MARK: - UI Setup
+    // Builds and lays out the popup interface
     private func setupUI() {
         view.addSubview(backgroundView)
         view.addSubview(containerView)
         containerView.addSubview(titleLabel)
         containerView.addSubview(optionsStackView)
         
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissPopup))
+        let tapGesture = UITapGestureRecognizer(
+            target: self,
+            action: #selector(dismissPopup)
+        )
         backgroundView.addGestureRecognizer(tapGesture)
         
         NSLayoutConstraint.activate([
@@ -95,21 +108,32 @@ class FilterPopupViewController: UIViewController {
         ])
     }
     
+    // MARK: - Filter Options
+    // Creates selectable filter buttons
     private func createFilterOptions() {
         for (index, option) in FilterOption.allCases.enumerated() {
             let button = UIButton(type: .system)
             button.setTitle(option.rawValue, for: .normal)
             button.setTitleColor(DonationTheme.textPrimary, for: .normal)
-            button.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .medium)
+            button.titleLabel?.font =
+                UIFont.systemFont(ofSize: 16, weight: .medium)
             button.contentHorizontalAlignment = .left
-            button.contentEdgeInsets = UIEdgeInsets(top: 14, left: 16, bottom: 14, right: 16)
-            button.backgroundColor = option == currentFilter ? DonationTheme.cardBackground : .clear
+            button.contentEdgeInsets =
+                UIEdgeInsets(top: 14, left: 16, bottom: 14, right: 16)
+            button.backgroundColor =
+                option == currentFilter ? DonationTheme.cardBackground : .clear
             button.layer.cornerRadius = 10
             button.tag = index
-            button.addTarget(self, action: #selector(optionSelected(_:)), for: .touchUpInside)
+            button.addTarget(
+                self,
+                action: #selector(optionSelected(_:)),
+                for: .touchUpInside
+            )
             
+            // Indicates currently selected filter
             if option == currentFilter {
-                let checkmark = UIImageView(image: UIImage(systemName: "checkmark"))
+                let checkmark =
+                    UIImageView(image: UIImage(systemName: "checkmark"))
                 checkmark.tintColor = DonationTheme.primaryBrown
                 checkmark.translatesAutoresizingMaskIntoConstraints = false
                 button.addSubview(checkmark)
@@ -123,6 +147,7 @@ class FilterPopupViewController: UIViewController {
         }
     }
     
+    // MARK: - Actions
     @objc private func optionSelected(_ sender: UIButton) {
         let selectedFilter = FilterOption.allCases[sender.tag]
         delegate?.didSelectFilter(selectedFilter)

@@ -2,18 +2,19 @@
 //  NGOReviewsViewController.swift
 //  AppPlateFul
 //
-//  Created by Hassan on 28/12/2025.
+//  202301625 - Samana
 //
 
 import UIKit
 import FirebaseFirestore
 
+// Displays and manages reviews for a selected NGO
 class NGOReviewsViewController: UIViewController,
                                 UITableViewDataSource,
                                 UITableViewDelegate,
                                 AddReviewDelegate {
 
-    // MARK: - Outlets
+    // MARK: - IBOutlets
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var averageRatingLabel: UILabel!
     @IBOutlet weak var totalReviewsLabel: UILabel!
@@ -22,7 +23,7 @@ class NGOReviewsViewController: UIViewController,
 
     // MARK: - Firebase
     private let db = Firestore.firestore()
-    var ngoId: String = ""          // 🔥 REQUIRED
+    var ngoId: String = ""          // Required NGO identifier
 
     // MARK: - NGO Info
     var ngoName: String = ""
@@ -33,7 +34,8 @@ class NGOReviewsViewController: UIViewController,
     var ngoAddress: String = ""
 
     // MARK: - Reviews
-    private var reviews: [(name: String, rating: Int, comment: String, date: String)] = []
+    private var reviews:
+        [(name: String, rating: Int, comment: String, date: String)] = []
 
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -51,7 +53,8 @@ class NGOReviewsViewController: UIViewController,
     private func configureNavigationBar() {
         let appearance = UINavigationBarAppearance()
         appearance.configureWithOpaqueBackground()
-        appearance.backgroundColor = UIColor(red: 0.969, green: 0.949, blue: 0.929, alpha: 1.0)
+        appearance.backgroundColor =
+            UIColor(red: 0.969, green: 0.949, blue: 0.929, alpha: 1.0)
         appearance.titleTextAttributes = [
             .foregroundColor: UIColor.black,
             .font: UIFont.boldSystemFont(ofSize: 17)
@@ -65,13 +68,17 @@ class NGOReviewsViewController: UIViewController,
     }
 
     private func setupUI() {
-        view.backgroundColor = UIColor(red: 0.969, green: 0.949, blue: 0.929, alpha: 1.0)
+        view.backgroundColor =
+            UIColor(red: 0.969, green: 0.949, blue: 0.929, alpha: 1.0)
     }
 
     private func setupTableView() {
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "ReviewCell")
+        tableView.register(
+            UITableViewCell.self,
+            forCellReuseIdentifier: "ReviewCell"
+        )
         tableView.separatorStyle = .none
         tableView.backgroundColor = .clear
     }
@@ -82,6 +89,7 @@ class NGOReviewsViewController: UIViewController,
     }
 
     // MARK: - Firestore
+    // Fetches reviews for the selected NGO
     private func fetchReviews() {
         guard !ngoId.isEmpty else { return }
 
@@ -92,13 +100,14 @@ class NGOReviewsViewController: UIViewController,
             .getDocuments { [weak self] snapshot, error in
 
                 if let error = error {
-                    print("Firestore error:", error)
+                    print("Firestore error:", error.localizedDescription)
                     return
                 }
 
                 self?.reviews = snapshot?.documents.map { doc in
                     let data = doc.data()
                     let name = data["name"] as? String ?? ""
+
                     let rating: Int
                     if let r = data["rating"] as? Int {
                         rating = r
@@ -107,6 +116,7 @@ class NGOReviewsViewController: UIViewController,
                     } else {
                         rating = 5
                     }
+
                     let comment = data["comment"] as? String ?? ""
                     let timestamp = data["createdAt"] as? Timestamp
                     let date = timestamp?.dateValue() ?? Date()
@@ -114,7 +124,8 @@ class NGOReviewsViewController: UIViewController,
                     let formatter = DateFormatter()
                     formatter.dateFormat = "MMM d, yyyy"
 
-                    return (name, rating, comment, formatter.string(from: date))
+                    return (name, rating, comment,
+                            formatter.string(from: date))
                 } ?? []
 
                 self?.updateRatingDisplay()
@@ -122,6 +133,7 @@ class NGOReviewsViewController: UIViewController,
             }
     }
 
+    // Updates average rating and total review count
     private func updateRatingDisplay() {
         guard !reviews.isEmpty else {
             averageRatingLabel.text = "⭐️ 0.0"
@@ -132,8 +144,10 @@ class NGOReviewsViewController: UIViewController,
         let total = reviews.reduce(0) { $0 + $1.rating }
         let avg = Double(total) / Double(reviews.count)
 
-        averageRatingLabel.text = "⭐️ \(String(format: "%.1f", avg))"
-        totalReviewsLabel.text = "Based on \(reviews.count) reviews"
+        averageRatingLabel.text =
+            "⭐️ \(String(format: "%.1f", avg))"
+        totalReviewsLabel.text =
+            "Based on \(reviews.count) reviews"
     }
 
     // MARK: - Actions
@@ -148,8 +162,13 @@ class NGOReviewsViewController: UIViewController,
     }
 
     @IBAction func insightsTapped(_ sender: Any) {
-        let storyboard = UIStoryboard(name: "NgoOrginzationDiscovery", bundle: nil)
-        if let insightsVC = storyboard.instantiateViewController(withIdentifier: "NGOInsightsViewController") as? NGOInsightsViewController {
+        let storyboard =
+            UIStoryboard(name: "NgoOrginzationDiscovery", bundle: nil)
+        if let insightsVC =
+            storyboard.instantiateViewController(
+                withIdentifier: "NGOInsightsViewController"
+            ) as? NGOInsightsViewController {
+
             insightsVC.ngoId = ngoId
             insightsVC.ngoName = ngoName
             insightsVC.ngoImageName = ngoImageName
@@ -157,7 +176,11 @@ class NGOReviewsViewController: UIViewController,
             insightsVC.ngoReviews = ngoReviews
             insightsVC.isVerified = isVerified
             insightsVC.ngoAddress = ngoAddress
-            navigationController?.pushViewController(insightsVC, animated: true)
+
+            navigationController?.pushViewController(
+                insightsVC,
+                animated: true
+            )
         }
     }
 
@@ -166,15 +189,22 @@ class NGOReviewsViewController: UIViewController,
         fetchReviews()
     }
 
-    // MARK: - TableView
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return reviews.count
+    // MARK: - TableView DataSource
+    func tableView(_ tableView: UITableView,
+                   numberOfRowsInSection section: Int) -> Int {
+        reviews.count
     }
 
     func tableView(_ tableView: UITableView,
-                   cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+                   cellForRowAt indexPath: IndexPath)
+        -> UITableViewCell {
 
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ReviewCell", for: indexPath)
+        let cell =
+            tableView.dequeueReusableCell(
+                withIdentifier: "ReviewCell",
+                for: indexPath
+            )
+
         let review = reviews[indexPath.row]
 
         cell.backgroundColor = .white
@@ -187,14 +217,22 @@ class NGOReviewsViewController: UIViewController,
         nameLabel.font = .boldSystemFont(ofSize: 16)
 
         let ratingLabel = UILabel()
-        ratingLabel.text = String(repeating: "⭐️", count: review.rating)
+        ratingLabel.text =
+            String(repeating: "⭐️", count: review.rating)
 
         let commentLabel = UILabel()
         commentLabel.text = review.comment
         commentLabel.numberOfLines = 0
         commentLabel.font = .systemFont(ofSize: 14)
 
-        let stack = UIStackView(arrangedSubviews: [nameLabel, ratingLabel, commentLabel])
+        let stack =
+            UIStackView(
+                arrangedSubviews: [
+                    nameLabel,
+                    ratingLabel,
+                    commentLabel
+                ]
+            )
         stack.axis = .vertical
         stack.spacing = 6
         stack.translatesAutoresizingMaskIntoConstraints = false
@@ -202,10 +240,22 @@ class NGOReviewsViewController: UIViewController,
         cell.contentView.addSubview(stack)
 
         NSLayoutConstraint.activate([
-            stack.topAnchor.constraint(equalTo: cell.contentView.topAnchor, constant: 12),
-            stack.leadingAnchor.constraint(equalTo: cell.contentView.leadingAnchor, constant: 16),
-            stack.trailingAnchor.constraint(equalTo: cell.contentView.trailingAnchor, constant: -16),
-            stack.bottomAnchor.constraint(equalTo: cell.contentView.bottomAnchor, constant: -12)
+            stack.topAnchor.constraint(
+                equalTo: cell.contentView.topAnchor,
+                constant: 12
+            ),
+            stack.leadingAnchor.constraint(
+                equalTo: cell.contentView.leadingAnchor,
+                constant: 16
+            ),
+            stack.trailingAnchor.constraint(
+                equalTo: cell.contentView.trailingAnchor,
+                constant: -16
+            ),
+            stack.bottomAnchor.constraint(
+                equalTo: cell.contentView.bottomAnchor,
+                constant: -12
+            )
         ])
 
         return cell

@@ -65,7 +65,6 @@
 		D58F04F12F073DC40080DF27 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D58F04BE2F073C8A0080DF27 /* GoogleService-Info.plist */; };
 		D58F04F22F073DC40080DF27 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D58F04BE2F073C8A0080DF27 /* GoogleService-Info.plist */; };
 		D58F04F42F0740D60080DF27 /* FirestoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D58F04F32F0740D60080DF27 /* FirestoreService.swift */; };
-		D5DA1B732F092424004126BA /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C56C40C2F0882E800C80966 /* User.swift */; };
 		D5DA1B782F093ABC004126BA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D58F04BE2F073C8A0080DF27 /* GoogleService-Info.plist */; };
 		D5F169882EFDACAA0015DFDE /* Notifications.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D5F169872EFDACAA0015DFDE /* Notifications.storyboard */; };
 /* End PBXBuildFile section */
@@ -112,7 +111,6 @@
 		9C56C4092F0882E800C80966 /* Donation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Donation.swift; sourceTree = "<group>"; };
 		9C56C40A2F0882E800C80966 /* DonationStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonationStatus.swift; sourceTree = "<group>"; };
 		9C56C40B2F0882E800C80966 /* PickupSchedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickupSchedule.swift; sourceTree = "<group>"; };
-		9C56C40C2F0882E800C80966 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		D54C770E2EF736C40072F713 /* AppPlateFul.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppPlateFul.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D54C77112EF736C40072F713 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D54C77132EF736C40072F713 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -213,13 +211,6 @@
 			);
 			target = D54C772D2EF736C60072F713 /* AppPlateFulUITests */;
 		};
-		D5DA1B722F09234A004126BA /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				User.swift,
-			);
-			target = D54C770D2EF736C40072F713 /* AppPlateFul */;
-		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -231,7 +222,7 @@
 		D58F04B72F06E9E70080DF27 /* Reports 2 */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = "Reports 2"; sourceTree = "<group>"; };
 		D5F84D472F00522A0034CC8D /* AdminDashboard */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = AdminDashboard; sourceTree = "<group>"; };
 		D5F84D482F00524D0034CC8D /* NGOReview */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = NGOReview; sourceTree = "<group>"; };
-		D5F84D492F0052840034CC8D /* UserManagement */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (D5DA1B722F09234A004126BA /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = UserManagement; sourceTree = "<group>"; };
+		D5F84D492F0052840034CC8D /* UserManagement */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = UserManagement; sourceTree = "<group>"; };
 		D5F84D4A2F0052AE0034CC8D /* DonationActivity */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = DonationActivity; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
@@ -323,7 +314,6 @@
 				9C56C4092F0882E800C80966 /* Donation.swift */,
 				9C56C40A2F0882E800C80966 /* DonationStatus.swift */,
 				9C56C40B2F0882E800C80966 /* PickupSchedule.swift */,
-				9C56C40C2F0882E800C80966 /* User.swift */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -578,7 +568,6 @@
 				9C56C3E92F08822600C80966 /* DonationSchedulingTableViewCell.swift in Sources */,
 				9C56C3EA2F08822600C80966 /* showPendingDonationDetailsViewController.swift in Sources */,
 				9C56C3EB2F08822600C80966 /* NotificationsTableViewCell.swift in Sources */,
-				D5DA1B732F092424004126BA /* User.swift in Sources */,
 				9C56C3EC2F08822600C80966 /* showPickupInfoDetailsViewController.swift in Sources */,
 				9C56C3ED2F08822600C80966 /* MyPickupsTableViewCell.swift in Sources */,
 				9C56C3EE2F08822600C80966 /* NotificationService.swift in Sources */,

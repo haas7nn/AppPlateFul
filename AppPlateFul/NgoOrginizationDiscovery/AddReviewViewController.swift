@@ -2,18 +2,24 @@
 //  AddReviewViewController.swift
 //  AppPlateFul
 //
+//  202301625 - Samana
+//
 
 import UIKit
 import FirebaseFirestore
 
+// Delegate protocol for notifying when a review is added
 protocol AddReviewDelegate: AnyObject {
     func didAddReview(name: String, rating: Int, comment: String)
 }
 
+// Popup view controller for submitting an NGO review
 class AddReviewViewController: UIViewController {
 
+    // MARK: - Firebase
     private let db = Firestore.firestore()
 
+    // MARK: - UI Elements
     private let containerView = UIView()
     private let titleLabel = UILabel()
     private let nameTextField = UITextField()
@@ -24,18 +30,22 @@ class AddReviewViewController: UIViewController {
     private let submitButton = UIButton(type: .system)
     private let cancelButton = UIButton(type: .system)
 
+    // MARK: - Delegate
     weak var delegate: AddReviewDelegate?
 
+    // MARK: - State
     var ngoName: String = ""
-    var ngoId: String = ""          // 🔥 REQUIRED
+    var ngoId: String = ""              // Required NGO identifier
     private var selectedRating: Int = 5
 
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
         setupConstraints()
     }
 
+    // MARK: - UI Setup
     private func setupUI() {
         view.backgroundColor = UIColor.black.withAlphaComponent(0.5)
 
@@ -61,10 +71,10 @@ class AddReviewViewController: UIViewController {
         containerView.addSubview(ngoLabel)
 
         nameTextField.placeholder = "Your Name"
-        nameTextField.borderStyle = .none
         nameTextField.backgroundColor = UIColor(white: 0.95, alpha: 1)
         nameTextField.layer.cornerRadius = 10
-        nameTextField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 15, height: 0))
+        nameTextField.leftView =
+            UIView(frame: CGRect(x: 0, y: 0, width: 15, height: 0))
         nameTextField.leftViewMode = .always
         nameTextField.translatesAutoresizingMaskIntoConstraints = false
         containerView.addSubview(nameTextField)
@@ -84,7 +94,11 @@ class AddReviewViewController: UIViewController {
             let starButton = UIButton(type: .system)
             starButton.tag = i
             starButton.titleLabel?.font = .systemFont(ofSize: 30)
-            starButton.addTarget(self, action: #selector(starTapped(_:)), for: .touchUpInside)
+            starButton.addTarget(
+                self,
+                action: #selector(starTapped(_:)),
+                for: .touchUpInside
+            )
             starButtons.append(starButton)
             ratingStackView.addArrangedSubview(starButton)
         }
@@ -93,7 +107,8 @@ class AddReviewViewController: UIViewController {
         commentTextView.font = .systemFont(ofSize: 16)
         commentTextView.backgroundColor = UIColor(white: 0.95, alpha: 1)
         commentTextView.layer.cornerRadius = 10
-        commentTextView.textContainerInset = UIEdgeInsets(top: 12, left: 10, bottom: 12, right: 10)
+        commentTextView.textContainerInset =
+            UIEdgeInsets(top: 12, left: 10, bottom: 12, right: 10)
         commentTextView.translatesAutoresizingMaskIntoConstraints = false
         containerView.addSubview(commentTextView)
 
@@ -109,23 +124,34 @@ class AddReviewViewController: UIViewController {
 
         submitButton.setTitle("Submit Review", for: .normal)
         submitButton.titleLabel?.font = .boldSystemFont(ofSize: 16)
-        submitButton.backgroundColor = UIColor(red: 0.173, green: 0.193, blue: 0.148, alpha: 1.0)
+        submitButton.backgroundColor =
+            UIColor(red: 0.173, green: 0.193, blue: 0.148, alpha: 1)
         submitButton.setTitleColor(.white, for: .normal)
         submitButton.layer.cornerRadius = 12
-        submitButton.addTarget(self, action: #selector(submitTapped), for: .touchUpInside)
+        submitButton.addTarget(
+            self,
+            action: #selector(submitTapped),
+            for: .touchUpInside
+        )
         submitButton.translatesAutoresizingMaskIntoConstraints = false
         containerView.addSubview(submitButton)
 
         cancelButton.setTitle("Cancel", for: .normal)
         cancelButton.setTitleColor(.systemRed, for: .normal)
-        cancelButton.addTarget(self, action: #selector(cancelTapped), for: .touchUpInside)
+        cancelButton.addTarget(
+            self,
+            action: #selector(cancelTapped),
+            for: .touchUpInside
+        )
         cancelButton.translatesAutoresizingMaskIntoConstraints = false
         containerView.addSubview(cancelButton)
     }
 
+    // MARK: - Constraints
     private func setupConstraints() {
         guard let ngoLabel = containerView.viewWithTag(200),
-              let placeholderLabel = commentTextView.viewWithTag(100) else { return }
+              let placeholderLabel =
+                commentTextView.viewWithTag(100) else { return }
 
         NSLayoutConstraint.activate([
             containerView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
@@ -169,10 +195,11 @@ class AddReviewViewController: UIViewController {
 
             cancelButton.topAnchor.constraint(equalTo: submitButton.bottomAnchor, constant: 10),
             cancelButton.centerXAnchor.constraint(equalTo: containerView.centerXAnchor),
-            cancelButton.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -20),
+            cancelButton.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -20)
         ])
     }
 
+    // MARK: - Rating
     @objc private func starTapped(_ sender: UIButton) {
         selectedRating = sender.tag
         updateStarDisplay()
@@ -180,22 +207,28 @@ class AddReviewViewController: UIViewController {
 
     private func updateStarDisplay() {
         for (index, button) in starButtons.enumerated() {
-            button.setTitle(index < selectedRating ? "⭐️" : "☆", for: .normal)
+            button.setTitle(
+                index < selectedRating ? "⭐️" : "☆",
+                for: .normal
+            )
         }
     }
 
+    // MARK: - Actions
     @objc private func submitTapped() {
         guard !ngoId.isEmpty else {
             showAlert(message: "NGO not found.")
             return
         }
 
-        guard let name = nameTextField.text, !name.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else {
+        guard let name = nameTextField.text,
+              !name.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else {
             showAlert(message: "Please enter your name.")
             return
         }
 
-        let comment = commentTextView.text.trimmingCharacters(in: .whitespacesAndNewlines)
+        let comment =
+            commentTextView.text.trimmingCharacters(in: .whitespacesAndNewlines)
         guard !comment.isEmpty else {
             showAlert(message: "Please write your review.")
             return
@@ -212,13 +245,16 @@ class AddReviewViewController: UIViewController {
             .document(ngoId)
             .collection("reviews")
             .addDocument(data: data) { [weak self] error in
-
                 if let error = error {
                     self?.showAlert(message: error.localizedDescription)
                     return
                 }
 
-                self?.delegate?.didAddReview(name: name, rating: self?.selectedRating ?? 5, comment: comment)
+                self?.delegate?.didAddReview(
+                    name: name,
+                    rating: self?.selectedRating ?? 5,
+                    comment: comment
+                )
                 self?.dismiss(animated: true)
             }
     }
@@ -228,15 +264,21 @@ class AddReviewViewController: UIViewController {
     }
 
     private func showAlert(message: String) {
-        let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
+        let alert = UIAlertController(
+            title: "Error",
+            message: message,
+            preferredStyle: .alert
+        )
         alert.addAction(UIAlertAction(title: "OK", style: .default))
         present(alert, animated: true)
     }
 }
 
+// MARK: - UITextViewDelegate
 extension AddReviewViewController: UITextViewDelegate {
     func textViewDidChange(_ textView: UITextView) {
-        if let placeholder = textView.viewWithTag(100) as? UILabel {
+        if let placeholder =
+            textView.viewWithTag(100) as? UILabel {
             placeholder.isHidden = !textView.text.isEmpty
         }
     }

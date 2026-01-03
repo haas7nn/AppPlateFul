@@ -42,41 +42,19 @@
                             </searchBar>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FilterContainerViewID">
                                 <rect key="frame" x="0.0" y="236" width="393" height="50"/>
-                                <subviews>
-                                    <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FilterButtonID">
-                                        <rect key="frame" x="16" y="10" width="80" height="30"/>
-                                        <color key="backgroundColor" systemColor="tertiarySystemFillColor"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="FilterBtnHeightID"/>
-                                            <constraint firstAttribute="width" constant="80" id="FilterBtnWidthID"/>
-                                        </constraints>
-                                        <state key="normal" title="Filter ▼">
-                                            <color key="titleColor" systemColor="labelColor"/>
-                                        </state>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                <integer key="value" value="8"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                    </button>
-                                </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstItem="FilterButtonID" firstAttribute="centerY" secondItem="FilterContainerViewID" secondAttribute="centerY" id="FilterBtnCenterYID"/>
-                                    <constraint firstItem="FilterButtonID" firstAttribute="leading" secondItem="FilterContainerViewID" secondAttribute="leading" constant="16" id="FilterBtnLeadingID"/>
                                     <constraint firstAttribute="height" constant="50" id="FilterContainerHeightID"/>
                                 </constraints>
                             </view>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="SegmentedControlID">
-                                <rect key="frame" x="16" y="296" width="361" height="32"/>
-                                <segments>
-                                    <segment title="Users"/>
-                                    <segment title="NGO"/>
-                                    <segment title="Donation"/>
-                                </segments>
-                            </segmentedControl>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="UserTableViewID">
-                                <rect key="frame" x="0.0" y="337" width="393" height="399.33333333333326"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No enough data yet" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EmptyStateLabelID">
+                                <rect key="frame" x="16" y="746.33333333333337" width="361" height="17.666666666666629"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                                <color key="textColor" systemColor="tertiaryLabelColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="UserTableViewID">
+                                <rect key="frame" x="0.0" y="294" width="393" height="399.33333333333326"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="UserCell" rowHeight="80" id="UserCellID" customClass="UserTableViewCell" customModule="AppPlateFul" customModuleProvider="target">
@@ -158,12 +136,6 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No enough data yet" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EmptyStateLabelID">
-                                <rect key="frame" x="16" y="746.33333333333337" width="361" height="17.666666666666629"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
-                                <color key="textColor" systemColor="tertiaryLabelColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="UserListSafeAreaID"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -178,11 +150,7 @@
                             <constraint firstItem="SearchBarID" firstAttribute="leading" secondItem="UserListSafeAreaID" secondAttribute="leading" id="SearchLeadingID"/>
                             <constraint firstItem="SearchBarID" firstAttribute="top" secondItem="UserListSafeAreaID" secondAttribute="top" id="SearchTopID"/>
                             <constraint firstItem="SearchBarID" firstAttribute="trailing" secondItem="UserListSafeAreaID" secondAttribute="trailing" id="SearchTrailingID"/>
-                            <constraint firstItem="SegmentedControlID" firstAttribute="leading" secondItem="UserListSafeAreaID" secondAttribute="leading" constant="16" id="SegmentLeadingID"/>
-                            <constraint firstItem="SegmentedControlID" firstAttribute="top" secondItem="FilterContainerViewID" secondAttribute="bottom" constant="10" id="SegmentTopID"/>
-                            <constraint firstItem="SegmentedControlID" firstAttribute="trailing" secondItem="UserListSafeAreaID" secondAttribute="trailing" constant="-16" id="SegmentTrailingID"/>
                             <constraint firstItem="UserTableViewID" firstAttribute="leading" secondItem="UserListSafeAreaID" secondAttribute="leading" id="TableLeadingID"/>
-                            <constraint firstItem="UserTableViewID" firstAttribute="top" secondItem="SegmentedControlID" secondAttribute="bottom" constant="10" id="TableTopID"/>
                             <constraint firstItem="UserTableViewID" firstAttribute="trailing" secondItem="UserListSafeAreaID" secondAttribute="trailing" id="TableTrailingID"/>
                         </constraints>
                     </view>
@@ -196,9 +164,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="emptyStateLabel" destination="EmptyStateLabelID" id="EmptyOutletID"/>
-                        <outlet property="filterButton" destination="FilterButtonID" id="FilterOutletID"/>
                         <outlet property="searchBar" destination="SearchBarID" id="SearchOutletID"/>
-                        <outlet property="segmentedControl" destination="SegmentedControlID" id="SegmentOutletID"/>
                         <outlet property="tableView" destination="UserTableViewID" id="TableOutletID"/>
                     </connections>
                 </viewController>
@@ -635,7 +601,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="chevron.left" catalog="system" width="128" height="128"/>
+        <image name="chevron.left" catalog="system" width="97" height="128"/>
         <image name="envelope.fill" width="128" height="128"/>
         <image name="info.circle" width="128" height="128"/>
         <image name="location.fill" width="128" height="128"/>

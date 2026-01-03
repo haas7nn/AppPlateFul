@@ -2,18 +2,20 @@
 //  StatusUpdatedPopup.swift
 //  AppPlateFul
 //
-//  Created by Hassan Fardan on 27/12/2025.
+//  202301686 - Hasan
 //
-
 
 import UIKit
 
+// Popup view controller used to show a short status update message with an icon
 class StatusUpdatedPopup: UIViewController {
     
+    // MARK: - Properties
     private let icon: UIImage?
     private let message: String
     private let iconColor: UIColor
     
+    // MARK: - UI Elements
     private let backgroundView: UIView = {
         let view = UIView()
         view.backgroundColor = UIColor.black.withAlphaComponent(0.4)
@@ -44,6 +46,7 @@ class StatusUpdatedPopup: UIViewController {
         return label
     }()
     
+    // MARK: - Initializers
     init(icon: UIImage?, message: String, iconColor: UIColor) {
         self.icon = icon
         self.message = message
@@ -55,14 +58,18 @@ class StatusUpdatedPopup: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
     }
     
+    // MARK: - UI Setup
+    // Builds and lays out the popup interface
     private func setupUI() {
         view.addSubview(backgroundView)
         view.addSubview(containerView)
+        
         containerView.addSubview(iconImageView)
         containerView.addSubview(messageLabel)
         

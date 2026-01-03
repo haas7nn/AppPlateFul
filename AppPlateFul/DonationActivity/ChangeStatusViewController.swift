@@ -2,23 +2,27 @@
 //  ChangeStatusViewController.swift
 //  AppPlateFul
 //
-//  Created by Hassan Fardan on 27/12/2025.
+//  202301686 - Hasan
 //
-
 
 import UIKit
 
+// Delegate protocol for notifying status changes
 protocol ChangeStatusDelegate: AnyObject {
     func didChangeStatus(to newStatus: DonationActivityStatus)
 }
 
+// Bottom sheet view controller for changing donation activity status
 class ChangeStatusViewController: UIViewController {
     
+    // MARK: - Delegate
     weak var delegate: ChangeStatusDelegate?
     
+    // MARK: - State
     private var currentStatus: DonationActivityStatus
     private var selectedStatus: DonationActivityStatus?
     
+    // Available status options
     private let statusOptions: [DonationActivityStatus] = [
         .pending,
         .ongoing,
@@ -27,8 +31,10 @@ class ChangeStatusViewController: UIViewController {
         .cancelled
     ]
     
+    // Stores radio button references
     private var optionButtons: [UIButton] = []
     
+    // MARK: - UI Elements
     private let backgroundView: UIView = {
         let view = UIView()
         view.backgroundColor = UIColor.black.withAlphaComponent(0.4)
@@ -83,7 +89,7 @@ class ChangeStatusViewController: UIViewController {
         return button
     }()
     
-    // MARK: - Init
+    // MARK: - Initializers
     init(currentStatus: DonationActivityStatus) {
         self.currentStatus = currentStatus
         super.init(nibName: nil, bundle: nil)
@@ -96,25 +102,35 @@ class ChangeStatusViewController: UIViewController {
         super.init(coder: coder)
     }
     
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
         createStatusOptions()
     }
     
-    // MARK: - UI
+    // MARK: - UI Setup
+    // Builds and lays out the popup interface
     private func setupUI() {
         view.addSubview(backgroundView)
         view.addSubview(containerView)
+        
         containerView.addSubview(handleBar)
         containerView.addSubview(titleLabel)
         containerView.addSubview(optionsStackView)
         containerView.addSubview(updateButton)
         
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissPopup))
+        let tapGesture = UITapGestureRecognizer(
+            target: self,
+            action: #selector(dismissPopup)
+        )
         backgroundView.addGestureRecognizer(tapGesture)
         
-        updateButton.addTarget(self, action: #selector(updateTapped), for: .touchUpInside)
+        updateButton.addTarget(
+            self,
+            action: #selector(updateTapped),
+            for: .touchUpInside
+        )
         
         NSLayoutConstraint.activate([
             backgroundView.topAnchor.constraint(equalTo: view.topAnchor),
@@ -147,6 +163,7 @@ class ChangeStatusViewController: UIViewController {
         ])
     }
     
+    // Creates selectable status option rows
     private func createStatusOptions() {
         for (index, status) in statusOptions.enumerated() {
             let container = UIView()
@@ -160,7 +177,11 @@ class ChangeStatusViewController: UIViewController {
             radioButton.setImage(UIImage(systemName: "circle"), for: .normal)
             radioButton.setImage(UIImage(systemName: "checkmark.circle.fill"), for: .selected)
             radioButton.tintColor = DonationTheme.primaryBrown
-            radioButton.addTarget(self, action: #selector(optionSelected(_:)), for: .touchUpInside)
+            radioButton.addTarget(
+                self,
+                action: #selector(optionSelected(_:)),
+                for: .touchUpInside
+            )
             radioButton.translatesAutoresizingMaskIntoConstraints = false
             optionButtons.append(radioButton)
             
@@ -173,7 +194,10 @@ class ChangeStatusViewController: UIViewController {
             container.addSubview(radioButton)
             container.addSubview(statusLabel)
             
-            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(containerTapped(_:)))
+            let tapGesture = UITapGestureRecognizer(
+                target: self,
+                action: #selector(containerTapped(_:))
+            )
             container.addGestureRecognizer(tapGesture)
             
             NSLayoutConstraint.activate([
@@ -190,6 +214,7 @@ class ChangeStatusViewController: UIViewController {
         }
     }
     
+    // MARK: - Selection Handling
     @objc private func optionSelected(_ sender: UIButton) {
         selectOption(at: sender.tag)
     }
@@ -208,6 +233,7 @@ class ChangeStatusViewController: UIViewController {
         updateButton.alpha = 1.0
     }
     
+    // MARK: - Actions
     @objc private func updateTapped() {
         guard let selectedStatus else { return }
         dismiss(animated: true) { [weak self] in

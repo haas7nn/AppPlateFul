@@ -24,7 +24,7 @@ final class FirestoreService {
     private let db = Firestore.firestore()
 
     func fetchNGOs(completion: @escaping ([NGOItem]) -> Void) {
-        db.collection("ngos").getDocuments { snap, _ in
+        db.collection("ngo_reviews").getDocuments { snap, _ in
             let docs = snap?.documents ?? []
             let items = docs.map { d -> NGOItem in
                 let x = d.data()
