@@ -10,7 +10,7 @@
 import UIKit
 
 protocol DonationActivityCellDelegate: AnyObject {
-    func didTapReport(for donation: Donation)
+    func didTapReport(for donation: DonationActivityDonation)
 }
 
 class DonationActivityCell: UITableViewCell {
@@ -30,7 +30,7 @@ class DonationActivityCell: UITableViewCell {
     
     // MARK: - Properties
     weak var delegate: DonationActivityCellDelegate?
-    private var donation: Donation?
+    private var donation: DonationActivityDonation?
     
     // MARK: - Lifecycle
     override func awakeFromNib() {
@@ -53,7 +53,7 @@ class DonationActivityCell: UITableViewCell {
     }
     
     // MARK: - Configuration
-    func configure(with donation: Donation) {
+    func configure(with donation: DonationActivityDonation) {
         self.donation = donation
         
         logoImageView.image = donation.ngoLogo ?? UIImage(systemName: "building.2.fill")
@@ -80,7 +80,7 @@ class DonationActivityCell: UITableViewCell {
     
     // MARK: - Actions
     @objc private func reportTapped() {
-        guard let donation = donation else { return }
+        guard let donation else { return }
         delegate?.didTapReport(for: donation)
     }
     

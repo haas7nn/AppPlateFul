@@ -1,31 +1,30 @@
-//
-//  Donation.swift
-//  AppPlateFul
-//
-//  Created by Rashed Alsowaidi on 22/12/2025.
-//
-
 import Foundation
 
 struct Donation: Codable {
     let id: String
-
+    
+    // Donation info
     var title: String
     let description: String
     let quantity: String
     var expiryDate: Date?
     let imageRef: String
-
+    
+    // Donor info
     var donorId: String
     var donorName: String
-
+    
+    // NGO & status
     var ngoId: String?
     var status: DonationStatus
+    
+    // Pickup
     var scheduledPickup: PickupSchedule?
 }
 
+// MARK: - Firestore Mapping
 extension Donation {
-
+    
     func toFirestore() -> [String: Any] {
         var data: [String: Any] = [
             "title": title,
@@ -36,17 +35,17 @@ extension Donation {
             "donorName": donorName,
             "status": status.rawValue
         ]
-
+        
         data["expiryDate"] = expiryDate as Any
         data["ngoId"] = ngoId as Any
-
+        
         if let scheduledPickup {
             data["scheduledPickup"] = scheduledPickup.toFirestore()
         }
-
+        
         return data
     }
-
+    
     static func fromFirestore(_ data: [String: Any], id: String) -> Donation? {
         guard
             let title = data["title"] as? String,
@@ -60,15 +59,15 @@ extension Donation {
         else {
             return nil
         }
-
+        
         let expiryDate = data["expiryDate"] as? Date
         let ngoId = data["ngoId"] as? String
-
+        
         var pickup: PickupSchedule?
         if let pickupData = data["scheduledPickup"] as? [String: Any] {
             pickup = PickupSchedule.fromFirestore(pickupData)
         }
-
+        
         return Donation(
             id: id,
             title: title,

@@ -33,9 +33,11 @@ class UserTableViewCell: UITableViewCell {
     
     func configure(name: String, status: String, isStarred: Bool = false) {
         nameLabel?.text = name
-        statusLabel?.text = status
         
-        switch status.lowercased() {
+        let cleanStatus = status.trimmingCharacters(in: .whitespacesAndNewlines)
+        statusLabel?.text = cleanStatus.isEmpty ? "-" : cleanStatus
+        
+        switch cleanStatus.lowercased() {
         case "active": statusLabel?.textColor = .systemGreen
         case "inactive": statusLabel?.textColor = .systemRed
         case "pending": statusLabel?.textColor = .systemOrange

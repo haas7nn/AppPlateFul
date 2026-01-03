@@ -7,7 +7,7 @@ import UIKit
 
 class DonationTableViewCell: UITableViewCell {
     
-    // MARK: - IBOutlets (made optional with ?)
+    // MARK: - IBOutlets
     @IBOutlet weak var logoImageView: UIImageView?
     @IBOutlet weak var ngoNameLabel: UILabel?
     @IBOutlet weak var statusLabel: UILabel?
@@ -25,7 +25,7 @@ class DonationTableViewCell: UITableViewCell {
     }
     
     // MARK: - Configuration
-    func configure(with donation: Donation) {
+    func configure(with donation: DonationActivityDonation) {
         logoImageView?.image = donation.ngoLogo ?? UIImage(systemName: "building.2.fill")
         logoImageView?.tintColor = DonationTheme.primaryBrown
         
@@ -34,7 +34,6 @@ class DonationTableViewCell: UITableViewCell {
         statusLabel?.textColor = donation.status.color
         dateLabel?.text = donation.formattedCreatedDate
         
-        // Debug: Check if outlets are connected
         print("🔍 logoImageView: \(logoImageView != nil ? "✅" : "❌")")
         print("🔍 ngoNameLabel: \(ngoNameLabel != nil ? "✅" : "❌")")
     }

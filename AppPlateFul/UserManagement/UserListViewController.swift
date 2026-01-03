@@ -18,7 +18,6 @@ class UserListViewController: UIViewController {
         tableView.dataSource = self
         emptyStateLabel.isHidden = !users.isEmpty
         
-        // DEBUG: Check navigation controller
         print("DEBUG viewDidLoad: navigationController = \(String(describing: navigationController))")
     }
     
@@ -52,13 +51,10 @@ class UserListViewController: UIViewController {
         }
         
         print("DEBUG: DetailVC created successfully")
-        
         detailVC.user = users[indexPath.row]
         
         print("DEBUG: navigationController = \(String(describing: navigationController))")
-        
         navigationController?.pushViewController(detailVC, animated: true)
-        
         print("DEBUG: Push called")
     }
 }
@@ -73,8 +69,15 @@ extension UserListViewController: UITableViewDelegate, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "UserCell", for: indexPath) as? UserTableViewCell else {
             return UITableViewCell()
         }
+        
         let user = users[indexPath.row]
-        cell.configure(name: user.name, status: user.status, isStarred: user.isFavorite)
+        
+        cell.configure(
+            name: user.displayName,
+            status: user.status ?? "-",
+            isStarred: user.isFavorite ?? false
+        )
+        
         cell.delegate = self
         cell.indexPath = indexPath
         return cell
@@ -97,7 +100,10 @@ extension UserListViewController: UserCellDelegate {
     
     func didTapStarButton(at indexPath: IndexPath) {
         print("DEBUG: Star button tapped for row \(indexPath.row)")
-        users[indexPath.row].isFavorite.toggle()
+        
+        let current = users[indexPath.row].isFavorite ?? false
+        users[indexPath.row].isFavorite = !current
+        
         tableView.reloadRows(at: [indexPath], with: .automatic)
     }
 }

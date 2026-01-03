@@ -27,7 +27,6 @@
 		9C56C4052F0882BE00C80966 /* DonationSchedulingStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C56C4032F0882BE00C80966 /* DonationSchedulingStoryboard.storyboard */; };
 		9C56C4062F0882BE00C80966 /* DonationSchedulingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C56C4042F0882BE00C80966 /* DonationSchedulingViewController.swift */; };
 		9C56C4072F0882BE00C80966 /* DonationSchedulingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C56C4022F0882BE00C80966 /* DonationSchedulingPageViewController.swift */; };
-		9C56C40E2F0882E800C80966 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C56C40C2F0882E800C80966 /* User.swift */; };
 		9C56C40F2F0882E800C80966 /* PickupSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C56C40B2F0882E800C80966 /* PickupSchedule.swift */; };
 		9C56C4102F0882E800C80966 /* DonationStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C56C40A2F0882E800C80966 /* DonationStatus.swift */; };
 		9C56C4112F0882E800C80966 /* Donation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C56C4092F0882E800C80966 /* Donation.swift */; };
@@ -36,11 +35,9 @@
 		D54C77142EF736C40072F713 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54C77132EF736C40072F713 /* SceneDelegate.swift */; };
 		D54C77192EF736C40072F713 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = D54C77182EF736C40072F713 /* Base */; };
 		D54C771B2EF736C60072F713 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D54C771A2EF736C60072F713 /* Assets.xcassets */; };
-		D54C771E2EF736C60072F713 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = D54C771D2EF736C60072F713 /* Base */; };
 		D54C77292EF736C60072F713 /* AppPlateFulTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54C77282EF736C60072F713 /* AppPlateFulTests.swift */; };
 		D54C77332EF736C60072F713 /* AppPlateFulUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54C77322EF736C60072F713 /* AppPlateFulUITests.swift */; };
 		D54C77352EF736C60072F713 /* AppPlateFulUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54C77342EF736C60072F713 /* AppPlateFulUITestsLaunchTests.swift */; };
-		D58F04BF2F073C8A0080DF27 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D58F04BE2F073C8A0080DF27 /* GoogleService-Info.plist */; };
 		D58F04C22F073DBB0080DF27 /* FirebaseAI in Frameworks */ = {isa = PBXBuildFile; productRef = D58F04C12F073DBB0080DF27 /* FirebaseAI */; };
 		D58F04C42F073DBB0080DF27 /* FirebaseAILogic in Frameworks */ = {isa = PBXBuildFile; productRef = D58F04C32F073DBB0080DF27 /* FirebaseAILogic */; };
 		D58F04C62F073DBB0080DF27 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = D58F04C52F073DBB0080DF27 /* FirebaseAnalytics */; };
@@ -68,6 +65,8 @@
 		D58F04F12F073DC40080DF27 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D58F04BE2F073C8A0080DF27 /* GoogleService-Info.plist */; };
 		D58F04F22F073DC40080DF27 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D58F04BE2F073C8A0080DF27 /* GoogleService-Info.plist */; };
 		D58F04F42F0740D60080DF27 /* FirestoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D58F04F32F0740D60080DF27 /* FirestoreService.swift */; };
+		D5DA1B732F092424004126BA /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C56C40C2F0882E800C80966 /* User.swift */; };
+		D5DA1B782F093ABC004126BA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D58F04BE2F073C8A0080DF27 /* GoogleService-Info.plist */; };
 		D5F169882EFDACAA0015DFDE /* Notifications.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D5F169872EFDACAA0015DFDE /* Notifications.storyboard */; };
 /* End PBXBuildFile section */
 
@@ -214,6 +213,13 @@
 			);
 			target = D54C772D2EF736C60072F713 /* AppPlateFulUITests */;
 		};
+		D5DA1B722F09234A004126BA /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				User.swift,
+			);
+			target = D54C770D2EF736C40072F713 /* AppPlateFul */;
+		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -225,7 +231,7 @@
 		D58F04B72F06E9E70080DF27 /* Reports 2 */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = "Reports 2"; sourceTree = "<group>"; };
 		D5F84D472F00522A0034CC8D /* AdminDashboard */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = AdminDashboard; sourceTree = "<group>"; };
 		D5F84D482F00524D0034CC8D /* NGOReview */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = NGOReview; sourceTree = "<group>"; };
-		D5F84D492F0052840034CC8D /* UserManagement */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = UserManagement; sourceTree = "<group>"; };
+		D5F84D492F0052840034CC8D /* UserManagement */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (D5DA1B722F09234A004126BA /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = UserManagement; sourceTree = "<group>"; };
 		D5F84D4A2F0052AE0034CC8D /* DonationActivity */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = DonationActivity; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
@@ -535,12 +541,11 @@
 			files = (
 				9C56C4012F08829B00C80966 /* NgoFlow.storyboard in Resources */,
 				D54C771B2EF736C60072F713 /* Assets.xcassets in Resources */,
-				D54C771E2EF736C60072F713 /* Base in Resources */,
 				9C56C3F82F08826F00C80966 /* Notification.storyboard in Resources */,
 				D54C77192EF736C40072F713 /* Base in Resources */,
-				D58F04BF2F073C8A0080DF27 /* GoogleService-Info.plist in Resources */,
 				D5F169882EFDACAA0015DFDE /* Notifications.storyboard in Resources */,
 				9C56C4052F0882BE00C80966 /* DonationSchedulingStoryboard.storyboard in Resources */,
+				D5DA1B782F093ABC004126BA /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -573,12 +578,12 @@
 				9C56C3E92F08822600C80966 /* DonationSchedulingTableViewCell.swift in Sources */,
 				9C56C3EA2F08822600C80966 /* showPendingDonationDetailsViewController.swift in Sources */,
 				9C56C3EB2F08822600C80966 /* NotificationsTableViewCell.swift in Sources */,
+				D5DA1B732F092424004126BA /* User.swift in Sources */,
 				9C56C3EC2F08822600C80966 /* showPickupInfoDetailsViewController.swift in Sources */,
 				9C56C3ED2F08822600C80966 /* MyPickupsTableViewCell.swift in Sources */,
 				9C56C3EE2F08822600C80966 /* NotificationService.swift in Sources */,
 				D54C77122EF736C40072F713 /* AppDelegate.swift in Sources */,
 				D54C77142EF736C40072F713 /* SceneDelegate.swift in Sources */,
-				9C56C40E2F0882E800C80966 /* User.swift in Sources */,
 				9C56C40F2F0882E800C80966 /* PickupSchedule.swift in Sources */,
 				9C56C4102F0882E800C80966 /* DonationStatus.swift in Sources */,
 				9C56C4112F0882E800C80966 /* Donation.swift in Sources */,
