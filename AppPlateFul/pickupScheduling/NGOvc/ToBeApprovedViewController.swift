@@ -28,6 +28,7 @@ final class ToBeApprovedViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         configureUI()
     }
 

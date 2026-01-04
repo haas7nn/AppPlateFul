@@ -108,12 +108,15 @@ class MyPickupsViewController: UIViewController, UITableViewDataSource, UITableV
          
             if let vc = segue.destination as? AcceptedViewController {
                 vc.donation = donation
+                vc.hidesBottomBarWhenPushed = true
             }
             else if let vc = segue.destination as? ToBeApprovedViewController {
                 vc.donation = donation
+                vc.hidesBottomBarWhenPushed = true
             }
             else if let vc = segue.destination as? toBeCollectedViewController {
                 vc.donation = donation
+                vc.hidesBottomBarWhenPushed = true
             }
         }
 

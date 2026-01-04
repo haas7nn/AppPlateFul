@@ -52,7 +52,7 @@ class AvailableDonationsViewController: UIViewController, UITableViewDataSource 
            cell.subtitleLabel.text = donation.description
            cell.iconImageView.image = UIImage(systemName: donation.imageRef)
 
-           cell.button.setTitle("Donate Now", for: .normal)
+           cell.button.setTitle("View Details", for: .normal)
            cell.button.addTarget(self, action: #selector(donateNowTapped(_:)), for: .touchUpInside)
 
            return cell
@@ -61,10 +61,9 @@ class AvailableDonationsViewController: UIViewController, UITableViewDataSource 
        // MARK: - Navigation
 
        @objc private func donateNowTapped(_ sender: UIButton) {
-           // Convert button position to tableView coordinate space
+           
               let buttonPosition = sender.convert(CGPoint.zero, to: tableView)
 
-              // Get the indexPath safely
               guard let indexPath = tableView.indexPathForRow(at: buttonPosition) else {
                   return
               }
@@ -79,6 +78,7 @@ class AvailableDonationsViewController: UIViewController, UITableViewDataSource 
 
                   let donation = availableDonations[indexPath.row]
                   detailsVC.donation = donation
+                  detailsVC.hidesBottomBarWhenPushed = true
               }
            
        }

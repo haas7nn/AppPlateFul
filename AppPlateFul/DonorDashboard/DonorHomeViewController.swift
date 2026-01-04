@@ -25,7 +25,7 @@ class DonorHomeViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationController?.setNavigationBarHidden(true, animated: animated)
+        
     }
     
     // MARK: - Setup
@@ -65,10 +65,15 @@ class DonorHomeViewController: UIViewController {
         }
     }
     
-    @IBAction func myDonationsTapped(_ sender: UIButton) {
-        print("📍 My Donations tapped")
-        showComingSoon(feature: "My Donations")
+    @IBAction func myDonationTapped(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "DonationSchedulingStoryboard", bundle: nil)
+          let vc = storyboard.instantiateViewController(withIdentifier: "sche")
+       
+
+          vc.hidesBottomBarWhenPushed = true
+          navigationController?.pushViewController(vc, animated: true)
     }
+    
     
     @IBAction func trackDeliveriesTapped(_ sender: UIButton) {
         print("📍 Track Deliveries tapped")

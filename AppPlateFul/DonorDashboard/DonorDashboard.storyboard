@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="24412" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="TabBarID">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23727" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="TabBarID">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="24405"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -126,7 +126,7 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
-                                                    <action selector="myDonationsTapped:" destination="DonorHomeVC" eventType="touchUpInside" id="Btn3Act"/>
+                                                    <action selector="myDonationTapped:" destination="DonorHomeVC" eventType="touchUpInside" id="ExQ-Gr-j3W"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Btn4">
@@ -238,7 +238,6 @@
                         <outlet property="communityLeaderboardBtn" destination="Btn1" id="O1"/>
                         <outlet property="donationUpdatesBtn" destination="Btn5" id="O5"/>
                         <outlet property="favouriteNGOsBtn" destination="Btn2" id="O2"/>
-                        <outlet property="myDonationsBtn" destination="Btn3" id="O3"/>
                         <outlet property="recurringDonationsBtn" destination="Btn6" id="O6"/>
                         <outlet property="trackDeliveriesBtn" destination="Btn4" id="O4"/>
                     </connections>
@@ -372,46 +371,81 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="ProfileVC" kind="relationship" relationship="rootViewController" id="ProfileRootSeg"/>
+                        <segue destination="juo-6R-hZb" kind="relationship" relationship="rootViewController" id="ProfileRootSeg"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ProfileNavFR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="100" y="3200"/>
         </scene>
-        <!--Profile View Controller-->
+        <!--Donor Profile View Controller-->
         <scene sceneID="ProfileScene">
             <objects>
-                <viewController storyboardIdentifier="ProfileViewController" id="ProfileVC" customClass="ProfileViewController" customModule="AppPlateFul" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ProfileViewController" id="ProfileVC" customClass="DonorProfileViewController" customModule="AppPlateFul" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ProfileMainView">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Profile 👤" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ProfileTitleLabel">
-                                <rect key="frame" x="24" y="138" width="345" height="41"/>
+                                <rect key="frame" x="24" y="182" width="345" height="41"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="34"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Manage your account" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ProfileSubtitleLabel">
-                                <rect key="frame" x="24" y="191" width="148.33333333333334" height="18"/>
+                                <rect key="frame" x="24" y="235" width="148.33333333333334" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jb6-wb-PvR">
+                                <rect key="frame" x="22" y="380" width="355" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="355" id="7Lj-MS-3PI"/>
+                                    <constraint firstAttribute="height" constant="50" id="ILL-jv-ijF"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Notfications" cornerStyle="capsule">
+                                    <color key="baseBackgroundColor" red="0.69411766529999996" green="0.75294119120000003" blue="0.59607845540000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="notification:" destination="ProfileVC" eventType="touchUpInside" id="j6e-LN-NPW"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B7E-FX-3Iw">
+                                <rect key="frame" x="22" y="503" width="355" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Rz1-3u-iJX"/>
+                                    <constraint firstAttribute="width" constant="355" id="jrR-tO-jTl"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Logout" cornerStyle="capsule">
+                                    <color key="baseBackgroundColor" red="0.69411766529999996" green="0.75294119120000003" blue="0.59607845540000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="Logout:" destination="ProfileVC" eventType="touchUpInside" id="wGA-Aw-HrJ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ProfileSafeArea"/>
                         <color key="backgroundColor" red="0.96899999999999997" green="0.95699999999999996" blue="0.93300000000000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="jb6-wb-PvR" firstAttribute="leading" secondItem="ProfileSafeArea" secondAttribute="leading" constant="22" id="7Lq-TF-UWF"/>
+                            <constraint firstItem="ProfileSafeArea" firstAttribute="trailing" secondItem="B7E-FX-3Iw" secondAttribute="trailing" constant="16" id="ApR-Ou-4Tc"/>
+                            <constraint firstItem="B7E-FX-3Iw" firstAttribute="leading" secondItem="ProfileSafeArea" secondAttribute="leading" constant="22" id="BgJ-X6-ABF"/>
+                            <constraint firstItem="B7E-FX-3Iw" firstAttribute="top" secondItem="jb6-wb-PvR" secondAttribute="bottom" constant="73" id="HRV-t4-SWn"/>
+                            <constraint firstItem="ProfileSafeArea" firstAttribute="trailing" secondItem="jb6-wb-PvR" secondAttribute="trailing" constant="16" id="Hfc-Fw-Thu"/>
                             <constraint firstItem="ProfileTitleLabel" firstAttribute="leading" secondItem="ProfileSafeArea" secondAttribute="leading" constant="24" id="P1"/>
                             <constraint firstItem="ProfileTitleLabel" firstAttribute="top" secondItem="ProfileSafeArea" secondAttribute="top" constant="20" id="P2"/>
                             <constraint firstItem="ProfileSafeArea" firstAttribute="trailing" secondItem="ProfileTitleLabel" secondAttribute="trailing" constant="24" id="P3"/>
                             <constraint firstItem="ProfileSubtitleLabel" firstAttribute="leading" secondItem="ProfileTitleLabel" secondAttribute="leading" id="P4"/>
                             <constraint firstItem="ProfileSubtitleLabel" firstAttribute="top" secondItem="ProfileTitleLabel" secondAttribute="bottom" constant="12" id="P5"/>
+                            <constraint firstItem="jb6-wb-PvR" firstAttribute="top" secondItem="ProfileSubtitleLabel" secondAttribute="bottom" constant="127" id="tOH-NJ-0Oa"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="oEm-hm-nAj"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ProfileFR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="900" y="3200"/>
+            <point key="canvasLocation" x="1826.7175572519084" y="3200"/>
         </scene>
         <!--Organization Discovery-->
         <scene sceneID="i7k-3n-lPl">
@@ -422,7 +456,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <searchBar hidden="YES" contentMode="redraw" placeholder="Search NGOs" showsCancelButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Y12-0D-vlT">
-                                <rect key="frame" x="16" y="134" width="361" height="64"/>
+                                <rect key="frame" x="16" y="134" width="361" height="56"/>
                                 <color key="backgroundColor" white="0.94999999999999996" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <userDefinedRuntimeAttributes>
@@ -673,6 +707,25 @@
             </objects>
             <point key="canvasLocation" x="1037" y="800"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="0o5-Qj-oe6">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="juo-6R-hZb" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="fTv-lj-Rgu"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="FhJ-S3-iH6">
+                        <rect key="frame" x="0.0" y="118" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="ProfileVC" kind="relationship" relationship="rootViewController" id="2q5-HT-FIK"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DIZ-hO-Jlr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="900" y="3200"/>
+        </scene>
     </scenes>
     <resources>
         <image name="building.2.fill" catalog="system" width="108" height="128"/>
@@ -687,7 +740,7 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemBlueColor">
-            <color red="0.0" green="0.53333333333333333" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

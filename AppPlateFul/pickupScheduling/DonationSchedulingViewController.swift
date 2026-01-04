@@ -20,6 +20,7 @@ class DonationSchedulingViewController: UIViewController, UITableViewDataSource,
         super.viewDidLoad()
         tableView.dataSource = self
         tableView.delegate = self
+        navigationController?.setNavigationBarHidden(false, animated: true)
         title = "My Donations"
         loadDonations()
     }
@@ -110,7 +111,6 @@ class DonationSchedulingViewController: UIViewController, UITableViewDataSource,
         button.titleLabel?.font = UIFont.systemFont(ofSize: 12, weight: .semibold)
         button.titleLabel?.numberOfLines = 1
         button.titleLabel?.lineBreakMode = .byTruncatingTail
-
         button.setTitleColor(.white, for: .normal)
         button.layer.cornerRadius = 12
         button.clipsToBounds = true
@@ -118,7 +118,7 @@ class DonationSchedulingViewController: UIViewController, UITableViewDataSource,
         switch status {
         case .pending:
             button.setTitle("Pending", for: .normal)
-            button.backgroundColor = .systemOrange
+            button.backgroundColor = .systemGreen
 
         case .accepted:
             button.setTitle("To Be Scheduled", for: .normal)
@@ -126,7 +126,7 @@ class DonationSchedulingViewController: UIViewController, UITableViewDataSource,
 
         case .toBeApproved, .toBeCollected:
             button.setTitle("To Be Collected", for: .normal)
-            button.backgroundColor = .systemGreen
+            button.backgroundColor = .systemBlue
 
         default:
             button.setTitle(status.rawValue, for: .normal)

@@ -18,7 +18,7 @@ class NotificationTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
 
-        // Card styling (same as your other cells)
+        
         cardView.layer.cornerRadius = 12
         cardView.layer.masksToBounds = false
         cardView.layer.shadowColor = UIColor.black.cgColor
@@ -26,7 +26,7 @@ class NotificationTableViewCell: UITableViewCell {
         cardView.layer.shadowOffset = CGSize(width: 0, height: 4)
         cardView.layer.shadowRadius = 6
 
-        // Circular image
+       
         iconImageView.layer.cornerRadius = 20
         iconImageView.clipsToBounds = true
     }
@@ -40,7 +40,7 @@ class NotificationTableViewCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
-        // Configure the view for the selected state
+        
     }
 
 }

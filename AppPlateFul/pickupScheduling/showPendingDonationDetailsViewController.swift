@@ -27,20 +27,20 @@ class showPendingDonationDetailsViewController: UIViewController {
         super.viewDidLoad()
         title = "Donation Details"
         
-        // Fill UI from donation
+        
         donator.text = donation.donorName
         donationDesc.text = donation.description
         qty.text = donation.quantity
         icon.image = UIImage(systemName: donation.imageRef)
         
-        // Expiry formatting (safe)
+        
         if let expiry = donation.expiryDate {
             exp.text = DateFormatter.dmy.string(from: expiry)
         } else {
             exp.text = "N/A"
         }
         
-        // Optional: wrap description
+        
         donationDesc.numberOfLines = 0
         donationDesc.lineBreakMode = .byWordWrapping
     }

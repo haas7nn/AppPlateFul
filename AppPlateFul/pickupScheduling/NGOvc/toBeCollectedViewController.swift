@@ -26,6 +26,7 @@ class toBeCollectedViewController: UIViewController {
 
         override func viewDidLoad() {
             super.viewDidLoad()
+           
             configureUI()
         }
 

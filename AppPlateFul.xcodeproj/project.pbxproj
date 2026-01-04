@@ -33,6 +33,13 @@
 		9C56C8A42F099A0400C80966 /* toBeCollectedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C56C8892F099A0400C80966 /* toBeCollectedViewController.swift */; };
 		9C56C8A82F099A1600C80966 /* DonationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C56C8A52F099A1600C80966 /* DonationService.swift */; };
 		9C56C8A92F099A1600C80966 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C56C8A62F099A1600C80966 /* NotificationService.swift */; };
+		9C56CE772F09CC5A00C80966 /* TestSignin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C56CE762F09CC5A00C80966 /* TestSignin.storyboard */; };
+		9C56CE792F09CD3600C80966 /* TestSigninViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C56CE782F09CD3600C80966 /* TestSigninViewController.swift */; };
+		9C56CE7D2F09D76800C80966 /* DonationSeeder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C56CE7C2F09D76800C80966 /* DonationSeeder.swift */; };
+		9C56CE7F2F09D7B400C80966 /* UserSeeder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C56CE7E2F09D7B400C80966 /* UserSeeder.swift */; };
+		9CFA8EFE2F09FE3600E6C35B /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFA8EFD2F09FE3600E6C35B /* ProfileViewController.swift */; };
+		9CFA8F002F0A014C00E6C35B /* UserSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFA8EFF2F0A014C00E6C35B /* UserSession.swift */; };
+		9CFA8F042F0A0E2E00E6C35B /* NotificationSeeder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFA8F032F0A0E2E00E6C35B /* NotificationSeeder.swift */; };
 		D54C77122EF736C40072F713 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54C77112EF736C40072F713 /* AppDelegate.swift */; };
 		D54C77142EF736C40072F713 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54C77132EF736C40072F713 /* SceneDelegate.swift */; };
 		D54C77192EF736C40072F713 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = D54C77182EF736C40072F713 /* Base */; };
@@ -69,7 +76,6 @@
 		D58F04F12F073DC40080DF27 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D58F04BE2F073C8A0080DF27 /* GoogleService-Info.plist */; };
 		D58F04F22F073DC40080DF27 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D58F04BE2F073C8A0080DF27 /* GoogleService-Info.plist */; };
 		D58F04F42F0740D60080DF27 /* FirestoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D58F04F32F0740D60080DF27 /* FirestoreService.swift */; };
-		D5F169882EFDACAA0015DFDE /* Notifications.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D5F169872EFDACAA0015DFDE /* Notifications.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -116,6 +122,13 @@
 		9C56C8942F099A0400C80966 /* showPickupInfoDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = showPickupInfoDetailsViewController.swift; sourceTree = "<group>"; };
 		9C56C8A52F099A1600C80966 /* DonationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonationService.swift; sourceTree = "<group>"; };
 		9C56C8A62F099A1600C80966 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
+		9C56CE762F09CC5A00C80966 /* TestSignin.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TestSignin.storyboard; sourceTree = "<group>"; };
+		9C56CE782F09CD3600C80966 /* TestSigninViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestSigninViewController.swift; sourceTree = "<group>"; };
+		9C56CE7C2F09D76800C80966 /* DonationSeeder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonationSeeder.swift; sourceTree = "<group>"; };
+		9C56CE7E2F09D7B400C80966 /* UserSeeder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSeeder.swift; sourceTree = "<group>"; };
+		9CFA8EFD2F09FE3600E6C35B /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		9CFA8EFF2F0A014C00E6C35B /* UserSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSession.swift; sourceTree = "<group>"; };
+		9CFA8F032F0A0E2E00E6C35B /* NotificationSeeder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSeeder.swift; sourceTree = "<group>"; };
 		D54C770E2EF736C40072F713 /* AppPlateFul.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppPlateFul.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D54C77112EF736C40072F713 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D54C77132EF736C40072F713 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -130,32 +143,9 @@
 		D54C77342EF736C60072F713 /* AppPlateFulUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppPlateFulUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		D58F04BE2F073C8A0080DF27 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D58F04F32F0740D60080DF27 /* FirestoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreService.swift; sourceTree = "<group>"; };
-		D5F169872EFDACAA0015DFDE /* Notifications.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Notifications.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		5C8053042F081F2500ACF25F /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				FavoriteNGO.swift,
-				FavoriteNGOCell.swift,
-				FavoriteNGODetailsViewController.swift,
-				FavoriteNGOs.storyboard,
-				FavoriteNGOsViewController.swift,
-			);
-			target = D54C77232EF736C60072F713 /* AppPlateFulTests */;
-		};
-		5C8053052F081F2500ACF25F /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				FavoriteNGO.swift,
-				FavoriteNGOCell.swift,
-				FavoriteNGODetailsViewController.swift,
-				FavoriteNGOs.storyboard,
-				FavoriteNGOsViewController.swift,
-			);
-			target = D54C772D2EF736C60072F713 /* AppPlateFulUITests */;
-		};
 		5C8053082F081FAB00ACF25F /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
@@ -186,48 +176,12 @@
 			);
 			target = D54C772D2EF736C60072F713 /* AppPlateFulUITests */;
 		};
-		5C8053132F0832EE00ACF25F /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				FAQ.storyboard,
-				FAQViewController.swift,
-			);
-			target = D54C77232EF736C60072F713 /* AppPlateFulTests */;
-		};
-		5C8053142F0832EE00ACF25F /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				FAQ.storyboard,
-				FAQViewController.swift,
-			);
-			target = D54C772D2EF736C60072F713 /* AppPlateFulUITests */;
-		};
-		5C80531E2F08334900ACF25F /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				TermsAndCon.storyboard,
-				TermsViewController.swift,
-			);
-			target = D54C77232EF736C60072F713 /* AppPlateFulTests */;
-		};
-		5C80531F2F08334900ACF25F /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				TermsAndCon.storyboard,
-				TermsViewController.swift,
-			);
-			target = D54C772D2EF736C60072F713 /* AppPlateFulUITests */;
-		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		5C3767512F09649900736425 /* DonorDashboard */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = DonorDashboard; sourceTree = "<group>"; };
-		5C8052F42F081F2400ACF25F /* FavoriteNGO */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (5C8053042F081F2500ACF25F /* PBXFileSystemSynchronizedBuildFileExceptionSet */, 5C8053052F081F2500ACF25F /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = FavoriteNGO; sourceTree = "<group>"; };
 		5C8053072F081FA500ACF25F /* NgoOrginizationDiscovery */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (5C8053082F081FAB00ACF25F /* PBXFileSystemSynchronizedBuildFileExceptionSet */, 5C8053092F081FAB00ACF25F /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = NgoOrginizationDiscovery; sourceTree = "<group>"; };
-		5C8053122F0832E300ACF25F /* FAQ */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (5C8053132F0832EE00ACF25F /* PBXFileSystemSynchronizedBuildFileExceptionSet */, 5C8053142F0832EE00ACF25F /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = FAQ; sourceTree = "<group>"; };
-		5C80531D2F08333700ACF25F /* TermsAndConditions */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (5C80531E2F08334900ACF25F /* PBXFileSystemSynchronizedBuildFileExceptionSet */, 5C80531F2F08334900ACF25F /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = TermsAndConditions; sourceTree = "<group>"; };
 		D58F04942F0600090080DF27 /* Privacy Policy */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = "Privacy Policy"; sourceTree = "<group>"; };
-		D58F04B72F06E9E70080DF27 /* Reports 2 */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = "Reports 2"; sourceTree = "<group>"; };
 		D5F84D472F00522A0034CC8D /* AdminDashboard */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = AdminDashboard; sourceTree = "<group>"; };
 		D5F84D482F00524D0034CC8D /* NGOReview */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = NGOReview; sourceTree = "<group>"; };
 		D5F84D492F0052840034CC8D /* UserManagement */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = UserManagement; sourceTree = "<group>"; };
@@ -337,6 +291,7 @@
 				9C56C8902F099A0400C80966 /* DonationSchedulingStoryboard.storyboard */,
 				9C56C8912F099A0400C80966 /* DonationSchedulingViewController.swift */,
 				9C56C8922F099A0400C80966 /* NgoFlow.storyboard */,
+				9CFA8EFD2F09FE3600E6C35B /* ProfileViewController.swift */,
 				9C56C8932F099A0400C80966 /* showPendingDonationDetailsViewController.swift */,
 				9C56C8942F099A0400C80966 /* showPickupInfoDetailsViewController.swift */,
 			);
@@ -356,7 +311,6 @@
 			isa = PBXGroup;
 			children = (
 				D58F04F32F0740D60080DF27 /* FirestoreService.swift */,
-				D5F169872EFDACAA0015DFDE /* Notifications.storyboard */,
 				D54C77102EF736C40072F713 /* AppPlateFul */,
 				D54C77272EF736C60072F713 /* AppPlateFulTests */,
 				D54C77312EF736C60072F713 /* AppPlateFulUITests */,
@@ -388,10 +342,6 @@
 				D5F84D4A2F0052AE0034CC8D /* DonationActivity */,
 				D58F04942F0600090080DF27 /* Privacy Policy */,
 				5C8053072F081FA500ACF25F /* NgoOrginizationDiscovery */,
-				D58F04B72F06E9E70080DF27 /* Reports 2 */,
-				5C8052F42F081F2400ACF25F /* FavoriteNGO */,
-				5C8053122F0832E300ACF25F /* FAQ */,
-				5C80531D2F08333700ACF25F /* TermsAndConditions */,
 				D54C77112EF736C40072F713 /* AppDelegate.swift */,
 				D54C77132EF736C40072F713 /* SceneDelegate.swift */,
 				D54C771A2EF736C60072F713 /* Assets.xcassets */,
@@ -399,6 +349,12 @@
 				D54C771C2EF736C60072F713 /* LaunchScreen.storyboard */,
 				D54C771F2EF736C60072F713 /* Info.plist */,
 				5C37676A2F097BFC00736425 /* NGOSeeder.swift */,
+				9C56CE762F09CC5A00C80966 /* TestSignin.storyboard */,
+				9C56CE782F09CD3600C80966 /* TestSigninViewController.swift */,
+				9CFA8EFF2F0A014C00E6C35B /* UserSession.swift */,
+				9C56CE7C2F09D76800C80966 /* DonationSeeder.swift */,
+				9C56CE7E2F09D7B400C80966 /* UserSeeder.swift */,
+				9CFA8F032F0A0E2E00E6C35B /* NotificationSeeder.swift */,
 			);
 			path = AppPlateFul;
 			sourceTree = "<group>";
@@ -438,12 +394,8 @@
 			);
 			fileSystemSynchronizedGroups = (
 				5C3767512F09649900736425 /* DonorDashboard */,
-				5C8052F42F081F2400ACF25F /* FavoriteNGO */,
 				5C8053072F081FA500ACF25F /* NgoOrginizationDiscovery */,
-				5C8053122F0832E300ACF25F /* FAQ */,
-				5C80531D2F08333700ACF25F /* TermsAndConditions */,
 				D58F04942F0600090080DF27 /* Privacy Policy */,
-				D58F04B72F06E9E70080DF27 /* Reports 2 */,
 				D5F84D472F00522A0034CC8D /* AdminDashboard */,
 				D5F84D482F00524D0034CC8D /* NGOReview */,
 				D5F84D492F0052840034CC8D /* UserManagement */,
@@ -543,9 +495,9 @@
 			files = (
 				D54C771B2EF736C60072F713 /* Assets.xcassets in Resources */,
 				D54C771E2EF736C60072F713 /* Base in Resources */,
+				9C56CE772F09CC5A00C80966 /* TestSignin.storyboard in Resources */,
 				D54C77192EF736C40072F713 /* Base in Resources */,
 				D58F04BF2F073C8A0080DF27 /* GoogleService-Info.plist in Resources */,
-				D5F169882EFDACAA0015DFDE /* Notifications.storyboard in Resources */,
 				9C56C8962F099A0400C80966 /* NgoFlow.storyboard in Resources */,
 				9C56C8972F099A0400C80966 /* DonationSchedulingStoryboard.storyboard in Resources */,
 				9C56C8812F0999EF00C80966 /* Notification.storyboard in Resources */,
@@ -575,15 +527,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9C56CE792F09CD3600C80966 /* TestSigninViewController.swift in Sources */,
 				9C56C8782F0999C600C80966 /* User.swift in Sources */,
 				9C56C8A82F099A1600C80966 /* DonationService.swift in Sources */,
 				9C56C8A92F099A1600C80966 /* NotificationService.swift in Sources */,
 				9C56C8792F0999C600C80966 /* PickupSchedule.swift in Sources */,
 				9C56C87A2F0999C600C80966 /* AppNotification.swift in Sources */,
 				9C56C87B2F0999C600C80966 /* DonationStatus.swift in Sources */,
+				9C56CE7F2F09D7B400C80966 /* UserSeeder.swift in Sources */,
 				9C56C87C2F0999C600C80966 /* Donation.swift in Sources */,
 				9C56C8982F099A0400C80966 /* AcceptedViewController.swift in Sources */,
 				9C56C8992F099A0400C80966 /* AvailableDonationCell.swift in Sources */,
+				9CFA8EFE2F09FE3600E6C35B /* ProfileViewController.swift in Sources */,
+				9CFA8F042F0A0E2E00E6C35B /* NotificationSeeder.swift in Sources */,
 				9C56C89A2F099A0400C80966 /* DonationSchedulingPageViewController.swift in Sources */,
 				9C56C89B2F099A0400C80966 /* AcceptAvailableDonationDetailsViewController.swift in Sources */,
 				9C56C89C2F099A0400C80966 /* showPendingDonationDetailsViewController.swift in Sources */,
@@ -591,9 +547,11 @@
 				9C56C89E2F099A0400C80966 /* DonationSchedulingViewController.swift in Sources */,
 				9C56C89F2F099A0400C80966 /* MyPickupsTableViewCell.swift in Sources */,
 				9C56C8A02F099A0400C80966 /* MyPickupsViewController.swift in Sources */,
+				9C56CE7D2F09D76800C80966 /* DonationSeeder.swift in Sources */,
 				9C56C8A12F099A0400C80966 /* ToBeApprovedViewController.swift in Sources */,
 				9C56C8A22F099A0400C80966 /* showPickupInfoDetailsViewController.swift in Sources */,
 				9C56C8A32F099A0400C80966 /* DonationSchedulingTableViewCell.swift in Sources */,
+				9CFA8F002F0A014C00E6C35B /* UserSession.swift in Sources */,
 				9C56C8A42F099A0400C80966 /* toBeCollectedViewController.swift in Sources */,
 				D58F04F42F0740D60080DF27 /* FirestoreService.swift in Sources */,
 				5C37676B2F097BFC00736425 /* NGOSeeder.swift in Sources */,
