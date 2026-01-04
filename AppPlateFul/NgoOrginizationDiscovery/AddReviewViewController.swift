@@ -241,7 +241,7 @@ class AddReviewViewController: UIViewController {
             "createdAt": Timestamp(date: Date())
         ]
 
-        db.collection("ngo_reviews")
+        db.collection("ngos_reviews")
             .document(ngoId)
             .collection("reviews")
             .addDocument(data: data) { [weak self] error in

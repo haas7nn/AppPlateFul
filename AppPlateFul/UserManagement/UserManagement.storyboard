@@ -157,14 +157,10 @@
                     <navigationItem key="navigationItem" title="User Management" id="UserListNavItemID">
                         <barButtonItem key="leftBarButtonItem" image="chevron.left" catalog="system" id="BackBarButtonID">
                             <color key="tintColor" systemColor="labelColor"/>
-                            <connections>
-                                <action selector="backButtonTapped:" destination="UserListViewControllerID" id="BackButtonActionID"/>
-                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="emptyStateLabel" destination="EmptyStateLabelID" id="EmptyOutletID"/>
-                        <outlet property="searchBar" destination="SearchBarID" id="SearchOutletID"/>
                         <outlet property="tableView" destination="UserTableViewID" id="TableOutletID"/>
                     </connections>
                 </viewController>

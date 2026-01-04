@@ -60,8 +60,11 @@ class NGOReviewListViewController: UIViewController, UITableViewDelegate, UITabl
 
     // MARK: - Firestore Listener
     // Listens for NGOs where approved is false, ordered by createdAt
+    // MARK: - Firestore Listener
     private func listenPending() {
         listener?.remove()
+        
+        print("Starting to listen for pending NGOs...")
 
         let q = db.collection("ngo_reviews")
             .whereField("approved", isEqualTo: false)
@@ -71,15 +74,24 @@ class NGOReviewListViewController: UIViewController, UITableViewDelegate, UITabl
             guard let self = self else { return }
 
             if let err = err {
-                // Handles Firestore query failure (e.g., missing composite index)
-                print("Firestore error:", err.localizedDescription)
+                print("Firestore error: \(err.localizedDescription)")
                 self.ngoList = []
                 self.reloadUI()
                 return
             }
 
-            // Maps documents into NGOReviewItem objects
-            self.ngoList = snap?.documents.compactMap { NGOReviewItem(doc: $0) } ?? []
+            let docs = snap?.documents ?? []
+            print("📄 Found \(docs.count) pending NGO documents")
+            
+            self.ngoList = docs.compactMap { doc in
+                let item = NGOReviewItem(doc: doc)
+                if let item = item {
+                    print("Parsed: \(item.name) - approved: \(item.approved)")
+                }
+                return item
+            }
+            
+            print("📊 Total pending NGOs: \(self.ngoList.count)")
             self.reloadUI()
         }
     }

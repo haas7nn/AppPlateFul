@@ -1,206 +1,64 @@
 //
-//  UserListViewController.swift
+//  UserService.swift
 //  AppPlateFul
 //
-//  202301686 - Hasan
-//
 
-import UIKit
+import Foundation
 import FirebaseFirestore
 
-// Displays and manages the list of users retrieved from Firebase
-class UserListViewController: UIViewController {
+class UserService {
     
-    // MARK: - IBOutlets
-    @IBOutlet weak var searchBar: UISearchBar!
-    @IBOutlet weak var filterButton: UIButton!
-    @IBOutlet weak var segmentedControl: UISegmentedControl!
-    @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var emptyStateLabel: UILabel!
+    static let shared = UserService()
+    private let db = Firestore.firestore()
     
-    // MARK: - Properties
-    var users: [User] = []
-    var filteredUsers: [User] = []
-    var isSearching: Bool = false
+    private init() {}
     
-    // MARK: - Lifecycle
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    // MARK: - Fetch All Users
+    func fetchAllUsers(completion: @escaping (Result<[User], Error>) -> Void) {
         
-        title = "User Management"
-        setupBackButton()
-        setupTableView()
-        fixTableViewConstraints()
-        
-        emptyStateLabel.text = "Loading users..."
-        emptyStateLabel.isHidden = false
-        
-        fetchUsers()
-    }
-    
-    // MARK: - Setup
-    // Configures table view delegate and data source
-    private func setupTableView() {
-        tableView.delegate = self
-        tableView.dataSource = self
-    }
-    
-    // Ensures table view is correctly constrained below UI controls
-    private func fixTableViewConstraints() {
-        tableView.translatesAutoresizingMaskIntoConstraints = false
-        
-        let topAnchor: NSLayoutYAxisAnchor
-        let topConstant: CGFloat
-        
-        if let segmentedControl = segmentedControl {
-            topAnchor = segmentedControl.bottomAnchor
-            topConstant = 8
-        } else if let searchBar = searchBar {
-            topAnchor = searchBar.bottomAnchor
-            topConstant = 8
-        } else {
-            topAnchor = view.safeAreaLayoutGuide.topAnchor
-            topConstant = 0
-        }
-        
-        NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: topAnchor, constant: topConstant),
-            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
-        ])
-    }
-    
-    // Sets a custom back button for navigation
-    private func setupBackButton() {
-        let backButton = UIBarButtonItem(
-            image: UIImage(systemName: "chevron.left"),
-            style: .plain,
-            target: self,
-            action: #selector(backButtonTapped)
-        )
-        backButton.tintColor = .label
-        navigationItem.leftBarButtonItem = backButton
-    }
-    
-    // MARK: - Firebase
-    // Fetches all users from Firestore
-    private func fetchUsers() {
-        UserService.shared.fetchAllUsers { [weak self] result in
-            guard let self = self else { return }
+        db.collection("users").getDocuments { snapshot, error in
             
-            DispatchQueue.main.async {
-                switch result {
-                case .success(let users):
-                    self.users = users
-                    self.updateUI()
-                    
-                case .failure(let error):
-                    self.emptyStateLabel.text = "Error: \(error.localizedDescription)"
-                    self.emptyStateLabel.isHidden = false
-                }
+            if let error = error {
+                print("❌ Error fetching users: \(error.localizedDescription)")
+                completion(.failure(error))
+                return
             }
+            
+            guard let documents = snapshot?.documents else {
+                completion(.success([]))
+                return
+            }
+            
+            let users = documents.map { User.fromFirestore($0) }
+            print("✅ Loaded \(users.count) users")
+            completion(.success(users))
         }
     }
     
-    // MARK: - UI Updates
-    // Updates empty state and reloads table view
-    private func updateUI() {
-        emptyStateLabel.isHidden = !users.isEmpty
-        emptyStateLabel.text = users.isEmpty ? "No users found" : ""
-        tableView.reloadData()
+    // MARK: - Fetch Users by Status
+    func fetchUsers(byStatus status: String, completion: @escaping (Result<[User], Error>) -> Void) {
+        
+        db.collection("users")
+            .whereField("status", isEqualTo: status)
+            .getDocuments { snapshot, error in
+                
+                if let error = error {
+                    completion(.failure(error))
+                    return
+                }
+                
+                let users = snapshot?.documents.map { User.fromFirestore($0) } ?? []
+                completion(.success(users))
+            }
     }
     
-    // MARK: - Actions
-    @objc private func backButtonTapped() {
-        if let navigationController = navigationController {
-            navigationController.popViewController(animated: true)
-        } else {
-            dismiss(animated: true)
+    // MARK: - Update Favorite
+    func updateFavorite(userId: String, isFavorite: Bool, completion: @escaping (Bool) -> Void) {
+        
+        db.collection("users").document(userId).updateData([
+            "isFavorite": isFavorite
+        ]) { error in
+            completion(error == nil)
         }
-    }
-    
-    // Navigates to user detail screen
-    private func navigateToDetails(for indexPath: IndexPath) {
-        let displayUsers = isSearching ? filteredUsers : users
-        
-        guard let detailVC = storyboard?.instantiateViewController(
-            withIdentifier: "UserDetailsViewController"
-        ) as? UserDetailsViewController else {
-            return
-        }
-        
-        detailVC.user = displayUsers[indexPath.row]
-        navigationController?.pushViewController(detailVC, animated: true)
-    }
-}
-
-// MARK: - UITableViewDelegate, UITableViewDataSource
-extension UserListViewController: UITableViewDelegate, UITableViewDataSource {
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        isSearching ? filteredUsers.count : users.count
-    }
-    
-    func tableView(
-        _ tableView: UITableView,
-        cellForRowAt indexPath: IndexPath
-    ) -> UITableViewCell {
-        
-        guard let cell = tableView.dequeueReusableCell(
-            withIdentifier: "UserCell",
-            for: indexPath
-        ) as? UserTableViewCell else {
-            return UITableViewCell()
-        }
-        
-        let displayUsers = isSearching ? filteredUsers : users
-        let user = displayUsers[indexPath.row]
-        
-        cell.configure(
-            name: user.displayName,
-            status: user.status ?? "-",
-            isStarred: user.isFavorite ?? false
-        )
-        
-        cell.delegate = self
-        cell.indexPath = indexPath
-        return cell
-    }
-    
-    func tableView(
-        _ tableView: UITableView,
-        heightForRowAt indexPath: IndexPath
-    ) -> CGFloat {
-        80
-    }
-    
-    func tableView(
-        _ tableView: UITableView,
-        didSelectRowAt indexPath: IndexPath
-    ) {
-        tableView.deselectRow(at: indexPath, animated: true)
-        navigateToDetails(for: indexPath)
-    }
-}
-
-// MARK: - UserCellDelegate
-extension UserListViewController: UserCellDelegate {
-    
-    func didTapInfoButton(at indexPath: IndexPath) {
-        navigateToDetails(for: indexPath)
-    }
-    
-    func didTapStarButton(at indexPath: IndexPath) {
-        let user = users[indexPath.row]
-        let newFavorite = !(user.isFavorite ?? false)
-        
-        users[indexPath.row].isFavorite = newFavorite
-        tableView.reloadRows(at: [indexPath], with: .automatic)
-        
-        UserService.shared.updateFavorite(
-            userId: user.id,
-            isFavorite: newFavorite
-        ) { _ in }
     }
 }

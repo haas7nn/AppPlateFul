@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		5C37676B2F097BFC00736425 /* NGOSeeder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C37676A2F097BFC00736425 /* NGOSeeder.swift */; };
-		9C56C8782F0999C600C80966 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C56C8762F0999C600C80966 /* User.swift */; };
 		9C56C8792F0999C600C80966 /* PickupSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C56C8752F0999C600C80966 /* PickupSchedule.swift */; };
 		9C56C87A2F0999C600C80966 /* AppNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C56C8722F0999C600C80966 /* AppNotification.swift */; };
 		9C56C87B2F0999C600C80966 /* DonationStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C56C8742F0999C600C80966 /* DonationStatus.swift */; };
@@ -95,7 +94,6 @@
 		9C56C8732F0999C600C80966 /* Donation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Donation.swift; sourceTree = "<group>"; };
 		9C56C8742F0999C600C80966 /* DonationStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonationStatus.swift; sourceTree = "<group>"; };
 		9C56C8752F0999C600C80966 /* PickupSchedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickupSchedule.swift; sourceTree = "<group>"; };
-		9C56C8762F0999C600C80966 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		9C56C87D2F0999EF00C80966 /* Notification.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Notification.storyboard; sourceTree = "<group>"; };
 		9C56C87E2F0999EF00C80966 /* NotificationsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsTableViewCell.swift; sourceTree = "<group>"; };
 		9C56C87F2F0999EF00C80966 /* NotificationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsViewController.swift; sourceTree = "<group>"; };
@@ -161,7 +159,6 @@
 			membershipExceptions = (
 				AddReviewViewController.swift,
 				DiscoveryNGO.swift,
-				NGO.swift,
 				NGOCardCell.swift,
 				NGODetailsViewController.swift,
 				NGOInsightsViewController.swift,
@@ -176,7 +173,6 @@
 			membershipExceptions = (
 				AddReviewViewController.swift,
 				DiscoveryNGO.swift,
-				NGO.swift,
 				NGOCardCell.swift,
 				NGODetailsViewController.swift,
 				NGOInsightsViewController.swift,
@@ -290,7 +286,6 @@
 				9C56C8732F0999C600C80966 /* Donation.swift */,
 				9C56C8742F0999C600C80966 /* DonationStatus.swift */,
 				9C56C8752F0999C600C80966 /* PickupSchedule.swift */,
-				9C56C8762F0999C600C80966 /* User.swift */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -575,7 +570,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9C56C8782F0999C600C80966 /* User.swift in Sources */,
 				9C56C8A82F099A1600C80966 /* DonationService.swift in Sources */,
 				9C56C8A92F099A1600C80966 /* NotificationService.swift in Sources */,
 				9C56C8792F0999C600C80966 /* PickupSchedule.swift in Sources */,

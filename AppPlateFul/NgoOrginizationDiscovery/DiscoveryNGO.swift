@@ -2,13 +2,10 @@
 //  DiscoveryNGO.swift
 //  AppPlateFul
 //
-//  202301625 - Samana
-//
 
 import Foundation
 import FirebaseFirestore
 
-// Model representing an NGO displayed in the discovery feature
 struct DiscoveryNGO {
 
     // MARK: - Properties
@@ -24,8 +21,7 @@ struct DiscoveryNGO {
     let email: String
     let address: String
 
-    // MARK: - Initializer
-    // Manual initializer
+    // MARK: - Manual Initializer
     init(
         id: String,
         name: String,
@@ -52,54 +48,77 @@ struct DiscoveryNGO {
         self.address = address
     }
 
-    // MARK: - Firestore Initializer
-    // Creates a DiscoveryNGO instance from Firestore document data
+    // MARK: - Firestore Initializer (FIXED)
     init?(doc: QueryDocumentSnapshot) {
         let data = doc.data()
+        
+        print("🔍 Parsing DiscoveryNGO from doc: \(doc.documentID)")
+        print("   Raw data: \(data)")
 
-        let name = data["name"] as? String ?? ""
-        if name.isEmpty { return nil }
+        // Get name - required field
+        guard let name = data["name"] as? String, !name.isEmpty else {
+            print("   ❌ No name found, skipping")
+            return nil
+        }
 
-        let approved = data["approved"] as? Bool ?? false
-        let area = data["area"] as? String ?? ""
-        let status = data["status"] as? String ?? ""
+        self.id = doc.documentID
+        self.name = name
+        
+        // Get verified/approved status
+        self.verified = data["approved"] as? Bool ?? false
+        
+        // Get logo URL
+        self.imageURL = data["logoURL"] as? String ?? ""
+        
+        // Get rating
+        self.rating = data["rating"] as? Double ?? 0.0
+        
+        // Get reviews count
+        self.reviews = data["ratingsCount"] as? Int ?? 0
+        
+        // Get contact info
+        self.phone = data["phone"] as? String ?? ""
+        self.email = data["email"] as? String ?? ""
+        self.address = data["address"] as? String ?? data["area"] as? String ?? ""
+        
+        // Build short description
+        let description = data["description"] as? String ?? ""
         let communityReviews = data["communityReviews"] as? String ?? ""
+        let status = data["status"] as? String ?? ""
+        let area = data["area"] as? String ?? ""
+        
+        if !description.isEmpty {
+            self.desc = description
+        } else if !communityReviews.isEmpty {
+            self.desc = communityReviews
+        } else if !status.isEmpty {
+            self.desc = status
+        } else if !area.isEmpty {
+            self.desc = area
+        } else {
+            self.desc = "NGO Partner"
+        }
+        
+        // Build full description
+        let fullDesc = data["fullDescription"] as? String ?? ""
         let openingHours = data["openingHours"] as? String ?? ""
         let avgPickupTime = data["avgPickupTime"] as? String ?? ""
         let pickupReliability = data["pickupReliability"] as? String ?? ""
         let collectedDonations = data["collectedDonations"] as? String ?? ""
-        let ratingsCount = data["ratingsCount"] as? Int ?? 0
-        let logoURL = data["logoURL"] as? String ?? ""
-
-        // Generates a short description for list display
-        let shortDesc: String = {
-            if !communityReviews.isEmpty { return communityReviews }
-            if !status.isEmpty { return status }
-            if !area.isEmpty { return area }
-            return "NGO"
-        }()
-
-        // Detailed description for profile view
-        let longDesc = """
-        Area: \(area)
-        Hours: \(openingHours)
-        Avg pickup: \(avgPickupTime)
-        Reliability: \(pickupReliability)
-        Donations: \(collectedDonations)
-        """
-
-        self.init(
-            id: doc.documentID,
-            name: name,
-            desc: shortDesc,
-            fullDescription: longDesc,
-            verified: approved,
-            imageURL: logoURL,
-            rating: 0.0,
-            reviews: ratingsCount,
-            phone: "",
-            email: "",
-            address: area
-        )
+        
+        if !fullDesc.isEmpty {
+            self.fullDescription = fullDesc
+        } else {
+            var parts: [String] = []
+            if !area.isEmpty { parts.append("📍 Area: \(area)") }
+            if !openingHours.isEmpty { parts.append("🕐 Hours: \(openingHours)") }
+            if !avgPickupTime.isEmpty { parts.append("⏱ Avg Pickup: \(avgPickupTime)") }
+            if !pickupReliability.isEmpty { parts.append("✅ Reliability: \(pickupReliability)") }
+            if !collectedDonations.isEmpty { parts.append("📦 Donations: \(collectedDonations)") }
+            
+            self.fullDescription = parts.isEmpty ? description : parts.joined(separator: "\n")
+        }
+        
+        print("   ✅ Successfully parsed: \(self.name)")
     }
 }

@@ -35,11 +35,16 @@ class OrganizationDiscoveryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        print("🟢 OrganizationDiscoveryViewController viewDidLoad")
+        
         title = "Organization Discovery"
         configureNavigationBar()
 
         collectionView.dataSource = self
         collectionView.delegate = self
+        
+        print("🟢 CollectionView: \(collectionView != nil ? "Connected" : "NIL!")")
+        print("🟢 CollectionView frame: \(collectionView.frame)")
 
         searchBar.delegate = self
         searchBar.isHidden = true
@@ -54,10 +59,6 @@ class OrganizationDiscoveryViewController: UIViewController {
 
         updateButtonStyles()
         listenApprovedNGOs()
-    }
-
-    deinit {
-        listener?.remove()
     }
 
     // MARK: - Navigation Bar
@@ -85,22 +86,29 @@ class OrganizationDiscoveryViewController: UIViewController {
     // Listens for approved NGOs in real time
     private func listenApprovedNGOs() {
         listener?.remove()
+        
+        print("🔥 Starting to listen for NGOs...")
 
         listener = db.collection("ngo_reviews")
             .whereField("approved", isEqualTo: true)
             .order(by: "createdAt", descending: true)
             .addSnapshotListener { [weak self] snapshot, error in
+                
                 if let error = error {
-                    print("Firestore NGOs error:", error.localizedDescription)
+                    print("❌ Firestore NGOs error: \(error.localizedDescription)")
                     return
                 }
 
                 let docs = snapshot?.documents ?? []
-                self?.allNgos = docs.compactMap { DiscoveryNGO(doc: $0) }
+                print("✅ Found \(docs.count) NGO documents")
+                
+                let ngos = docs.compactMap { DiscoveryNGO(doc: $0) }
+                print("✅ Parsed \(ngos.count) NGOs successfully")
+                
+                self?.allNgos = ngos
                 self?.applyFilters()
             }
     }
-
     // MARK: - Actions
     @IBAction func searchNGOsTapped(_ sender: UIButton) {
         isSearchActive.toggle()
@@ -129,10 +137,15 @@ class OrganizationDiscoveryViewController: UIViewController {
 
     // MARK: - Filtering
     private func applyFilters() {
+        print("🔄 applyFilters called")
+        print("   allNgos count: \(allNgos.count)")
+        print("   isShowingVerifiedOnly: \(isShowingVerifiedOnly)")
+        
         var results = allNgos
 
         if isShowingVerifiedOnly {
             results = results.filter { $0.verified }
+            print("   After verified filter: \(results.count)")
         }
 
         let query = (searchBar.text ?? "")
@@ -144,10 +157,14 @@ class OrganizationDiscoveryViewController: UIViewController {
                 $0.name.lowercased().contains(query) ||
                 $0.desc.lowercased().contains(query)
             }
+            print("   After search filter: \(results.count)")
         }
 
         filteredNgos = results
+        print("   Final filteredNgos count: \(filteredNgos.count)")
+        
         collectionView.reloadData()
+        print("   CollectionView reloaded")
     }
 
     // MARK: - Button Styles
